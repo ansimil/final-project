@@ -1,7 +1,10 @@
 const router = require("express").Router();
+const User = require("../models/User")
 
 router.get("/", (req, res, next) => {
-  res.json("All good in here");
+  User.find()
+  .then(response => res.json(response))
+  .catch(err => console.log(err))
 });
 
 // You put the next routes here 👇
