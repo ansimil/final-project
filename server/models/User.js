@@ -2,7 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
-    username: {
+    firstName: {
+      type: String,
+      required: true
+    },
+    surname: {
       type: String,
       required: true
     },
@@ -13,6 +17,10 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false
     },
     wishlist: [{
       type: Schema.Types.ObjectId,

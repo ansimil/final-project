@@ -19,6 +19,17 @@ require("./config")(app);
 const index = require("./routes/index");
 app.use("/", index);
 
+const signup = require("./routes/auth/signup")
+app.use("/", signup)
+
+const login = require("./routes/auth/login")
+app.use("/", login)
+
+const verify = require("./routes/auth/verify")
+app.use("/auth", verify)
+
+
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
