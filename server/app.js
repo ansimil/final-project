@@ -25,8 +25,14 @@ app.use("/", signup)
 const login = require("./routes/auth/login")
 app.use("/", login)
 
+const upload = require("./routes/modules/upload")
+app.use("/", upload)
+
 const verify = require("./routes/auth/verify")
 app.use("/auth", verify)
+
+const modules = require("./routes/modules/modules")
+app.use('/', modules)
 
 
 

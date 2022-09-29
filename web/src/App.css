@@ -1,14 +1,21 @@
 
 .navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: black;
   color: white; 
-  height: 10vh
+  height: 10vh;
+  
 }
 
 .footer {
+  position: fixed;
+  width: 100vw;
   background-color: black;
   color: white;
-  height: 10vh
+  height: 10vh;
+  text-align:center 
 }
 
 .homepage {
@@ -17,16 +24,50 @@
 
 .signupContainer {
   display: flex;
-  width: 100%;
+  width: 100vw;
+  height: 80vh;
   justify-content: center;
   align-items: flex-start;
   column-gap: 10%;
 }
 
+.profileContainer {
+  height: 80vh;
+}
+
+.dashboardContainer {
+  height: 80vh; 
+}
+
+
 .signupForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.addModuleContainer {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100vw
+}
+
+.addModuleFormContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 50px;
+}
+
+.addModuleForm {
+  display: flex;
+  height: 50vh;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
 }
 
 .loginForm {

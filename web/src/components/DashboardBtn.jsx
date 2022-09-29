@@ -1,16 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
-const SignInBtn = () => {
-
+const DashboardBtn = () => {
   return (
     <div>
 
-    <Link to="/signup">Sign in</Link>
+    <Link to="/dashboard">Dashboard</Link>
 
     </div>
   )
 }
 
-export default SignInBtn
+export default DashboardBtn

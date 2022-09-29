@@ -26,7 +26,6 @@ const SignupComp = () => {
     useEffect(() => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
       const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-      const counter = 1
       
 
       if (!emailRegex.test(email)){
