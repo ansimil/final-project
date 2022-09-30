@@ -69,10 +69,10 @@ const SignupComp = () => {
         // If POST request is successful redirect to login page
         // If the request resolves with an error, set the error message in the state
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
-        .then((response) => {
+        .then( async (response) => {
             console.log(response.data)
             storeToken(response.data.authToken) // store in my localStorage the authToken
-            authenticateUser() 
+            await authenticateUser() 
             navigate('/profile');
         })
         .catch((error) => {

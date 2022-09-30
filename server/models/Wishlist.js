@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const wishlistSchema = new Schema(
   {
+    name: String,
     modules: [{
       type: Schema.Types.ObjectId,
       ref: 'Module'

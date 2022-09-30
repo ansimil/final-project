@@ -13,6 +13,13 @@ const errorHandler = (err) => {
   throw err;
 };
 
+const getUsers = () => {
+  return axios.get(`${process.env.REACT_APP_API_URL}`)
+  .then((res) => res.data)
+  .catch(errorHandler);
+}
+
+
 const getModules = () => {
   return axios.get(`${process.env.REACT_APP_API_URL}/modules`)
     .then((res) => res.data)
@@ -31,9 +38,17 @@ const createModule = (newModule) => {
     .catch(errorHandler);
 };
 
+const getWishlistModules = () => {
+  return axios.get(`${process.env.REACT_APP_API_URL}/wishlist`)
+    .then(res => console.log(res.data))
+    .catch(errorHandler);
+};
+
 export {
   getModules,
   uploadImage,
   createModule,
-  formatProductPrice
+  formatProductPrice,
+  getUsers,
+  getWishlistModules
 };
