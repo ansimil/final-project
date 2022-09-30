@@ -1,47 +1,54 @@
-import { React, useState, useContext } from 'react'
-import { createModule } from '../api/services'
+import { React, useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { editModule } from '../api/services'
+import { ModuleContext } from '../contexts/modules'
 import PrimaryFileUploadBtn from './PrimaryFileUploadBtn'
 import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
-import { useNavigate } from 'react-router-dom'
-import { ModuleContext } from '../contexts/modules'
+ 
 
-const AddModuleForm = () => {
+const EditModuleForm = ({_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}) => {
     const { getModules } = useContext(ModuleContext)
+    const moduleId = _id
     const navigate = useNavigate()
-      const initValues = {
-        sku: '',
-        name: '',
-        category: '',
-        price: '',
-        currency: 'EUR',
-        description: '',
-        shortDescription: '',
-        tagline: '',
-        inStock: '',
+    const initValues = {
+        sku,
+        name,
+        category,
+        price,
+        currency,
+        description,
+        shortDescription,
+        tagline,
+        inStock,
         count: 1,
-        primaryImageUrl: '',
-        secondaryImageUrl: [] 
+        primaryImageUrl,
+        secondaryImageUrl,
     }
 
     const [allValues, setAllValues] = useState(initValues)
 
+    useEffect(() => {
+        console.log(allValues)
+        setAllValues(initValues)
+    }, [])
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const {sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = allValues
-        const newModule = {sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
+        const { sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = allValues
+        const newModule = { sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
         
-        setAllValues(initValues)
-        await createModule(newModule)
+        await editModule(newModule, moduleId)
         getModules()
-        navigate('/dashboard')
+        navigate("/dashboard")
 
     }
 
     const changeHandler = e => {
         setAllValues( prevValues => {
         return { ...prevValues,[e.target.name]: e.target.value}
-    })
-    }
+     })
+     }
 
     const addFileUploadBtn = (e) => {
           e.preventDefault()
@@ -65,14 +72,14 @@ const AddModuleForm = () => {
       setAllValues({...allValues, secondaryImageUrl: copy})
     }
 
-    return (
+  return (
     <div className='addModuleFormContainer'>
         <div>
         <form className="addModuleForm" onSubmit={handleSubmit}>
             <label>Sku:</label>
             <input
               type="text"
-              name="sku"
+              name="sku" 
               value={allValues.sku}
               onChange={changeHandler}
             />
@@ -141,6 +148,7 @@ const AddModuleForm = () => {
             <input
               type="number"
               name="inStock"
+              default
               value={allValues.inStock}
               onChange={changeHandler}
             />
@@ -148,7 +156,7 @@ const AddModuleForm = () => {
 
             
 
-            <button type="submit">Add Module</button>
+            <button type="submit">Edit Module</button>
           </form>
           </div>
 
@@ -170,7 +178,7 @@ const AddModuleForm = () => {
               </div>
           </div>
     </div>
-    )
+  )
 }
 
-export default AddModuleForm
+export default EditModuleForm
