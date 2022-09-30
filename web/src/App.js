@@ -12,6 +12,7 @@ import IsAdmin from './components/IsAdmin';
 import Dashboard from './pages/Dashboard';
 import AddModule from './pages/AddModule';
 import Wishlist from './pages/Wishlist'
+import EditModule from './pages/EditModule';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
     <Navbar/>
 
     <Routes>
+      <Route path='/dashboard/:moduleId/edit' element={<IsAdmin> <EditModule/> </IsAdmin>}></Route> 
       <Route path='/' element={<Home />}></Route>
       <Route path='/modules' element={<ModulesList/>}></Route> 
       <Route path='/signup' element={<IsAnon> <Signup/> </IsAnon>}></Route>
@@ -27,7 +29,6 @@ function App() {
       <Route path='/wishlist' element={<IsUser> <Wishlist/> </IsUser>}></Route>
       <Route path='/dashboard' element={<IsAdmin> <Dashboard/> </IsAdmin>}></Route>
       <Route path='/dashboard/add' element={<IsAdmin> <AddModule/> </IsAdmin>}></Route>
-
     </Routes>
 
     <Footer/>
