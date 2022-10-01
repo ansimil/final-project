@@ -17,13 +17,13 @@ const DashboardModuleCard = ({ modulesList }) => {
   return (
     <div>
     
-        {modulesList.map(module => {
+        {modulesList.map((module, i) => {
       const {_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = module
       
       return (
           <div className="dashboardModule" key={_id}>
             <details>
-                <summary>{name}</summary>
+                <summary>{i+1} {name}</summary>
                 <p>Sku: {sku}</p>
                 <p>Name: {name}</p>
                 <p>Category: {category}</p>

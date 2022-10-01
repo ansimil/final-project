@@ -1,7 +1,7 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import { formatProductPrice } from '../api/services'
 
-const ModuleCard = ({sku, name, category, shortDescription, price, currency, tagline, primaryImageUrl }) => {
+const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, tagline, primaryImageUrl }) => {
   const module = {price, currency}
 
   const newPrice = formatProductPrice(module)
@@ -9,28 +9,28 @@ const ModuleCard = ({sku, name, category, shortDescription, price, currency, tag
   return (
     <div>
     
-    <div>
+        <div>
 
-    <div>
-    <h2>{name}</h2>
-    <img src={primaryImageUrl} alt="Error loading pic" height="250px" />
-    </div>
+            <div>
+            <h2>{name}</h2>
+            <img src={primaryImageUrl} alt="Error loading pic" height="250px" />
+            </div>
 
-    <div>
-      <p>{tagline}</p>
-      <p>{newPrice}</p>
-    </div>
+            <div>
+              <p>{tagline}</p>
+              <p>{newPrice}</p>
+            </div>
 
-    <div>
-      <p>{shortDescription}</p>
-    </div>
+            <div>
+              <p>{shortDescription}</p>
+            </div>
 
-    <div>
-      <button>Cart</button>
-      <button>Details</button>
-    </div>
+            <div>
+              <button>Cart</button>
+              <Link to={`/module/${_id}`}>Details</Link>
+            </div>
 
-    </div>
+        </div>
 
     </div>
   )

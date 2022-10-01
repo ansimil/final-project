@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import AddModule from './pages/AddModule';
 import Wishlist from './pages/Wishlist'
 import EditModule from './pages/EditModule';
+import ModuleDetailsPage from './pages/ModuleDetailsPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
 
     <Routes>
       <Route path='/dashboard/:moduleId/edit' element={<IsAdmin> <EditModule/> </IsAdmin>}></Route> 
+      <Route path='/module/:moduleId' element={<IsUser> <ModuleDetailsPage/> </IsUser>}></Route>  
       <Route path='/' element={<Home />}></Route>
       <Route path='/modules' element={<ModulesList/>}></Route> 
       <Route path='/signup' element={<IsAnon> <Signup/> </IsAnon>}></Route>
