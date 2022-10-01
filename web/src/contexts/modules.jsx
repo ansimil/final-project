@@ -5,7 +5,7 @@ const ModuleContext = createContext();
     
 
 function ModuleProviderWrapper(props) {
-
+    const [module, setModule] = useState({})
     const [modules, setModules] = useState([])
 
     const getModules = async () => {
@@ -17,15 +17,23 @@ function ModuleProviderWrapper(props) {
         .catch(err => console.log(err));
     }
 
+    const getModule = async (moduleId) => {
+        await axios.get(`${process.env.REACT_APP_API_URL}/module/${moduleId}`)
+        .then((res) => {
+            console.log(res.data)
+            setModule(res.data)
+        })
+        .catch(err => console.log(err));
+      };
+
     useEffect(() => {
         getModules()
-        console.log(modules)
     }, [])
 
 
 
     return (
-        <ModuleContext.Provider value={{ modules, getModules }}>
+        <ModuleContext.Provider value={{ modules, module, getModules, getModule }}>
           {props.children}
         </ModuleContext.Provider>
       )

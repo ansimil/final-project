@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import SignInBtn from '../components/SignInBtn'
 import HomeBtn from './HomeBtn'
 import LogoutBtn from './LogoutBtn'
@@ -17,11 +17,12 @@ const Navbar = () => {
   return (
     <div className="navbar">
     
-    <HomeBtn/>
-    {!isLoggedIn && <SignInBtn/>}
-    {isLoggedIn && user.isAdmin && <DashboardBtn/>}
-    {isLoggedIn && <ProfileBtn/>}
-    {isLoggedIn && <LogoutBtn/>}
+        <HomeBtn/>
+        <Link to="/modules">Modules</Link>
+        {!isLoggedIn && <SignInBtn/>}
+        {isLoggedIn && user.isAdmin && <DashboardBtn/>}
+        {isLoggedIn && <ProfileBtn/>}
+        {isLoggedIn && <LogoutBtn/>}
     
     </div>
   )

@@ -64,6 +64,12 @@ const getWishlistModules = () => {
     .catch(errorHandler);
 };
 
+const addToCart = (moduleId) => {
+  return axios.put(`${process.env.REACT_APP_API_URL}/module/${moduleId}/addtocart`)
+  .then(res => res.status(200).json(res.data))
+  .catch(err => console.log(err))
+}
+
 export {
   getModules,
   uploadImage,
@@ -73,5 +79,6 @@ export {
   getWishlistModules,
   editModule,
   getModule,
-  deleteModule
+  deleteModule,
+  addToCart
 };
