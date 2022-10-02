@@ -1,6 +1,6 @@
 const { expressjwt: jwt } = require("express-jwt");
  
-const isAuthenticated = jwt({
+const isAdmin = jwt({
   secret: `${process.env.TOKEN_SECRET}`,
   algorithms: ["HS256"],
   requestProperty: 'payload', 
@@ -9,8 +9,8 @@ const isAuthenticated = jwt({
  
  
 function getTokenFromHeaders (req) {
-  console.log(req.body.user) 
-  if (req.headers.authorization && req.headers.authorization.split(" ")[0] === "Bearer") {
+  console.log(req) 
+  if (req.headers.authorization && req.headers.authorization.split(" ")[0] === "Bearer" && req.body.user.isAdmin) {
 
     const token = req.headers.authorization.split(" ")[1];
     return token;
@@ -21,5 +21,5 @@ function getTokenFromHeaders (req) {
  
  
 module.exports = {
-  isAuthenticated
+  isAdmin
 }

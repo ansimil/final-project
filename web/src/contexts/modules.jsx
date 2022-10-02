@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { editModule, createModule } from '../api/services'
 
 const ModuleContext = createContext();
     
@@ -33,7 +34,7 @@ function ModuleProviderWrapper(props) {
 
 
     return (
-        <ModuleContext.Provider value={{ modules, module, getModules, getModule }}>
+        <ModuleContext.Provider value={{ modules, module, getModules, getModule, editModule, createModule }}>
           {props.children}
         </ModuleContext.Provider>
       )

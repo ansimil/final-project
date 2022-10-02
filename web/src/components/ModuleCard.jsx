@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import { formatProductPrice } from '../api/services'
+import AddToCartBtn from '../components/AddToCartBtn'
+import { AuthContext } from '../contexts/auth'
+import { useContext } from 'react'
 
 const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, tagline, primaryImageUrl }) => {
   const module = {price, currency}
-
+  const {user} = useContext(AuthContext)
   const newPrice = formatProductPrice(module)
 
   return (
@@ -26,7 +29,7 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
             </div>
 
             <div>
-              <button>Cart</button>
+              <AddToCartBtn id={_id} user={user}/>
               <Link to={`/module/${_id}`}>Details</Link>
             </div>
 

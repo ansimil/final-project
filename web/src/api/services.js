@@ -40,20 +40,26 @@ const uploadImage = (file) => {
     .catch(errorHandler);
 };
 
-const createModule = (newModule) => {
-  return axios.post(`${process.env.REACT_APP_API_URL}/dashboard/add`, newModule)
+const createModule = (newModule, user) => {
+  const storedToken = localStorage.getItem('authToken')
+  console.log(storedToken)
+  return axios.post(`${process.env.REACT_APP_API_URL}/dashboard/add`, {newModule, user}, { 
+    headers: { authorization: `Bearer ${storedToken}`},
+  })
     .then(res => console.log(res.data))
     .catch(errorHandler);
 };
 
-const editModule = (newModule, moduleId) => {
-  return axios.put(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/edit`, newModule)
+const editModule = (newModule, moduleId, user) => {
+  const storedToken = localStorage.getItem('authToken')
+  return axios.put(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/edit`, {newModule, user}, { headers: { Authorization: `Bearer ${storedToken}`}} )
   .then(res => res.data)
   .catch(errorHandler);
 }
 
-const deleteModule = (moduleId) => {
-  return axios.delete(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/delete`)
+const deleteModule = (moduleId, user) => {
+  const storedToken = localStorage.getItem('authToken')
+  return axios.delete(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/delete`, user, { headers: { Authorization: `Bearer ${storedToken}`}})
   .then(res => console.log(res.data))
   .catch(errorHandler); 
 }
@@ -64,8 +70,9 @@ const getWishlistModules = () => {
     .catch(errorHandler);
 };
 
-const addToCart = (moduleId) => {
-  return axios.put(`${process.env.REACT_APP_API_URL}/module/${moduleId}/addtocart`)
+const addToCart = (moduleId, userId) => {
+  const storedToken = localStorage.getItem('authToken')
+  return axios.put(`${process.env.REACT_APP_API_URL}/module/${moduleId}/addtocart`, {userId}, { headers: { Authorization: `Bearer ${storedToken}`}} )
   .then(res => res.status(200).json(res.data))
   .catch(err => console.log(err))
 }

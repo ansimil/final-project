@@ -34,6 +34,9 @@ app.use("/auth", verify)
 const modules = require("./routes/modules/modules")
 app.use('/', modules)
 
+const cart = require("./routes/cart")
+app.use('/', cart)
+
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

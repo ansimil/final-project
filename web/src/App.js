@@ -23,7 +23,7 @@ function App() {
 
     <Routes>
       <Route path='/dashboard/:moduleId/edit' element={<IsAdmin> <EditModule/> </IsAdmin>}></Route> 
-      <Route path='/module/:moduleId' element={<IsUser> <ModuleDetailsPage/> </IsUser>}></Route>  
+      <Route path='/module/:moduleId' element={<IsAnon> <ModuleDetailsPage/> </IsAnon>}></Route>  
       <Route path='/' element={<Home />}></Route>
       <Route path='/modules' element={<ModulesList/>}></Route> 
       <Route path='/signup' element={<IsAnon> <Signup/> </IsAnon>}></Route>

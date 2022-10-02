@@ -1,21 +1,32 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { deleteModule } from '../api/services'
 import { ModuleContext } from '../contexts/modules'
+import { AuthContext } from '../contexts/auth'
+import axios from 'axios'
+
 
 const DashboardModuleCard = ({ modulesList }) => {
+    const { user } = useContext(AuthContext) 
     const { getModules } = useContext(ModuleContext)
 
     const handleDelete = async (moduleId) => {
-        console.log('yay!') 
-        await deleteModule(moduleId)
-        getModules()
+          
+          const storedToken = localStorage.getItem('authToken')
+          console.log(user)
+          console.log(storedToken)
+
+          await axios.delete(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/delete`, {data:{ user }, headers: { Authorization: `Bearer ${storedToken}`}})
+                .then(res => {
+                    // console.log(res.data)
+                })
+                .catch(err => console.log(err)); 
+          getModules()
     }
 
 
     if (modulesList.length > 0){
-  return (
-    <div>
+      return (
+      <div>
     
         {modulesList.map((module, i) => {
       const {_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = module

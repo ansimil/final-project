@@ -5,17 +5,18 @@ import { useNavigate } from 'react-router-dom'
 
 const LogoutBtn = () => {
     const navigate = useNavigate()
-    const { logOutUser } = useContext(AuthContext)
+    const { logOutUser, isLoggedIn, authenticateUser  } = useContext(AuthContext)
 
-    const logOutRedirect = () => {
+    const logOutRedirect = async () => {
+      console.log(isLoggedIn)
       navigate('/')
     }
 
   return (
     <div>
 
-    <button onClick={() => {
-      logOutUser()
+    <button onClick={ async () => {
+      await logOutUser()
       logOutRedirect()
     }}
     >Log out</button>

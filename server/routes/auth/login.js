@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 
 // POST  /auth/login
-router.post('/login', (req, res, next) => {
+router.post('/login',  (req, res, next) => {
     const { email, password } = req.body;
    
     // Check if email or password are provided as empty string 

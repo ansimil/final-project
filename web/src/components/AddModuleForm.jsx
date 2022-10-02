@@ -4,8 +4,10 @@ import PrimaryFileUploadBtn from './PrimaryFileUploadBtn'
 import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
 import { useNavigate } from 'react-router-dom'
 import { ModuleContext } from '../contexts/modules'
+import { AuthContext } from '../contexts/auth'
 
 const AddModuleForm = () => {
+    const { user } = useContext(AuthContext)
     const { getModules } = useContext(ModuleContext)
     const navigate = useNavigate()
       const initValues = {
@@ -29,10 +31,9 @@ const AddModuleForm = () => {
         e.preventDefault()
         const {sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = allValues
         const newModule = {sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
-        
-        setAllValues(initValues)
-        await createModule(newModule)
+        await createModule(newModule, user)
         getModules()
+        setAllValues(initValues)
         navigate('/dashboard')
 
     }

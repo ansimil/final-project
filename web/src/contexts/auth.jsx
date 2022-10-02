@@ -15,10 +15,12 @@ function AuthProviderWrapper(props) {
     }
 
     const authenticateUser = async () => {        
-        const storedToken = localStorage.getItem('authToken'); 
-        console.log(storedToken)
        
+        const storedToken = localStorage.getItem('authToken')        
+        console.log(storedToken)
+
         if (storedToken) {
+          // console.log(storedToken)
           await axios.get(
             `${process.env.REACT_APP_API_URL}/auth/verify`, 
             { headers: { Authorization: `Bearer ${storedToken}`} }
@@ -29,7 +31,8 @@ function AuthProviderWrapper(props) {
             // console.log(user.isAdmin)
             setIsLoggedIn(true);
             setIsLoading(false);
-            setUser(user);       
+            setUser(user);  
+            console.log('done')     
           })
           .catch((error) => {     
             setIsLoggedIn(false);
@@ -46,12 +49,13 @@ function AuthProviderWrapper(props) {
       }
 
       const removeToken = () => {                   
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("authToken")
+        console.log('removed');
       }
      
      
-      const logOutUser = () => {       
-        removeToken();
+      const logOutUser = async () => {       
+        await removeToken();
         authenticateUser();
       }  
     

@@ -2,11 +2,13 @@ import { React, useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { editModule } from '../api/services'
 import { ModuleContext } from '../contexts/modules'
+import { AuthContext } from '../contexts/auth'
 import PrimaryFileUploadBtn from './PrimaryFileUploadBtn'
 import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
  
 
 const EditModuleForm = ({_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}) => {
+    const { user } = useContext(AuthContext) 
     const { getModules } = useContext(ModuleContext)
     const moduleId = _id
     const navigate = useNavigate()
@@ -38,7 +40,7 @@ const EditModuleForm = ({_id, sku, name, category, price, currency, description,
         const { sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = allValues
         const newModule = { sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
         
-        await editModule(newModule, moduleId)
+        await editModule(newModule, moduleId, user)
         getModules()
         navigate("/dashboard")
 

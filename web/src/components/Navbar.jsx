@@ -14,6 +14,7 @@ import { useContext } from 'react'
 
 const Navbar = () => {
   const { isLoggedIn, user } = useContext(AuthContext)
+  console.log(isLoggedIn)
   return (
     <div className="navbar">
     
