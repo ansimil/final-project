@@ -21,12 +21,12 @@ const Navbar = () => {
     <div className="navbar">
     
         <HomeBtn/>
-        <Link to="/modules">Modules</Link>
+        <Link className="navBtn" to="/modules">Modules</Link>
         {!isLoggedIn && <SignInBtn/>}
-        {isLoggedIn && user.isAdmin && <DashboardBtn/>}
-        {isLoggedIn && <ProfileBtn/>}
-        {isLoggedIn && cartCount > 0 && <CartBtn/>}
-        {isLoggedIn && <LogoutBtn/>}
+        {isLoggedIn && user.isAdmin && <DashboardBtn />}
+        {isLoggedIn && <ProfileBtn />}
+        {cartCount > 0 && <CartBtn/>}
+        {isLoggedIn && <LogoutBtn />}
     
     </div>
   )

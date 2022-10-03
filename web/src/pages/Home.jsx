@@ -1,7 +1,4 @@
-import React from 'react'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-
+import {Link} from 'react-router-dom'
 
 const apiURL = process.env.REACT_APP_API_URL
 
@@ -20,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      <a href="/modules">See all modules</a>
+      <Link to="/modules">SEE ALL MODULES</Link>
     </div>
   )
 }

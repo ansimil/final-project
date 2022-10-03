@@ -49,6 +49,7 @@ const CartModal = ({isOpen, toggleModal}) => {
     </tr>
 
     {Object.keys(cartDetails).map((key, i)=> {
+        console.log(cartDetails)
         return (
             <tr>
             <td>{cartDetails[key].name}</td>

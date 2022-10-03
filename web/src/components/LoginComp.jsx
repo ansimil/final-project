@@ -3,8 +3,10 @@ import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../contexts/auth'
+import { useShoppingCart } from 'use-shopping-cart'
 
 const LoginComp = () => {
+    const { loadCart } = useShoppingCart()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
@@ -13,7 +15,7 @@ const LoginComp = () => {
     const [passwordCheck, setPasswordCheck] = useState(true);
     
     const navigate = useNavigate();
-    const { storeToken, authenticateUser } = useContext(AuthContext);
+    const { storeToken, authenticateUser, user } = useContext(AuthContext);
 
 
     useEffect(() => {
@@ -53,15 +55,13 @@ const LoginComp = () => {
    
       axios.post(`${process.env.REACT_APP_API_URL}/login`, requestBody)
         .then(async (response) => {
-        // Request to the server's endpoint `/auth/login` returns a response
-        // with the JWT string ->  response.data.authToken
-          console.log('JWT token', response.data.authToken );
-          storeToken(response.data.authToken) // store in my localStorage the authToken
-          await authenticateUser() // verify token is valid to get the user information from the server 
-          navigate('/profile');                             // <== ADD      
+          // console.log('JWT token', response.data.authToken );
+          storeToken(response.data.authToken) 
+          await authenticateUser() 
+          navigate('/profile');            
         })
         .catch((error) => {
-          const errorDescription = error.response.data.message;
+          const errorDescription = error;
           setErrorMessage(errorDescription);
         })
     };

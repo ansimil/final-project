@@ -1,12 +1,10 @@
-import React from 'react'
+import {Link} from 'react-router-dom'
 
 const HomeBtn = () => {
   return (
-    <div>
+    <div className="homeBtn">
 
-    <a href="/">
-    <img src="MDI" alt="MDI Logo" />
-    </a>
+    <Link to="/">MDI</Link>
 
     </div>
   )

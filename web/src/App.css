@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'mainFont';
+  src: url('../public/novamono.ttf');
+}
 
 .navbar {
   display: flex;
@@ -5,20 +9,107 @@
   align-items: center;
   background-color: black;
   color: white; 
-  height: 10vh;
+  height: 70px;
 }
 
 .footer {
-  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   width: 100vw;
   background-color: black;
   color: white;
-  height: 10vh;
-  text-align:center 
+  height: 85px;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 0
 }
 
 .homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./assets/modular-system-2.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 80vh;
+}
+
+.homepage a {
+  border: solid black 2px;
+  background-color: rgb(255, 255, 255, 0.8);
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+  font-family: mainFont;
+  font-size: 30px;
+}
+
+.homepage a:hover {
+  background-color: white;
+}
+
+.homeBtn a {
+  color: white;
+  font-family: mainFont;
+  text-decoration: none;
+  font-size: 70px;
+  padding: 0px 12px 2px 12px;
+  border: solid white 2px
+}
+
+.homeBtn a:hover {
+  border: solid rgb(112, 203, 234) 2px
+}
+
+.navBtn {
+  color: white;
+  font-family: mainFont;
+  text-decoration: none;
+  font-size: 35px
+}
+
+.navBtn:hover {
+  color: rgb(112, 203, 234)
+}
+
+.logoutBtn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 2px 10px 2px 10px;
+  font-family: mainFont;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.logoutBtn:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.signinBtn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 10px 10px 10px;
+  font-family: mainFont;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.signinBtn:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.cartBtn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0px 5px 0px 5px;
+  font-family: mainFont;
+  font-size: 30px;
+  text-decoration: none;
 }
 
 .signupContainer {
@@ -28,6 +119,16 @@
   justify-content: center;
   align-items: flex-start;
   column-gap: 10%;
+}
+
+.footer p {
+  color: white;
+  font-family: mainFont;
+  font-size: 30px;
+}
+
+.modulesListContainer {
+  height: 80vh;
 }
 
 .profileContainer {

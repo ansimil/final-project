@@ -5,7 +5,7 @@ const DashboardBtn = () => {
   return (
     <div>
 
-    <Link to="/dashboard">Dashboard</Link>
+    <Link className='navBtn' to="/dashboard">Dashboard</Link>
 
     </div>
   )

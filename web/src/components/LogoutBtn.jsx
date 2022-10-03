@@ -6,7 +6,7 @@ import { useShoppingCart } from 'use-shopping-cart';
 import { updateCart } from '../api/services';
 
 const LogoutBtn = () => {
-    const { cartDetails } = useShoppingCart()
+    const { cartDetails, clearCart } = useShoppingCart()
     const navigate = useNavigate()
     const { logOutUser, isLoggedIn, user  } = useContext(AuthContext)
 
@@ -18,9 +18,11 @@ const LogoutBtn = () => {
   return (
     <div>
 
-    <button onClick={ async () => {
+    <button className='logoutBtn' onClick={ async () => {
       await updateCart(cartDetails, user)
       await logOutUser()
+      await clearCart()
+      localStorage.removeItem('persist:root')
       logOutRedirect()
     }}
     >Log out</button>

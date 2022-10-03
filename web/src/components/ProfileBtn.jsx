@@ -7,7 +7,7 @@ const ProfileBtn = () => {
 
     <div>
 
-    <Link to="/profile">Profile</Link>
+    <Link className='navBtn' to="/profile">Profile</Link>
 
     </div>
   )

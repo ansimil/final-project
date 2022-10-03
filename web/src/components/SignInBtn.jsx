@@ -7,7 +7,7 @@ const SignInBtn = () => {
   return (
     <div>
 
-    <Link to="/signup">Sign in</Link>
+    <Link className='signinBtn' to="/signup">Sign in</Link>
 
     </div>
   )

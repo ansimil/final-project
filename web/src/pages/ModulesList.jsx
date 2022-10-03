@@ -21,7 +21,7 @@ const ModulesList = () => {
   }
 
   return (
-    <div>
+    <div className='modulesListContainer'>
 
     {modules.map((module) => {
       return <ModuleCard key={module._id} {...module} />
