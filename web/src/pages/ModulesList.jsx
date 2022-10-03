@@ -7,6 +7,7 @@ const ModulesList = () => {
   const [modules, setModules] = useState([])
 
   useEffect(()=>{
+    console.log(localStorage.getItem('cartDetails'))
     getModules()
     .then(res => {
       console.log(res)

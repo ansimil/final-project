@@ -4,29 +4,19 @@ const User = require('../models/User')
 const { isAuthenticated } = require('../middleware/jwt.middleware'); 
 
 
-router.put('/module/:moduleId/addtocart', isAuthenticated, (req, res, next) => {
-    const moduleId = req.params.moduleId
-    const userId = req.body.userId
+router.put('/update-cart', isAuthenticated, (req, res, next) => {
+    const cartDetails = req.body.cartDetails
+    const userId = req.body.user._id
+
+    console.log(cartDetails, userId)
     
-    console.log(moduleId, userId)
-
-
-    User.findById(userId)
-    .populate('cart')
-    .then(response => {
-        console.log(response)
-        return Cart.findByIdAndUpdate(response.cart[0]._id, { $push: {modules: moduleId } }, {new: true})
+    User.findByIdAndUpdate(userId, {$set: {cart: cartDetails}}, {new: true})
         .then(response => {
-            return Cart.findById(response._id)
-            .populate('modules')
-            .then(response => {
-                console.log(response)
-            })
-            .catch(err => console.log(err))
+            console.log(response)
+            res.status(200).json(response.data)
         })
         .catch(err => console.log(err))
-    })
-    .catch(err => console.log(err))
+    
 })
 
 

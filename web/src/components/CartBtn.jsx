@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useShoppingCart } from 'use-shopping-cart'
 import CartModal from './CartModal'
+import logo from "../assets/icons8-warenkorb-50.png"
 
 
 const CartBtn = () => {
@@ -13,7 +13,7 @@ const CartBtn = () => {
     <>
     <button className="cartBtn" onClick={toggleModal}>
     <span>
-          <img className="cartLogo" src="./icons8-warenkorb-50.png" alt="error" height="20px" width="20px"/>
+          <img className="cartLogo" src={logo} alt="error" height="20px" width="20px"/>
           <span>{cartCount}</span>
     </span>
     </button> 

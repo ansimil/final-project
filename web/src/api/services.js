@@ -1,7 +1,5 @@
 import axios from "axios";
-import { formatCurrencyString } from 'use-shopping-cart'
-
-
+import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
 
 const formatProductPrice = (product => {
   return formatCurrencyString({
@@ -77,6 +75,13 @@ const addToCart = (moduleId, userId) => {
   .catch(err => console.log(err))
 }
 
+const updateCart = (cartDetails, user) => {
+  const storedToken = localStorage.getItem('authToken')
+  return axios.put(`${process.env.REACT_APP_API_URL}/update-cart`, {cartDetails, user}, { headers: { Authorization: `Bearer ${storedToken}`}}) 
+  .then(res => res.status(200).json(res.data))
+  .catch(err => console.log(err))
+}
+
 export {
   getModules,
   uploadImage,
@@ -87,5 +92,6 @@ export {
   editModule,
   getModule,
   deleteModule,
-  addToCart
+  addToCart,
+  updateCart
 };

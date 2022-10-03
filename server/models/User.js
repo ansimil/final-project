@@ -27,8 +27,8 @@ const userSchema = new Schema(
       ref: 'Wishlist'
     }],
     cart: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Cart'
+      type: Object,
+      required: false
     }]
   },
   {

@@ -3,6 +3,7 @@ import { AuthContext } from "../contexts/auth"
 import { useContext, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { formatProductPrice, addToCart } from '../api/services'
+import AddToCartBtn from "../components/AddToCartBtn"
 
 const ModuleDetailsPage = () => {
     const [newPrice, setNewPrice] = useState('')
@@ -39,10 +40,7 @@ const ModuleDetailsPage = () => {
         </div>
 
         <div>
-            <Link onClick={() => {
-            addToCart(moduleId, user)
-            }}>Add to cart
-            </Link>
+            <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
         </div>
 
 

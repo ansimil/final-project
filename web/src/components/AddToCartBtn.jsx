@@ -12,14 +12,11 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
         price,
         currency
     }
-    // console.log(module)
 
     const handleAddToCart = async () => {
         await addItem(module)
         toast.success(`${module.name} has been added to your cart`)
         console.log({cartDetails})
-        // addToCart(id, user._id)
-        // console.log(id, user._id)
     } 
 
   return (

@@ -2,10 +2,13 @@ import React from 'react'
 import { AuthContext } from '../contexts/auth'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useShoppingCart } from 'use-shopping-cart';
+import { updateCart } from '../api/services';
 
 const LogoutBtn = () => {
+    const { cartDetails } = useShoppingCart()
     const navigate = useNavigate()
-    const { logOutUser, isLoggedIn, authenticateUser  } = useContext(AuthContext)
+    const { logOutUser, isLoggedIn, user  } = useContext(AuthContext)
 
     const logOutRedirect = async () => {
       console.log(isLoggedIn)
@@ -16,6 +19,7 @@ const LogoutBtn = () => {
     <div>
 
     <button onClick={ async () => {
+      await updateCart(cartDetails, user)
       await logOutUser()
       logOutRedirect()
     }}
