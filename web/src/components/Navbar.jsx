@@ -25,7 +25,7 @@ const Navbar = () => {
         {!isLoggedIn && <SignInBtn/>}
         {isLoggedIn && user.isAdmin && <DashboardBtn/>}
         {isLoggedIn && <ProfileBtn/>}
-        {cartCount > 0 && <CartBtn/>}
+        {isLoggedIn && cartCount > 0 && <CartBtn/>}
         {isLoggedIn && <LogoutBtn/>}
     
     </div>

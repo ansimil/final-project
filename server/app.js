@@ -37,7 +37,8 @@ app.use('/', modules)
 const cart = require("./routes/cart")
 app.use('/', cart)
 
-
+const checkout = require("./routes/checkout")
+app.use('/', checkout)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

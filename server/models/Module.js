@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const moduleSchema = new Schema(
   {
+    id: {
+      type: String,
+      required: false
+    },
     sku: {
       type: String,
       required: false

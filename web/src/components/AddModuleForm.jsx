@@ -30,7 +30,7 @@ const AddModuleForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const {sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = allValues
-        const newModule = {sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
+        const newModule = {id: sku, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
         await createModule(newModule, user)
         getModules()
         setAllValues(initValues)
