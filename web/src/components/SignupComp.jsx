@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../contexts/auth'
+import { toast } from 'react-hot-toast';
 
 const SignupComp = () => {
     const [email, setEmail] = useState("");
@@ -10,18 +11,12 @@ const SignupComp = () => {
     const [firstName, setFirstName] = useState("");
     const [surname, setSurname] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
-
     const [emailCheck, setEmailCheck] = useState(true);
     const [passwordCheck, setPasswordCheck] = useState(true);
 
     const { storeToken, authenticateUser } = useContext(AuthContext);
-
- 
+    
     const navigate = useNavigate();
-  
-  //   this.setState({value: event.target.value}, function () {
-  //     console.log(this.state.value);
-  // });
   
     useEffect(() => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -62,18 +57,16 @@ const SignupComp = () => {
   
     const handleSignupSubmit = (e) => {
         e.preventDefault();
-        // Create an object representing the request body
         const requestBody = { email, password, firstName, surname };
     
-        // Make an axios request to the API
-        // If POST request is successful redirect to login page
-        // If the request resolves with an error, set the error message in the state
+    
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
         .then( async (response) => {
             console.log(response.data)
-            storeToken(response.data.authToken) // store in my localStorage the authToken
+            storeToken(response.data.authToken)
             await authenticateUser() 
             navigate('/profile');
+            toast.success('Account created successfully')
         })
         .catch((error) => {
             const errorDescription = error.response.data.message;

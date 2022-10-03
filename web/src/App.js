@@ -14,11 +14,24 @@ import AddModule from './pages/AddModule';
 import Wishlist from './pages/Wishlist'
 import EditModule from './pages/EditModule';
 import ModuleDetailsPage from './pages/ModuleDetailsPage';
+import { loadStripe } from '@stripe/stripe-js'
+import { CartProvider} from 'use-shopping-cart'
+import { Toaster } from 'react-hot-toast'
+import Cart from './pages/Cart';
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
+
+
 
 function App() {
   return (
     <div className="App">
-
+    <CartProvider
+      mode='checkout-session'
+      stripe={stripePromise}
+      currency='EUR'
+     >
+    <Toaster className="toast" position="top-center"/>
     <Navbar/>
 
     <Routes>
@@ -29,11 +42,13 @@ function App() {
       <Route path='/signup' element={<IsAnon> <Signup/> </IsAnon>}></Route>
       <Route path='/profile' element={<IsUser> <Profile/> </IsUser>}></Route>
       <Route path='/wishlist' element={<IsUser> <Wishlist/> </IsUser>}></Route>
+      <Route path='/cart' element={<IsUser> <Cart/> </IsUser>}></Route> 
       <Route path='/dashboard' element={<IsAdmin> <Dashboard/> </IsAdmin>}></Route>
       <Route path='/dashboard/add' element={<IsAdmin> <AddModule/> </IsAdmin>}></Route>
     </Routes>
 
     <Footer/>
+    </CartProvider>
     </div>
   );
 }

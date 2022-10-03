@@ -6,9 +6,10 @@ import { useContext } from 'react'
 
 const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, tagline, primaryImageUrl }) => {
   const module = {price, currency}
+  const moduleForCart = {sku, name, price, currency}
   const {user} = useContext(AuthContext)
   const newPrice = formatProductPrice(module)
-
+  // console.log(moduleForCart)
   return (
     <div>
     
@@ -29,7 +30,7 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
             </div>
 
             <div>
-              <AddToCartBtn id={_id} user={user}/>
+              <AddToCartBtn id={_id} user={user} moduleForCart={moduleForCart}/>
               <Link to={`/module/${_id}`}>Details</Link>
             </div>
 
