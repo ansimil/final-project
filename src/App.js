@@ -25,6 +25,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
 
 
 function App() {
+  console.log(process.env.NODE_ENV)
   return (
     <div className="App">
     <CartProvider

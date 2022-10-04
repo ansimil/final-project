@@ -17,17 +17,17 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
 
             <h2>{name}</h2>
             <div>
-            <img src={primaryImageUrl} alt="Error loading pic" height="250px" />
+            <img src={primaryImageUrl} alt="Error loading pic" height="200px" />
             </div>
 
             <div>
-              <p>{tagline}</p>
+              {tagline &&<p>{tagline}</p>}
               <p>{newPrice}</p>
             </div>
 
-            <div>
+            {shortDescription && <div>
               <p>{shortDescription}</p>
-            </div>
+            </div>}
 
 
             <div className='addAndDetailsBtns'>

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'mainFont';
+    src: url('../../public/novamono.ttf');
+  }
+
+input {
+    background-color: white;
+    border-radius: 0;
+    border: solid black 0.5px;
+    font-family: mainFont;
+    font-size: 20px;
+    width: 100%
+}
+
+label {
+    font-family: mainFont;
+    font-size: 25px;
+}
+
+button {
+    text-decoration: none;
+  color: black;
+  background-color: white;
+  font-family: mainFont;
+  font-size: 25px;
+  border: solid black 1px;
+  padding: 0px 5px 0px 5px;
+  margin: 5px 0px 0px 0px
+}
+
+select {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-family: mainFont;
+    font-size: 20px;
+    border: solid black 1px;
+    padding: 0px 5px 0px 5px;
+    margin: 5px 0px 0px 0px
+}
+
+.addModuleFormDiv {
+    width: 20vw;
+    
+}
+
+h5 {
+    font-family: mainFont;
+    font-size: 30px;
+    margin: 5px
+}

@@ -5,6 +5,7 @@ import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
 import { useNavigate } from 'react-router-dom'
 import { ModuleContext } from '../contexts/modules'
 import { AuthContext } from '../contexts/auth'
+import './AddModuleForm.css'
 
 const AddModuleForm = () => {
     const { user } = useContext(AuthContext)
@@ -68,7 +69,7 @@ const AddModuleForm = () => {
 
     return (
     <div className='addModuleFormContainer'>
-        <div>
+        <div className="addModuleFormDiv">
         <form className="addModuleForm" onSubmit={handleSubmit}>
             <label>Sku:</label>
             <input

@@ -9,7 +9,17 @@
 
 h2 {
   font-family: mainFont;
-  font-size: 60px;
+  font-size: 55px;
+}
+
+h3 {
+  font-family: mainFont;
+  font-size: 50px;
+}
+
+p {
+  font-family: mainFont;
+  font-size: 30px;
 }
 
 .navbar {
@@ -265,7 +275,12 @@ h2 {
 
 
 .dashboardContainer {
-  height: 80vh; 
+  position:relative;
+  top: 70px;
+  height: 80vh;
+  width: 100vw;
+  background-color: white;
+  background-size: cover;
 }
 
 
@@ -298,6 +313,7 @@ h2 {
   justify-content: space-between;
   align-items: flex-start;
   column-gap: 50px;
+  
 }
 
 .addModuleForm {
@@ -348,3 +364,75 @@ input:focus {
   background-color: white;
 }
 
+.dashboardModule {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70%;
+  width: 100vw
+}
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw
+}
+
+.dashboardModuleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  width: 50vw;
+  border-top: solid black 1px;
+  margin: 30px
+}
+
+.dashboardModuleContainer table {
+  font-family: mainFont;
+  font-size: 25px;
+}
+
+.dashboardModuleContainer summary {
+  font-family: mainFont;
+  font-size: 30px;
+}
+
+details > summary {
+  list-style: none;
+}
+
+.dashboardBtns a {
+  text-decoration: none;
+  color: black;
+  font-family: mainFont;
+  font-size: 20px;
+  border: solid black 1px;
+  padding: 3.5px 5px 3.5px 5px;
+  margin: 0px 0px 10px 0px
+}
+
+.dashboardBtns button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  font-family: mainFont;
+  font-size: 20px;
+  border: solid black 1px;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 0px 0px 0px
+}
+
+.addModuleBtn a {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  font-family: mainFont;
+  font-size: 40px;
+  border: solid black 1px;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 0px 0px 0px
+}
