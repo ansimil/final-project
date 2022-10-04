@@ -21,7 +21,19 @@ const CartModal = ({isOpen, toggleModal}) => {
 
     const handleRemoveItems = (product, amount) => {
         removeItem(product.id)
-        toast.success('Items successfully removed from cart')
+        toast.success('Items successfully removed from cart', {
+            style: {
+                    border: '2px solid black',
+                    backgroundColor: 'white',
+                    borderRadius: '0px',
+                    padding: '5px 10px',
+                    color: 'black',
+           },
+           iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },    
+        })
     }
 
   return (
@@ -50,6 +62,7 @@ const CartModal = ({isOpen, toggleModal}) => {
 
     {Object.keys(cartDetails).map((key, i)=> {
         console.log(cartDetails)
+        console.log(localStorage.getItem('persist:root'))
         return (
             <tr>
             <td>{cartDetails[key].name}</td>

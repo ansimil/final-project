@@ -1,7 +1,7 @@
 import React from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 import CartModal from './CartModal'
-import logo from "../assets/icons8-warenkorb-50.png"
+import logo from "../assets/cart-icon-inverted.png"
 
 
 const CartBtn = () => {
@@ -13,7 +13,7 @@ const CartBtn = () => {
     <>
     <button className="cartBtn" onClick={toggleModal}>
     <span>
-          <img className="cartLogo" src={logo} alt="error" height="18px" width="18px"/>
+          <img className="cartLogo" src={logo} alt="error" height="22px" width="22px"/>
           <span>  </span>
           <span>{cartCount}</span>
     </span>

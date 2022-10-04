@@ -55,9 +55,11 @@ const LoginComp = () => {
    
       axios.post(`${process.env.REACT_APP_API_URL}/login`, requestBody)
         .then(async (response) => {
-          // console.log('JWT token', response.data.authToken );
           storeToken(response.data.authToken) 
-          await authenticateUser() 
+          await authenticateUser()
+          const newCartDetails = {...response.data.cart[0]}
+          console.log(newCartDetails)
+          await loadCart(newCartDetails, false)
           navigate('/profile');            
         })
         .catch((error) => {

@@ -22,10 +22,10 @@ const LogoutBtn = () => {
       await updateCart(cartDetails, user)
       await logOutUser()
       await clearCart()
-      localStorage.removeItem('persist:root')
+      await localStorage.removeItem('persist:root')
       logOutRedirect()
     }}
-    >Log out</button>
+    >LOGOUT</button>
 
     </div>
   )
