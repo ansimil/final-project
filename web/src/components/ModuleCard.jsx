@@ -11,12 +11,12 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
   const newPrice = formatProductPrice(module)
   // console.log(moduleForCart)
   return (
-    <div>
+    <div className="moduleCardContainer">
     
-        <div>
+        <div className="moduleCardInner">
 
-            <div>
             <h2>{name}</h2>
+            <div>
             <img src={primaryImageUrl} alt="Error loading pic" height="250px" />
             </div>
 
@@ -29,11 +29,17 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
               <p>{shortDescription}</p>
             </div>
 
+
+            <div className='addAndDetailsBtns'>
+
             <div>
               <AddToCartBtn id={_id} user={user} moduleForCart={moduleForCart}/>
+            </div>
+            <div>
               <Link to={`/module/${_id}`}>Details</Link>
             </div>
 
+            </div>
         </div>
 
     </div>

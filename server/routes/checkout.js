@@ -34,7 +34,7 @@ router.post("/checkout-session", async (req, res) => {
 
         const cartItems = req.body;
         const line_items = validateCartItems(products, cartItems);
-        console.log(line_items)
+        // console.log(line_items)
         const origin = process.env.NODE_ENV === 'production' ? req.headers.origin : 'http://localhost:3000'
     
         const params = {
