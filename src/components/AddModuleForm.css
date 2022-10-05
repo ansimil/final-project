@@ -3,7 +3,7 @@
     src: url('../../public/novamono.ttf');
   }
 
-input {
+input, textarea {
     background-color: white;
     border-radius: 0;
     border: solid black 0.5px;

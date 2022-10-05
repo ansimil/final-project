@@ -3,6 +3,8 @@ import { formatProductPrice } from '../api/services'
 import AddToCartBtn from '../components/AddToCartBtn'
 import { AuthContext } from '../contexts/auth'
 import { useContext } from 'react'
+import './ModuleCard.css'
+
 
 const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, tagline, primaryImageUrl }) => {
   const module = {price, currency}
@@ -20,15 +22,10 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
             <img src={primaryImageUrl} alt="Error loading pic" height="200px" />
             </div>
 
-            <div>
+            <div className='tagline'>
               {tagline &&<p>{tagline}</p>}
               <p>{newPrice}</p>
             </div>
-
-            {shortDescription && <div>
-              <p>{shortDescription}</p>
-            </div>}
-
 
             <div className='addAndDetailsBtns'>
 

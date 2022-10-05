@@ -5,6 +5,7 @@ import { useShoppingCart } from 'use-shopping-cart'
 import { formatProductPrice } from '../api/services';
 import { toast } from 'react-hot-toast'
 import CheckoutBtn from './CheckoutBtn';
+import './CartModal.css'
 
 Modal.setAppElement("#root")
 
@@ -68,7 +69,7 @@ const CartModal = ({isOpen, toggleModal}) => {
             <td>{cartDetails[key].name}</td>
             <td>{cartDetails[key].quantity}</td>
             <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
-            <td><button onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
+            <td><button className='xBtn' onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
             </tr>
         )
     })}

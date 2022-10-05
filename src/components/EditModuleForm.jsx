@@ -32,10 +32,12 @@ const EditModuleForm = ({_id, sku, name, category, price, currency, description,
     useEffect(() => {
         console.log(allValues)
         setAllValues(initValues)
+        // eslint-disable-next-line
     }, [])
 
 
     const handleSubmit = async (e) => {
+        console.log(allValues)
         e.preventDefault()
         const { sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = allValues
         const newModule = { sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}
@@ -71,7 +73,9 @@ const EditModuleForm = ({_id, sku, name, category, price, currency, description,
     const secondaryImageUrlFunc = (imageUrl) => {
       const copy = [...allValues.secondaryImageUrl]
       copy.push(imageUrl)
+      console.log(copy)
       setAllValues({...allValues, secondaryImageUrl: copy})
+      // console.log(allValues)
     }
 
   return (

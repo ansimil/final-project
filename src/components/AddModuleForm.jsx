@@ -63,6 +63,7 @@ const AddModuleForm = () => {
 
     const secondaryImageUrlFunc = (imageUrl) => {
       const copy = [...allValues.secondaryImageUrl]
+      console.log(copy)
       copy.push(imageUrl)
       setAllValues({...allValues, secondaryImageUrl: copy})
     }

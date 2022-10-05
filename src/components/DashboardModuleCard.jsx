@@ -63,6 +63,10 @@ const DashboardModuleCard = ({ modulesList }) => {
                     <td>{category}</td>
                   </tr>
                   <tr>
+                    <td>Price</td>
+                    <td>{price}</td>
+                  </tr>
+                  <tr>
                     <td>Currency</td>
                     <td>{currency}</td>
                   </tr>
