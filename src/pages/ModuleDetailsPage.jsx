@@ -16,12 +16,7 @@ const ModuleDetailsPage = () => {
 
     useEffect(() => {
             const fetchData = async () => {
-            await getModule(moduleId)
-            // const moduleForPrice = {price: module.price, currency: module.currency}
-            // setMainImage(module.primaryImageUrl)
-            // console.log(module)
-            // const price = (formatProductPrice(moduleForPrice))
-            // setNewPrice(price)   
+            await getModule(moduleId)  
         }
         fetchData()
         // eslint-disable-next-line      

@@ -1,6 +1,7 @@
 import { useState, useEffect, React } from 'react'
 import { getModules } from '../api/services'
 import ModuleCard from '../components/ModuleCard'
+import loadingIcon from '../assets/giphy.gif'
 
 
 const ModulesList = () => {
@@ -17,7 +18,10 @@ const ModulesList = () => {
   }, [])
 
   if(modules.length === 0){
-    return <p>Loading...</p>
+    return (
+          <div className="loadingIcon">
+              <img src={loadingIcon} alt="loading..." height="400px"/>
+          </div>)
   }
 
   return (

@@ -26,10 +26,7 @@ const EditModule = () => {
     return (
     <div className="editModuleContainer">
     <h3>Edit {module.name}</h3>
-
-
     <EditModuleForm {...module}/>
-
     </div>
   )
 }
