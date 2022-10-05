@@ -5,8 +5,10 @@ import LoginComp from '../components/LoginComp'
 const Signup = () => {
   return (
     <div className="signupContainer">
+        <div className="signupInnerDiv">
         <SignupComp/>
         <LoginComp/>
+        </div>
     </div>
   )
 }

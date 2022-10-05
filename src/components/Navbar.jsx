@@ -28,7 +28,7 @@ const Navbar = () => {
         </div>
 
         <div className='cartSigninLogout'>
-        {cartCount > 0 && <CartBtn/>}
+        {isLoggedIn && cartCount > 0 && <CartBtn/>}
         {isLoggedIn && <ProfileBtn />}
         {!isLoggedIn && <SignInBtn/>}
         {isLoggedIn && <LogoutBtn />}

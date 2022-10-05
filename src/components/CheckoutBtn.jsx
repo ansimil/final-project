@@ -30,7 +30,7 @@ const CheckoutBtn = () => {
     
 
   return (
-    <div>
+    <div className='modalBtns'>
 
     <button onClick={handleCheckout}>Checkout</button>
 

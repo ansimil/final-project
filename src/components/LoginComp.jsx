@@ -70,7 +70,7 @@ const LoginComp = () => {
     
     return (
       <div className="LoginPage">
-        <h1>Login</h1>
+        <h2>Login</h2>
    
         <form className="loginForm" onSubmit={handleLoginSubmit}>
           <label>Email:</label>
@@ -94,8 +94,10 @@ const LoginComp = () => {
         
   
           <br/>
-  
-          <button type="submit">Login</button>
+          
+          <div>
+          <button className='signupLoginBtn' type="submit">Login</button>
+          </div>
         </form>
         { errorMessage && <p className="error-message">{errorMessage}</p> }
       </div>

@@ -13,7 +13,7 @@ const CartBtn = () => {
     <>
     <button className="cartBtn" onClick={toggleModal}>
     <span>
-          <img className="cartLogo" src={logo} alt="error" height="22px" width="22px"/>
+          <img className="cartLogo" src={logo} alt="error" height="20px" width="20px"/>
           <span>  </span>
           <span>{cartCount}</span>
     </span>

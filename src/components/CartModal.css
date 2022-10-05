@@ -3,6 +3,10 @@
     src: url('../../public/novamono.ttf');
   }
 
+h3 {
+    line-height: 10px;
+}
+
 table {
     border-collapse: collapse;
     font-family: mainFont;
@@ -20,4 +24,29 @@ td, th {
     border: none !important;
     padding-bottom: 10px;
     font-size: 40px;
+  }
+
+  .modalBtns {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modalBtns > a, .modalBtns > button  {
+    text-decoration: none;
+    color: black;
+    font-family: mainFont;
+    font-size: 25px;
+    border: solid black 1px;
+    padding: 2.5px 5px 2.5px 5px;
+    margin: 0
+  }
+
+
+  .modalBtns > a:hover, .modalBtns > button:hover {
+    background-color: rgb(193, 224, 235);
+    cursor: pointer;
   }

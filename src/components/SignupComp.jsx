@@ -77,9 +77,10 @@ const SignupComp = () => {
   
   return (
     
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
- 
+    <div className="signupPage">
+      
+      <h2>Sign Up</h2>
+    
         <form className="signupForm" onSubmit={handleSignupSubmit}>
         <label>First Name:</label>
             <input 
@@ -116,11 +117,11 @@ const SignupComp = () => {
           onChange={handlePassword}
         />
  
-        
-
         <br/>
- 
-        <button type="submit">Sign Up</button>
+       
+        <div>
+        <button className='signupLoginBtn' type="submit">Sign Up</button>
+        </div>
       </form>
  
       { errorMessage && <p className="error-message">{errorMessage}</p> }

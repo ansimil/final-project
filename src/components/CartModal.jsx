@@ -88,10 +88,13 @@ const CartModal = ({isOpen, toggleModal}) => {
     </table>
 
     </div>
+
+    <div className="modalBtns">
     <Link onClick={toggleModal} to='/cart'>Go to cart</Link>
     <CheckoutBtn/>
     <button onClick={toggleModal}>Still shopping?</button>
-
+    </div>
+    
     </Modal>
 
 

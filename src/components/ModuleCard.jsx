@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { formatProductPrice } from '../api/services'
 import AddToCartBtn from '../components/AddToCartBtn'
 import { AuthContext } from '../contexts/auth'
@@ -11,6 +11,11 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
   const moduleForCart = {sku, name, price, currency}
   const {user} = useContext(AuthContext)
   const newPrice = formatProductPrice(module)
+  const navigate = useNavigate()
+
+  const handleRedirect = () => {
+      navigate(`/module/${_id}`)
+  }
   // console.log(moduleForCart)
   return (
     <div className="moduleCardContainer">
@@ -19,7 +24,7 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
 
             <h2>{name}</h2>
             <div>
-            <img src={primaryImageUrl} alt="Error loading pic" height="200px" />
+            <img onClick={handleRedirect} src={primaryImageUrl} alt="Error loading pic" height="200px" />
             </div>
 
             <div className='tagline'>
