@@ -4,7 +4,7 @@ import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import {loadStripe}  from '@stripe/stripe-js'
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC}`)
 
 const CheckoutBtn = () => {
     

@@ -13,10 +13,13 @@ import { useShoppingCart } from 'use-shopping-cart';
 
 
 
+
 const Navbar = () => {
+ 
   const { cartCount } = useShoppingCart()
   const { isLoggedIn, user } = useContext(AuthContext)
-  console.log(isLoggedIn)
+  // console.log(isLoggedIn)
+
   return (
     <div className="navbar">
     

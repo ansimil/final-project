@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast'
 import CheckoutBtn from './CheckoutBtn';
 import './CartModal.css'
 
+
 Modal.setAppElement("#root")
 
 const CartModal = ({isOpen, toggleModal}) => {
@@ -55,6 +56,7 @@ const CartModal = ({isOpen, toggleModal}) => {
     
 
     <table>
+    <tbody>
     <tr>
     <th>Item</th>
     <th>Quantity</th>
@@ -62,10 +64,8 @@ const CartModal = ({isOpen, toggleModal}) => {
     </tr>
 
     {Object.keys(cartDetails).map((key, i)=> {
-        console.log(cartDetails)
-        console.log(localStorage.getItem('persist:root'))
         return (
-            <tr>
+            <tr key={key}>
             <td>{cartDetails[key].name}</td>
             <td>{cartDetails[key].quantity}</td>
             <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
@@ -74,7 +74,7 @@ const CartModal = ({isOpen, toggleModal}) => {
         )
     })}
         
-    
+    </tbody>
     </table> 
 
     <table>

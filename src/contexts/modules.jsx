@@ -12,7 +12,7 @@ function ModuleProviderWrapper(props) {
     const getModules = async () => {
         await axios.get(`${process.env.REACT_APP_API_URL}/modules`)
         .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setModules(res.data)
         })
         .catch(err => console.log(err));
@@ -21,8 +21,10 @@ function ModuleProviderWrapper(props) {
     const getModule = async (moduleId) => {
         await axios.get(`${process.env.REACT_APP_API_URL}/module/${moduleId}`)
         .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setModule(res.data)
+            return res.data
+
         })
         .catch(err => console.log(err));
       };
@@ -34,7 +36,7 @@ function ModuleProviderWrapper(props) {
 
 
     return (
-        <ModuleContext.Provider value={{ modules, module, getModules, getModule, editModule, createModule }}>
+        <ModuleContext.Provider value={{ modules, module, setModule, getModules, getModule, editModule, createModule }}>
           {props.children}
         </ModuleContext.Provider>
       )

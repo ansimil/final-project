@@ -9,6 +9,7 @@ const DashboardModuleCard = ({ modulesList }) => {
     const { user } = useContext(AuthContext) 
     const { getModules } = useContext(ModuleContext)
     const [open, setOpen] = useState(false)
+  
 
     const handleDelete = async (moduleId) => {
           
@@ -31,7 +32,6 @@ const DashboardModuleCard = ({ modulesList }) => {
     
         {modulesList.map((module, i) => {
       const {_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = module
-      
       return (
           <div key={_id}>
             <details open={open}>

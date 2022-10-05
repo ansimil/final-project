@@ -8,7 +8,7 @@ import CheckoutBtn from '../components/CheckoutBtn';
 const Cart = () => {
 
     const { cartDetails, removeItem, formattedTotalPrice, cartCount, incrementItem, decrementItem } = useShoppingCart()
-    console.log(cartDetails)
+    // console.log(cartDetails)
     const navigate = useNavigate()
    
 
@@ -53,15 +53,17 @@ const Cart = () => {
     <h3>Cart details</h3>
 
     <table>
+    <thead>
     <tr>
     <th>Item</th>
     <th>Quantity</th>
     <th>Price</th>
     </tr>
-
+    </thead>
+    <tbody>
     {Object.keys(cartDetails).map((key, i)=> {
         return (
-            <tr>
+            <tr key={i}>
             <td>{cartDetails[key].name}</td>
             <td>{cartDetails[key].quantity}</td>
             <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
@@ -71,11 +73,12 @@ const Cart = () => {
             </tr>
         )
     })}
-        
+    </tbody>
     
     </table> 
 
     <table>
+    <tbody>
     <tr>
         <th>Total Price</th>
     </tr>
@@ -83,6 +86,7 @@ const Cart = () => {
     <tr>
         <td>{formattedTotalPrice}</td>
     </tr>
+    </tbody>
     </table>
 
     <div>

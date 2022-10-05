@@ -24,6 +24,8 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
                   borderRadius: '0px',
                   padding: '5px 10px',
                   color: 'black',
+                  textAlign: 'center',
+                  lineHeight: '20px'
          },
          iconTheme: {
                   primary: '#000',

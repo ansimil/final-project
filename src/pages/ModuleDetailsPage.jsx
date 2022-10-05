@@ -4,47 +4,75 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { formatProductPrice } from '../api/services'
 import AddToCartBtn from "../components/AddToCartBtn"
+import './ModuleDetailsPage.css'
+import loadingIcon from '../assets/giphy.gif'
 
 const ModuleDetailsPage = () => {
-    const [newPrice, setNewPrice] = useState('')
     const { user } = useContext(AuthContext)
     const { module, getModule } = useContext(ModuleContext)
     const { moduleId } = useParams()
-    
+    const [mainImage, setMainImage] = useState(null)
+    const [bool, setBool] = useState(false)
 
     useEffect(() => {
             const fetchData = async () => {
             await getModule(moduleId)
-            const moduleForPrice = {price: module.price, currency: module.currency}
-            console.log(moduleForPrice)
-            const price = (formatProductPrice(moduleForPrice))
-            setNewPrice(price)
+            // const moduleForPrice = {price: module.price, currency: module.currency}
+            // setMainImage(module.primaryImageUrl)
+            // console.log(module)
+            // const price = (formatProductPrice(moduleForPrice))
+            // setNewPrice(price)   
         }
         fetchData()
         // eslint-disable-next-line      
     },[])
 
+    const updateImage = (image) => {
+        setMainImage(image)
+        setBool(true)
+    }
+
+    if (Object.keys(module).length === 0) {
+        return (<div className="loadingIcon">
+                <img src={loadingIcon} alt="loading..." height="400px"/>
+                </div>)
+    }
 
   return (
-    <div>
-    <h2>{module.name}</h2>
-    <img src={module.primaryImageUrl} alt="error loading pic" height="400px" />
-    
+    <div className="moduleDetailsContainer">
 
-        <div>
-            <p>{module.tagline}</p>
-            <p>{newPrice}</p>
+        <div className="moduleDetailsInnerDiv">
+
+            <div className="imagesDiv">
+                <img className="mainImage" src={bool ? mainImage : module.primaryImageUrl} alt="error loading pic" height="400px" />
+                <div className="secondaryImageContainer">
+                <img onClick={() => {setMainImage(module.primaryImageUrl)}} src={module.primaryImageUrl} alt="error loading pic" height="50px" />
+                {module?.secondaryImageUrl?.length > 0 && module?.secondaryImageUrl.map((image, i) => {
+                    return (
+                    <img onClick={() => {updateImage(image)}} key={i+1} src={image} alt="error loading pic" height="50px" />
+                    )
+                })}
+                </div>
+            </div>
+
+            <div className="detailsContainer">
+            <div>
+            <h2>{module.name}</h2>
+            </div>
+            <div>
+                <p>{module.tagline}</p>
+                <p>{Object.keys(module).length !== 0 && formatProductPrice({price: module.price, currency: module.currency})}</p>
+            </div>
+
+            <div className="moduleDescription">
+                <p>{module.description}</p>
+            </div>
+
+            <div>
+                <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
+            </div>
+            </div>
         </div>
-
-        <div>
-            <p>{module.description}</p>
-        </div>
-
-        <div>
-            <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
-        </div>
-
-
     </div>
   )
 }

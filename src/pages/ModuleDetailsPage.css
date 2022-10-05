@@ -1,0 +1,89 @@
+.moduleDetailsContainer {
+    position:relative;
+    top: 70px;
+    height: 80vh;
+    width: 100vw;
+    background-color: black;
+    background-size: cover;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.moduleDetailsInnerDiv {
+    background-color: white;
+    width: 77%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10%;
+}
+
+.moduleDescription {
+    width: 90%;
+    text-align:left;
+    margin-bottom: 20px;
+}
+
+.secondaryImageContainer {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5%;
+    border: solid black 1px;
+    padding: 10px 50px 10px 50px;
+    background-color: white
+}
+
+.secondaryImageContainer > img {
+    cursor: pointer;
+    max-width: 50% !important;
+}
+
+.moduleDetailsInnerDiv a {
+    text-decoration: none;
+    color: black;
+    font-family: mainFont;
+    font-size: 30px;
+    border: solid black 1px;
+    padding: 5px;
+    margin: 0px 0px 10px 0px
+}
+
+.moduleDetailsInnerDiv a:hover {
+    background-color: rgb(193, 224, 235);
+}
+
+.mainImage {
+    background-color: white;
+    border: solid black 1px;
+    padding: 15px 60px 15px 60px
+}
+
+.imagesDiv {
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: black solid 1px;
+    max-width: 50%;
+    min-width: 50%;
+    background-color: rgb(193, 224, 235);
+    height: 88%
+}
+
+.detailsContainer > p {
+    line-height: 20px;
+}
+
+.detailsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

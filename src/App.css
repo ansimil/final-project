@@ -61,7 +61,7 @@ p {
 }
 
 .socialsContainer img:hover {
-  border: solid rgb(112, 203, 234) 2px;
+  border: solid rgb(193, 224, 235) 2px;
   border-radius: 25px;
   padding: 2px;
 }
@@ -232,6 +232,18 @@ p {
   align-items: center;
 }
 
+.loadingIcon {
+  position:relative;
+  top: 70px;
+  height: 80vh;
+  width: 100vw;
+  background-color: black;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .moduleCardContainer {
   background-color: white;
   width: 300px;
@@ -276,8 +288,8 @@ p {
   font-size: 30px;
   border: solid black 1px;
   padding: 5px;
-  margin: 0px 0px 10px 0px
-  
+  margin: 0px 0px 10px 0px;
+
 }
 
 .moduleCardInner img {
@@ -319,8 +331,10 @@ p {
   position:relative;
   top: 70px;
   width: 100vw;
+  height: fit-content;
   background-color: white;
   background-size: cover;
+  margin-bottom: 100px;
 }
 
 .signupPage, .LoginPage {
@@ -406,7 +420,7 @@ input:focus {
   right: 25vw;
   bottom: 25vh;
   width: 40vw;
-  height:max-content;
+  height:fit-content;
   background-color: white;
 }
 

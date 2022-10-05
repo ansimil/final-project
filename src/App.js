@@ -20,12 +20,12 @@ import { Toaster } from 'react-hot-toast'
 import Cart from './pages/Cart';
 import PaymentSuccess from './pages/PaymentSuccess';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC}`)
 
 
 
 function App() {
-  console.log(process.env.NODE_ENV)
+  // console.log(process.env.NODE_ENV)
   return (
     <div className="App">
     <CartProvider
