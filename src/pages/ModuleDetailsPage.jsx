@@ -1,8 +1,8 @@
 import { ModuleContext } from "../contexts/modules"
 import { AuthContext } from "../contexts/auth"
 import { useContext, useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { formatProductPrice, addToCart } from '../api/services'
+import { useParams } from 'react-router-dom'
+import { formatProductPrice } from '../api/services'
 import AddToCartBtn from "../components/AddToCartBtn"
 
 const ModuleDetailsPage = () => {
@@ -20,7 +20,8 @@ const ModuleDetailsPage = () => {
             const price = (formatProductPrice(moduleForPrice))
             setNewPrice(price)
         }
-        fetchData()      
+        fetchData()
+        // eslint-disable-next-line      
     },[])
 
 

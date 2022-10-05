@@ -17,6 +17,7 @@ const PaymentSuccess = () => {
         setSessionDetails(res.data)
     })
     .catch(err => console.log(err))
+    // eslint-disable-next-line
     }, [])
     
     if (!sessionDetails){

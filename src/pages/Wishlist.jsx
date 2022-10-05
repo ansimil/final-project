@@ -1,12 +1,12 @@
-import {React, useEffect, useState} from 'react'
+import {React, useEffect } from 'react'
 import { getWishlistModules } from '../api/services'
 
 const Wishlist = () => {
-    const [modules, setModules] = useState([])
 
   useEffect(() => {
     getWishlistModules()
     .then(res => console.log(res))
+    // eslint-disable-next-line
   }, [])  
   return (
     <div>Wishlist</div>

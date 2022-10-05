@@ -15,6 +15,7 @@ const EditModule = () => {
             setModule(res)
         })
         .catch(err => console.log(err))
+        // eslint-disable-next-line
     } ,[]) 
 
 

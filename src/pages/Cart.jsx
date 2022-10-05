@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+
 import { useShoppingCart } from 'use-shopping-cart';
 import { formatProductPrice } from '../api/services';
 import { toast } from 'react-hot-toast';

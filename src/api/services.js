@@ -1,5 +1,5 @@
 import axios from "axios";
-import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
+import { formatCurrencyString } from 'use-shopping-cart'
 
 const formatProductPrice = (product => {
   return formatCurrencyString({

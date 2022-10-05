@@ -15,7 +15,7 @@ const LoginComp = () => {
     const [passwordCheck, setPasswordCheck] = useState(true);
     
     const navigate = useNavigate();
-    const { storeToken, authenticateUser, user } = useContext(AuthContext);
+    const { storeToken, authenticateUser } = useContext(AuthContext);
 
 
     useEffect(() => {

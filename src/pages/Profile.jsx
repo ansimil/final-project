@@ -12,7 +12,7 @@ const Profile = () => {
        
       console.log(cartDetails)
       console.log(user)
-      
+      // eslint-disable-next-line
   },[])
 
 
