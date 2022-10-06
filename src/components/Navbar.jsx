@@ -5,10 +5,10 @@ import LogoutBtn from './LogoutBtn'
 import ProfileBtn from './ProfileBtn'
 import DashboardBtn from './DashboardBtn'
 import CartBtn from './CartBtn'
-
 import { AuthContext } from '../contexts/auth'
 import { useContext } from 'react'
 import { useShoppingCart } from 'use-shopping-cart';
+import './Navbar.css'
 
 
 
@@ -24,8 +24,11 @@ const Navbar = () => {
     <div className="navbar">
     
         <HomeBtn/>
-        <div className='navMiddle'>
-        <div><Link className="navBtn" to="/modules">Modules</Link></div>
+
+        <div className={isLoggedIn ? 'navMiddle' : 'navMiddleLoggedOut'}>
+        <div>
+          <Link className="navBtn" to="/modules">Modules</Link>
+        </div>
         {isLoggedIn && user.isAdmin && <DashboardBtn />}
         
         </div>

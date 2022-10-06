@@ -43,7 +43,7 @@ const ModuleDetailsPage = () => {
             <div className="imagesDiv">
                 <img className="mainImage" src={bool ? mainImage : module.primaryImageUrl} alt="error loading pic" height="400px" />
                 <div className="secondaryImageContainer">
-                <img onClick={() => {setMainImage(module.primaryImageUrl)}} src={module.primaryImageUrl} alt="error loading pic" height="50px" />
+                <img onClick={() => {setMainImage(module.primaryImageUrl)}} src={module.primaryImageUrl} alt="error loading pic" height="50px"/>
                 {module?.secondaryImageUrl?.length > 0 && module?.secondaryImageUrl.map((image, i) => {
                     return (
                     <img onClick={() => {updateImage(image)}} key={i+1} src={image} alt="error loading pic" height="50px" />

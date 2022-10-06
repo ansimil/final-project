@@ -4,6 +4,9 @@ import axios from 'axios'
 import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
 import { updateCart } from '../api/services';
 import { AuthContext } from '../contexts/auth'
+import Footer from '../components/Footer';
+import loadingIcon from '../assets/giphy.gif'
+import './PaymentSuccess.css'
 
 
 const PaymentSuccess = () => {
@@ -30,23 +33,37 @@ const PaymentSuccess = () => {
 
     if (!sessionDetails){
         return (
-            <p>Loading...</p>
+          
+            <div className="loadingIcon">
+                <img src={loadingIcon} alt="loading..." height="400px"/>
+            </div>
         )
     }
 
   return (
-    <div>
-    <h1>Thank you for your order!</h1>
-    <h3>Payment successful!</h3>
+    <div className="successContainer">
 
-    <p>Total amount: {formatCurrencyString({
-    value: sessionDetails.amount_total,
-    currency: sessionDetails.currency,
-    })}</p>
+      <div className='successInner'>
 
-    <div>
-    <p>Paid to MDI GmbH</p>
-    </div>
+        <div>
+        <h1>Thank you for your order!</h1>
+        <h3>Payment successful!</h3>
+        </div>
+
+        <div>
+        <p>Total amount: {formatCurrencyString({
+        value: sessionDetails.amount_total,
+        currency: sessionDetails.currency,
+        })}</p>
+        </div>
+
+        <div>
+          <p>Paid to MDI GmbH</p>
+        </div>
+      
+      </div>
+
+      <Footer/>
 
     </div>
   )

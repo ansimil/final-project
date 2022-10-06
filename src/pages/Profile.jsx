@@ -1,6 +1,8 @@
 import {useEffect, React, useState, useContext} from 'react'
 import { AuthContext } from '../contexts/auth'
 import { useShoppingCart } from 'use-shopping-cart'
+import Footer from '../components/Footer'
+import './Profile.css'
 
 const Profile = () => {
   const { cartDetails } = useShoppingCart()
@@ -19,7 +21,9 @@ const Profile = () => {
   return (
     <div className="profileContainer"> 
         
-        <p>Hi {loggedInUser.firstName}!</p>
+        <h2>Hi {loggedInUser.firstName}!</h2>
+
+    <Footer/>
 
     </div>
   )
