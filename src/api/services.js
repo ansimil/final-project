@@ -13,6 +13,12 @@ const errorHandler = (err) => {
   throw err;
 };
 
+const getUser = (id) => {
+  return axios.get(`${process.env.REACT_APP_API_URL}/profile/${id}`)
+  .then((res) => res.data)
+  .catch(errorHandler);
+}
+
 const getUsers = () => {
   return axios.get(`${process.env.REACT_APP_API_URL}`)
   .then((res) => res.data)
@@ -55,6 +61,13 @@ const editModule = (newModule, moduleId, user) => {
   .catch(errorHandler);
 }
 
+const editUser = (newUser, user) => {
+  const storedToken = localStorage.getItem('authToken')
+  return axios.put(`${process.env.REACT_APP_API_URL}/profile/${user._id}/edit`, {newUser, user}, { headers: { Authorization: `Bearer ${storedToken}`}} )
+  .then(res => res.data)
+  .catch(errorHandler);
+}
+
 const deleteModule = (moduleId, user) => {
   const storedToken = localStorage.getItem('authToken')
   return axios.delete(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/delete`, user, { headers: { Authorization: `Bearer ${storedToken}`}})
@@ -93,5 +106,7 @@ export {
   getModule,
   deleteModule,
   addToCart,
-  updateCart
+  updateCart,
+  editUser,
+  getUser,
 };

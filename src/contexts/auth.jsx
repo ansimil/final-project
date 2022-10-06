@@ -31,8 +31,9 @@ function AuthProviderWrapper(props) {
             // console.log(user.isAdmin)
             setIsLoggedIn(true);
             setIsLoading(false);
-            setUser(user);  
-            // console.log('done')     
+            setUser(user)
+           
+                 
           })
           .catch((error) => {     
             setIsLoggedIn(false);
@@ -64,7 +65,7 @@ function AuthProviderWrapper(props) {
       }, [])
  
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser }}>
+    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, setUser, storeToken, authenticateUser, logOutUser }}>
       {props.children}
     </AuthContext.Provider>
   )

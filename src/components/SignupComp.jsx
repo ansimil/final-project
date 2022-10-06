@@ -24,7 +24,9 @@ const SignupComp = () => {
       
 
       if (!emailRegex.test(email)){
-        setEmailCheck(false)    
+        setEmailCheck(false) 
+        console.log('email wrong', email) 
+  
       }
       
       if (!passwordRegex.test(password)){
@@ -37,6 +39,11 @@ const SignupComp = () => {
 
       if (password.length === 0){
         setPasswordCheck(true)
+      }
+
+      else {
+        setEmailCheck(true)
+        console.log('email good')
       }
 
     }, [email, password])
@@ -66,7 +73,19 @@ const SignupComp = () => {
             storeToken(response.data.authToken)
             await authenticateUser() 
             navigate('/profile');
-            toast.success('Account created successfully')
+            toast.success('Account created successfully', {
+              style: {
+                      border: '2px solid black',
+                      backgroundColor: 'white',
+                      borderRadius: '0px',
+                      padding: '5px 10px',
+                      color: 'black',
+             },
+             iconTheme: {
+                      primary: '#000',
+                      secondary: '#fff',
+            },
+            })
         })
         .catch((error) => {
             const errorDescription = error.response.data.message;
