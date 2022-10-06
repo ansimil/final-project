@@ -35,18 +35,20 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
               {tagline &&<p>{tagline}</p>}
               <p>{newPrice}</p>
             </div>
+            
+          </div>
 
-            <div className='addAndDetailsBtns'>
+          <div className='addAndDetailsBtns'>
 
-            <div>
-              <AddToCartBtn id={_id} user={user} moduleForCart={moduleForCart}/>
-            </div>
-            <div>
-              <Link to={`/module/${_id}`}>Details</Link>
-            </div>
+              <div>
+                <AddToCartBtn id={_id} user={user} moduleForCart={moduleForCart}/>
+              </div>
+              <div>
+                <Link to={`/module/${_id}`}>Details</Link>
+              </div>
 
-            </div>
-        </div>
+          </div>
+        
 
     </div>
   )

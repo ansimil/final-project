@@ -5,6 +5,8 @@
 
 .app {
   background-color: black;
+  width: 100vw;
+  height: 100vh
 }
 
 h2 {
@@ -41,11 +43,11 @@ p {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: fixed;
+  position: absolute;
   width: 100vw;
   background-color: black;
   color: white;
-  height: 85px;
+  height: 75px;
   text-align: center;
   margin: 0 auto;
   bottom: 0;
@@ -221,15 +223,16 @@ p {
 }
 
 .modulesListContainer {
-  position:relative;
+  position: relative;
   top: 70px;
-  height: 80vh;
-  width: 100vw;
+  height: calc(100vh - 75px);
   background-color: black;
   background-size: cover;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
 }
 
 .loadingIcon {
@@ -245,12 +248,14 @@ p {
 }
 
 .moduleCardContainer {
+  border: solid black 1px;
   background-color: white;
-  width: 300px;
-  height: 90%;
+  min-width: 300px;
+  height: fit-content;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .moduleCardContainer a, button {
@@ -261,27 +266,32 @@ p {
   background-color: rgb(193, 224, 235);
 }
 
+.moduleCardInner {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 63vh;
+  padding: 20px;
+  margin-top: 0;
+  
+}
+
 .go4109123758 {
     font-family: mainFont;
     font-size: 30px;
     z-index: 9999;
 }
 
-.moduleCardInner {
-  border: solid black 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100%
-}
+
 
 .moduleCardInner img:hover {
   cursor: pointer;
 }
 
-.moduleCardInner a {
+.addAndDetailsBtns a {
   text-decoration: none;
   color: black;
   font-family: mainFont;
@@ -309,6 +319,8 @@ p {
   justify-content: center;
   align-items: center;
   row-gap: 10px;
+  margin-top: -20px;
+  margin-bottom: 30px;
 }
 
 .profileContainer {
@@ -448,8 +460,14 @@ input:focus {
   gap: 30px;
   width: 50vw;
   border-top: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 30px
 }
+
+
 
 .dashboardModuleContainer table {
   font-family: mainFont;

@@ -2,6 +2,7 @@ import { useState, useEffect, React } from 'react'
 import { getModules } from '../api/services'
 import ModuleCard from '../components/ModuleCard'
 import loadingIcon from '../assets/giphy.gif'
+import Footer from '../components/Footer'
 
 
 const ModulesList = () => {
@@ -25,13 +26,16 @@ const ModulesList = () => {
   }
 
   return (
+    <>
+    
     <div className='modulesListContainer'>
-
     {modules.map((module) => {
       return <ModuleCard key={module._id} {...module} />
     })}
-
     </div>
+
+    <Footer/>
+    </>
   )
 }
 

@@ -1,0 +1,11 @@
+.summary {
+    cursor: pointer;
+}
+
+.dashboardModuleContainer a, button {
+    cursor: pointer;
+  }
+  
+  .dashboardModuleContainer a:hover, .dashboardModuleContainer button:hover {
+   background-color: rgb(193, 224, 235);
+  }

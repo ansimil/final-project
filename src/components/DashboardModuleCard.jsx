@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { ModuleContext } from '../contexts/modules'
 import { AuthContext } from '../contexts/auth'
 import axios from 'axios'
+import  './DashboardModuleCard.css'
 
 
 const DashboardModuleCard = ({ modulesList }) => {
     const { user } = useContext(AuthContext) 
     const { getModules } = useContext(ModuleContext)
     const [open, setOpen] = useState(false)
+    const [openId, setOpenId] = useState('')
   
 
     const handleDelete = async (moduleId) => {
@@ -25,6 +27,12 @@ const DashboardModuleCard = ({ modulesList }) => {
           getModules()
     }
 
+    const handleOpening = (id) => {
+      const update = openId === '' ? id : ''
+      setOpenId(update)
+      setOpen(!open)     
+    }
+
 
     if (modulesList.length > 0){
       return (
@@ -34,8 +42,8 @@ const DashboardModuleCard = ({ modulesList }) => {
       const {_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = module
       return (
           <div key={_id}>
-            <details open={open}>
-                <summary>{`${i+1}. ${name}`}</summary>
+            <details onClick={() => handleOpening(_id)} open={open && _id === openId}>
+                <summary className='summary'>{`${i+1}. ${name}`}</summary>
                 {/* <p>Sku: {sku}</p>
                 <p>Name: {name}</p>
                 <p>Category: {category}</p>
@@ -102,7 +110,7 @@ const DashboardModuleCard = ({ modulesList }) => {
                 </table>
             </details>
             <div className="dashboardBtns">
-                <button onClick={() => setOpen(!open)}>{!open ? 'View' : 'Close'}</button>
+                <button onClick={() => handleOpening(_id)}>{openId !== _id ? 'View' : 'Close'}</button>
                 <Link to={`/dashboard/${_id}/edit`}>Edit</Link>
                 <button onClick={() => handleDelete(_id)}>Delete</button>
                

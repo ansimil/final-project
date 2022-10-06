@@ -50,7 +50,7 @@ function App() {
       <Route path='/dashboard/add' element={<IsAdmin> <AddModule/> </IsAdmin>}></Route>
     </Routes>
 
-    <Footer/>
+    
     </CartProvider>
     </div>
   );
