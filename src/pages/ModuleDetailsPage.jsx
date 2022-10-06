@@ -4,8 +4,10 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { formatProductPrice } from '../api/services'
 import AddToCartBtn from "../components/AddToCartBtn"
-import './ModuleDetailsPage.css'
 import loadingIcon from '../assets/giphy.gif'
+import Footer from "../components/Footer"
+import './ModuleDetailsPage.css'
+
 
 const ModuleDetailsPage = () => {
     const { user } = useContext(AuthContext)
@@ -68,6 +70,7 @@ const ModuleDetailsPage = () => {
             </div>
             </div>
         </div>
+        <Footer/>
     </div>
   )
 }

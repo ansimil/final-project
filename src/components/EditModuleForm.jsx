@@ -5,7 +5,7 @@ import { ModuleContext } from '../contexts/modules'
 import { AuthContext } from '../contexts/auth'
 import PrimaryFileUploadBtn from './PrimaryFileUploadBtn'
 import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
- 
+import './EditModuleForm.css'
 
 const EditModuleForm = ({_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}) => {
     const { user } = useContext(AuthContext) 
@@ -167,6 +167,7 @@ const EditModuleForm = ({_id, sku, name, category, price, currency, description,
           </div>
 
           <div>
+              <h3>Edit {allValues.name}</h3>
               <h5>Primary Image</h5>
               
                 <PrimaryFileUploadBtn primaryImageUrlFunc={primaryImageUrlFunc}/>
