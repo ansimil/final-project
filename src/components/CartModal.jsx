@@ -47,14 +47,17 @@ const CartModal = ({isOpen, toggleModal}) => {
         onRequestClose={toggleModal}
     >
 
-    <div>
+    <div className="modalTitle">
     <h3>Cart summary</h3>
     </div>
 
+    <div className="modalBtns">
+    <Link onClick={toggleModal} to='/cart'>Go to cart</Link>
+    <CheckoutBtn/>
+    <button onClick={toggleModal}>Still shopping?</button>
+    </div>
+
     <div className='modalInnerDiv'>
-
-    
-
     <table>
     <tbody>
     <tr>
@@ -89,11 +92,7 @@ const CartModal = ({isOpen, toggleModal}) => {
 
     </div>
 
-    <div className="modalBtns">
-    <Link onClick={toggleModal} to='/cart'>Go to cart</Link>
-    <CheckoutBtn/>
-    <button onClick={toggleModal}>Still shopping?</button>
-    </div>
+    
     
     </Modal>
 

@@ -413,21 +413,7 @@ input:focus {
 }
 
 
-.modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: black solid 2px;
-  position: fixed;
-  top: 10vh;
-  left: 30vw;
-  right: 25vw;
-  bottom: 25vh;
-  width: 40vw;
-  height:fit-content;
-  background-color: white;
-}
+
 
 .dashboardModule {
   display: flex;

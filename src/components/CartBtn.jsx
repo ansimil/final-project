@@ -13,7 +13,7 @@ const CartBtn = () => {
       setOpen(!isOpen)
     }
     }
-    console.log(location.pathname)
+    // console.log(location.pathname)
   return (
     <>
     <button className="cartBtn" onClick={toggleModal}>

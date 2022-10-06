@@ -3,6 +3,31 @@
     src: url('../../public/novamono.ttf');
   }
 
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: black solid 2px;
+  position: fixed;
+  top: 10vh;
+  left: 30vw;
+  right: 25vw;
+  bottom: 25vh;
+  min-width: 40vw;
+  max-width: fit-content;
+  /* height:fit-content; */
+  max-height: calc(100vh - 70px);
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.modalTitle {
+  margin-top: 20px;
+  margin-bottom: -40px
+
+}
+
 h3 {
     line-height: 10px;
 }
@@ -20,33 +45,34 @@ td, th {
     padding: 0px 20px 0px 20px;
   }
 
-  .xBtn {
-    border: none !important;
-    padding-bottom: 10px;
-    font-size: 40px;
-  }
+.xBtn {
+  border: none !important;
+  padding-bottom: 10px;
+  font-size: 40px;
+}
 
-  .modalBtns {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.modalBtns {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
 
-  .modalBtns > a, .modalBtns > button  {
-    text-decoration: none;
-    color: black;
-    font-family: mainFont;
-    font-size: 25px;
-    border: solid black 1px;
-    padding: 2.5px 5px 2.5px 5px;
-    margin: 0
-  }
+.modalBtns > a, .modalBtns > button  {
+  text-decoration: none;
+  color: black;
+  font-family: mainFont;
+  font-size: 25px;
+  border: solid black 1px;
+  padding: 2.5px 5px 2.5px 5px;
+  margin: 0
+}
 
 
-  .modalBtns > a:hover, .modalBtns > button:hover {
-    background-color: rgb(193, 224, 235);
-    cursor: pointer;
-  }
+.modalBtns > a:hover, .modalBtns > button:hover {
+  background-color: rgb(193, 224, 235);
+  cursor: pointer;
+}
+

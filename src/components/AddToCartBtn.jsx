@@ -7,14 +7,15 @@ import { useContext } from 'react'
 const AddToCartBtn = ({id, user, moduleForCart }) => {
     const { isLoggedIn } = useContext(AuthContext)
     const { addItem, cartDetails } = useShoppingCart()
-    const {sku, name, price, currency } = moduleForCart
+    const {sku, name, price, currency, primaryImageUrl } = moduleForCart
     const module = {
         name,
         id: sku,
         price,
-        currency
+        currency,
+        image: primaryImageUrl
     }
-
+   
     const handleAddToCart = async () => {
         await addItem(module)
         toast.success(`${module.name} has been added to your cart`, {
@@ -32,6 +33,7 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
                   secondary: '#fff',
         },
         })
+        console.log(moduleForCart)
         console.log({cartDetails})
     } 
 

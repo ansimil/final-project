@@ -1,9 +1,10 @@
-
 import { useShoppingCart } from 'use-shopping-cart';
 import { formatProductPrice } from '../api/services';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom'
 import CheckoutBtn from '../components/CheckoutBtn';
+import Footer from '../components/Footer';
+import './Cart.css'
 
 const Cart = () => {
 
@@ -48,50 +49,59 @@ const Cart = () => {
   }  
 
   return (
-    <div>
+    <div className="cartContainer">
 
-    <h3>Cart details</h3>
+        <div>
+            <h3>Cart details</h3>
+        </div>
 
-    <table>
-    <thead>
-    <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    {Object.keys(cartDetails).map((key, i)=> {
-        return (
-            <tr key={i}>
-            <td>{cartDetails[key].name}</td>
-            <td>{cartDetails[key].quantity}</td>
-            <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
-            <td><button onClick={() => handleIncrementCount(cartDetails[key].id)}>+</button></td>
-            <td><button onClick={() => handleDecrementCount(cartDetails[key].id)}>-</button></td>
-            <td><button onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
+        <div className="cartTable">
+            <table>
+            <thead>
+            <tr>
+            <th></th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
             </tr>
-        )
-    })}
-    </tbody>
-    
-    </table> 
+            </thead>
+            <tbody>
+            {Object.keys(cartDetails).map((key, i)=> {
+                console.log(cartDetails[key])
+                return (
+                    <tr key={i}>
+                    <td className='cartImage'><img src={cartDetails[key].image} alt="err" height='50px'/></td>
+                    <td>{cartDetails[key].name}</td>
+                    <td>{cartDetails[key].quantity}</td>
+                    <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
+                    <td><button className='cartTableBtns' onClick={() => handleIncrementCount(cartDetails[key].id)}>+</button></td>
+                    <td><button className='cartTableBtns' onClick={() => handleDecrementCount(cartDetails[key].id)}>-</button></td>
+                    <td><button className='cartTableBtns' onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
+                    </tr>
+                )
+            })}
+            </tbody>
+            
+            </table> 
 
-    <table>
-    <tbody>
-    <tr>
-        <th>Total Price</th>
-    </tr>
+            <table>
+            <tbody>
+            <tr>
+                <th>Total Price</th>
+            </tr>
 
-    <tr>
-        <td>{formattedTotalPrice}</td>
-    </tr>
-    </tbody>
-    </table>
+            <tr>
+                <td>{formattedTotalPrice}</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
 
-    <div>
-    <CheckoutBtn/> 
-    </div>
+        <div className='cartCheckoutBtn'>
+        <CheckoutBtn/> 
+        </div>
+
+        <Footer/>
     </div>
   )
 }
