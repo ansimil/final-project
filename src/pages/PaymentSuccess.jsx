@@ -2,7 +2,7 @@ import {useEffect, useState, useContext} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
-import { updateCart } from '../api/services';
+import { updateCart, updateStock } from '../api/services';
 import { AuthContext } from '../contexts/auth'
 import { ModuleContext } from '../contexts/modules';
 import Footer from '../components/Footer';
@@ -20,6 +20,7 @@ const PaymentSuccess = () => {
     useEffect(() => {
     const updateForPurchase = async () => {
     await updateCart(cartDetails, user)
+    await updateStock(cartDetails)
     clearCart()
     getModules()
     axios.get(`${process.env.REACT_APP_API_URL}/checkout-session/${sessionId}`)

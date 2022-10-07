@@ -95,6 +95,13 @@ const updateCart = (cartDetails, user) => {
   .catch(err => console.log(err))
 }
 
+const updateStock = (cartDetails) => {
+  const storedToken = localStorage.getItem('authToken')
+  return axios.put(`${process.env.REACT_APP_API_URL}/update-stock`, cartDetails, { headers: { Authorization: `Bearer ${storedToken}`}}) 
+  .then(res => res.status(200).json(res.data))
+  .catch(err => console.log(err))
+}
+
 export {
   getModules,
   uploadImage,
@@ -109,4 +116,5 @@ export {
   updateCart,
   editUser,
   getUser,
+  updateStock
 };
