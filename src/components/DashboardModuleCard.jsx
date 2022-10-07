@@ -41,22 +41,10 @@ const DashboardModuleCard = ({ modulesList }) => {
         {modulesList.map((module, i) => {
       const {_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = module
       return (
-          <div key={_id}>
+          <div className='dashboardCard' key={_id}>
             <details onClick={() => handleOpening(_id)} open={open && _id === openId}>
                 <summary className='summary'>{`${i+1}. ${name}`}</summary>
-                {/* <p>Sku: {sku}</p>
-                <p>Name: {name}</p>
-                <p>Category: {category}</p>
-                <p>Price: {price}</p>
-                <p>Currency: {currency}</p>
-                <p>Description: {description}</p>
-                <p>Short description: {shortDescription}</p>
-                <p>Tagline: {tagline}</p>
-                <p>In stock: {inStock}</p>
-                <a href={primaryImageUrl}>Primary Image</a>
-                {secondaryImageUrl && secondaryImageUrl.map((url, i) => {
-                  return (<a key={i} href={url}>Secondary Image {i+1}</a>)
-                })} */}
+              
                 <table>
                   <tr>
                     <td>Sku</td>

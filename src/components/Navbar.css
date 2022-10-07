@@ -23,6 +23,12 @@
   .navBtn:hover {
     color: rgb(193, 224, 235)
   }
+
+  .modulesBtn, .dashboardBtn {
+    font-size: 40px
+  }
+
+
   
   .navMiddle {
     flex-grow: 1;

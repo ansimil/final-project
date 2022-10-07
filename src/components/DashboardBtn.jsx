@@ -6,7 +6,7 @@ const DashboardBtn = () => {
     
     <div>
 
-    <Link className='navBtn' to="/dashboard">Dashboard</Link>
+    <Link className='navBtn dashboardBtn' to="/dashboard">Dashboard</Link>
 
     </div>
 

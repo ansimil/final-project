@@ -27,7 +27,7 @@ const Navbar = () => {
 
         <div className={isLoggedIn ? 'navMiddle' : 'navMiddleLoggedOut'}>
         <div>
-          <Link className="navBtn" to="/modules">Modules</Link>
+          <Link className="navBtn modulesBtn" to="/modules">Modules</Link>
         </div>
         {isLoggedIn && user.isAdmin && <DashboardBtn />}
         

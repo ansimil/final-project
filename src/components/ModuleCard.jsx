@@ -8,10 +8,10 @@ import './ModuleCard.css'
 import { ModuleContext } from '../contexts/modules'
 
 
-const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, tagline, primaryImageUrl }) => {
+const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, inStock, tagline, primaryImageUrl }) => {
   const { setModule } = useContext(ModuleContext)
   const module = {price, currency}
-  const moduleForCart = {sku, name, price, currency, primaryImageUrl}
+  const moduleForCart = {sku, name, price, currency, primaryImageUrl, inStock}
   const {user} = useContext(AuthContext)
   const newPrice = formatProductPrice(module)
   const navigate = useNavigate()

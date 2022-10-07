@@ -5,13 +5,15 @@ import { useNavigate } from 'react-router-dom'
 import CheckoutBtn from '../components/CheckoutBtn';
 import Footer from '../components/Footer';
 import './Cart.css'
+import { ModuleContext } from '../contexts/modules';
+import {useContext} from 'react'
 
 const Cart = () => {
-
+    const {modules} = useContext(ModuleContext)
     const { cartDetails, removeItem, formattedTotalPrice, cartCount, incrementItem, decrementItem } = useShoppingCart()
     // console.log(cartDetails)
     const navigate = useNavigate()
-   
+    console.log(modules)
 
     const handleRemoveItems = (product, amount) => {
         removeItem(product.id)
@@ -30,11 +32,29 @@ const Cart = () => {
           })
     }
 
-    const handleIncrementCount = (id) => {
-        incrementItem(id)
+    const handleIncrementCount = (id, module) => {
+        if ((cartDetails[id]?.quantity < module.inStock)){
+        incrementItem(id)}
+        else {
+            toast.error('Not enough items in stock', {
+                style: {
+                        border: '2px solid black',
+                        backgroundColor: 'white',
+                        borderRadius: '0px',
+                        padding: '5px 10px',
+                        color: 'black',
+                        textAlign: 'center',
+                        lineHeight: '20px'
+               },
+               iconTheme: {
+                        primary: '#000',
+                        secondary: '#fff',
+              },
+              })
+        }
     }
 
-    const handleDecrementCount = (id) => {
+    const handleDecrementCount = (id, module) => {
         if (cartDetails[id].quantity > 1){
             decrementItem(id)
             }
@@ -53,7 +73,7 @@ const Cart = () => {
 
   if (cartCount === 0) {
     return (
-        <div>
+        <div className="cartContainer">
         <h3>No items in your cart</h3>
         <button onClick={() => navigate(-1)}>Back</button>
         </div>
@@ -86,8 +106,8 @@ const Cart = () => {
                     <td>{cartDetails[key].name}</td>
                     <td>{cartDetails[key].quantity}</td>
                     <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
-                    <td><button className='cartTableBtns' onClick={() => handleIncrementCount(cartDetails[key].id)}>+</button></td>
-                    <td><button className='cartTableBtns' onClick={() => handleDecrementCount(cartDetails[key].id)}>-</button></td>
+                    <td><button className='cartTableBtns' onClick={() => handleIncrementCount(cartDetails[key].id, cartDetails[key])}>+</button></td>
+                    <td><button className='cartTableBtns' onClick={() => handleDecrementCount(cartDetails[key].id, cartDetails[key])}>-</button></td>
                     <td><button className='cartTableBtns' onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
                     </tr>
                 )

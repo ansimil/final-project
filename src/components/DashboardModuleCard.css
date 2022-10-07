@@ -9,3 +9,9 @@
   .dashboardModuleContainer a:hover, .dashboardModuleContainer button:hover {
    background-color: rgb(193, 224, 235);
   }
+
+.dashboardCard {
+    width: 100%;
+    border-bottom: solid black 1px;
+    padding-bottom: 5px;
+}
