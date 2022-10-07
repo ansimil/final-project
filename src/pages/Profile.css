@@ -16,7 +16,10 @@
     border: white solid 1px;
     
   }
-
+  
+  .profileBtn a:hover {
+    border: rgb(193, 224, 235) solid 1px;
+  }
   
 
   .editProfileForm {
