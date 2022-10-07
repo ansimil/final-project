@@ -14,6 +14,7 @@ import AddModule from './pages/AddModule';
 import Wishlist from './pages/Wishlist'
 import EditModule from './pages/EditModule';
 import ModuleDetailsPage from './pages/ModuleDetailsPage';
+import EasterEgg from './pages/EasterEgg';
 import { loadStripe } from '@stripe/stripe-js'
 import { CartProvider} from 'use-shopping-cart'
 import { Toaster } from 'react-hot-toast'
@@ -48,6 +49,7 @@ function App() {
       <Route path='/cart' element={<IsUser> <Cart/> </IsUser>}></Route> 
       <Route path='/dashboard' element={<IsAdmin> <Dashboard/> </IsAdmin>}></Route>
       <Route path='/dashboard/add' element={<IsAdmin> <AddModule/> </IsAdmin>}></Route>
+      <Route path='/funtimes' element={<EasterEgg/>}></Route>
     </Routes>
 
     

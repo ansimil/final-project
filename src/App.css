@@ -398,3 +398,19 @@ details > summary {
   background-color: black !important; 
   color: white !important
 }
+
+.easterEgg {
+  position: relative;
+  top: 70px;
+  height: calc(100vh - 75px);
+  background-color: black;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.easterEgg video {
+  width: 100vw;
+  height: calc(100% - 155px)
+}
