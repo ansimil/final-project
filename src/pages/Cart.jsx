@@ -1,19 +1,40 @@
+import { useContext, useEffect, useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart';
 import { formatProductPrice } from '../api/services';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom'
 import CheckoutBtn from '../components/CheckoutBtn';
+import { ModuleContext } from '../contexts/modules';
 import Footer from '../components/Footer';
 import './Cart.css'
-import { ModuleContext } from '../contexts/modules';
-import {useContext} from 'react'
+
+
 
 const Cart = () => {
+    const [stockShortage, setStockShortage] = useState([])
     const {modules} = useContext(ModuleContext)
     const { cartDetails, removeItem, formattedTotalPrice, cartCount, incrementItem, decrementItem } = useShoppingCart()
     // console.log(cartDetails)
     const navigate = useNavigate()
     console.log(modules)
+    console.log(cartDetails)
+
+
+    useEffect(() => {
+        let arr = []
+        Object.keys(cartDetails).map(key => {
+            return modules.forEach(module => {
+                if (cartDetails[key].id === module.id && cartDetails[key].quantity > module.inStock) {
+                    let mod = cartDetails[key].name
+                    let inSt = module.inStock
+                    arr.push([mod, inSt])
+                }
+            })
+        })
+        setStockShortage(arr)
+        // eslint-disable-next-line
+    }, [])
+
 
     const handleRemoveItems = (product, amount) => {
         removeItem(product.id)
@@ -99,7 +120,6 @@ const Cart = () => {
             </thead>
             <tbody>
             {Object.keys(cartDetails).map((key, i)=> {
-                console.log(cartDetails[key])
                 return (
                     <tr key={i}>
                     <td className='cartImage'><img src={cartDetails[key].image} alt="err" height='50px'/></td>
@@ -130,7 +150,7 @@ const Cart = () => {
         </div>
 
         <div className='cartCheckoutBtn'>
-        <CheckoutBtn/> 
+        <CheckoutBtn outOfStock={stockShortage}/> 
         </div>
 
         <Footer/>
