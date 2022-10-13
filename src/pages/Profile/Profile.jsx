@@ -1,9 +1,9 @@
 import {React, useEffect, useContext, useState} from 'react'
-import Footer from '../components/Footer'
+import Footer from '../../components/Footer/Footer'
 import './Profile.css'
-import ProfileForm from '../components/ProfileForm'
-import { getUser } from '../api/services'
-import { AuthContext } from '../contexts/auth'
+import ProfileForm from '../../components/ProfileForm'
+import { getUser } from '../../api/services'
+import { AuthContext } from '../../contexts/auth'
 
 
 

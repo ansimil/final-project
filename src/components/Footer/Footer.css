@@ -1,0 +1,21 @@
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    height: 75px;
+    text-align: center;
+    margin: 0 auto;
+    bottom: 0;
+    z-index: 9999;
+    border-top: solid white 0.5px;
+  }
+
+  .footer p {
+    color: white;
+    font-family: mainFont;
+    font-size: 30px;
+  }

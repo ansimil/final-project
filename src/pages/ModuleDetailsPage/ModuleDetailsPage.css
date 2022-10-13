@@ -21,6 +21,8 @@
     column-gap: 10%;
 }
 
+
+
 .moduleDescription {
     width: 90%;
     text-align:left;
@@ -60,7 +62,9 @@
 .mainImage {
     background-color: white;
     border: solid black 1px;
-    padding: 15px 60px 15px 60px
+    padding: 15px 60px 15px 60px;
+    min-width: 35%;
+    max-width: 35%;
 }
 
 .imagesDiv {
@@ -86,4 +90,26 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+    .moduleDetailsInnerDiv {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: fit-content;
+        margin-bottom: 12vh;
+    }  
+
+    .mainImage {
+        min-width: 20%;
+        max-width: 40%;
+    }
+
+    .imagesDiv {
+        max-width: 100%
+    }
+
+    .detailsContainer div {
+        margin: 0 0 0 5%
+    }
 }

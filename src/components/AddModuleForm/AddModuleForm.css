@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'mainFont';
-    src: url('../../public/novamono.ttf');
+    src: url('../../../public/novamono.ttf');
   }
 
 input, textarea {

@@ -2,11 +2,11 @@ import {useEffect, useState, useContext} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
-import { updateCart, updateStock } from '../api/services';
-import { AuthContext } from '../contexts/auth'
-import { ModuleContext } from '../contexts/modules';
-import Footer from '../components/Footer';
-import loadingIcon from '../assets/giphy.gif'
+import { updateCart, updateStock } from '../../api/services';
+import { AuthContext } from '../../contexts/auth'
+import { ModuleContext } from '../../contexts/modules';
+import Footer from '../../components/Footer/Footer';
+import loadingIcon from '../../assets/giphy.gif'
 import './PaymentSuccess.css'
 
 

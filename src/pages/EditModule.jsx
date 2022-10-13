@@ -1,4 +1,4 @@
-import EditModuleForm from '../components/EditModuleForm'
+import EditModuleForm from '../components/EditModuleForm/EditModuleForm'
 import { useEffect, useState, React } from 'react';
 import { useParams } from 'react-router-dom'
 import { getModule } from '../api/services';

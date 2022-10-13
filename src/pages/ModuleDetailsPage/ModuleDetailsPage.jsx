@@ -1,11 +1,11 @@
-import { ModuleContext } from "../contexts/modules"
-import { AuthContext } from "../contexts/auth"
+import { ModuleContext } from "../../contexts/modules"
+import { AuthContext } from "../../contexts/auth"
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { formatProductPrice } from '../api/services'
-import AddToCartBtn from "../components/AddToCartBtn"
-import loadingIcon from '../assets/giphy.gif'
-import Footer from "../components/Footer"
+import { formatProductPrice } from '../../api/services'
+import AddToCartBtn from "../../components/AddToCartBtn"
+import loadingIcon from '../../assets/giphy.gif'
+import Footer from "../../components/Footer/Footer"
 import './ModuleDetailsPage.css'
 
 
@@ -41,7 +41,7 @@ const ModuleDetailsPage = () => {
         <div className="moduleDetailsInnerDiv">
 
             <div className="imagesDiv">
-                <img className="mainImage" src={bool ? mainImage : module.primaryImageUrl} alt="error loading pic" height="400px" />
+                <img className="mainImage" src={bool ? mainImage : module.primaryImageUrl} alt="error loading pic" />
                 <div className="secondaryImageContainer">
                 <img onClick={() => {setMainImage(module.primaryImageUrl)}} src={module.primaryImageUrl} alt="error loading pic" height="50px"/>
                 {module?.secondaryImageUrl?.length > 0 && module?.secondaryImageUrl.map((image, i) => {
@@ -64,13 +64,10 @@ const ModuleDetailsPage = () => {
             <div className="moduleDescription">
                 <p>{module.description}</p>
             </div>
-
-            <div>
                 <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
             </div>
-            </div>
         </div>
-        <Footer/>
+        <Footer />
     </div>
   )
 }

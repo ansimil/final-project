@@ -1,0 +1,52 @@
+.signupContainer {
+    background-image: url('../../assets/modular-system-2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    position: relative;
+    top: 70px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+.signupInnerDiv {
+    background-color: white;
+    border: black solid 2px;
+    height: 80%;
+    max-width: 60vw;
+    min-width: 60vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    column-gap: 1%;
+  }
+
+  .signupLoginBtn {
+    width: 102.5%
+  }
+  
+  .signupLoginBtn:hover {
+    background-color: rgb(193, 224, 235)
+  }
+
+  .signupPage, .LoginPage {
+    margin: 30px;
+    background-color: white;
+    border: solid black 2px;
+    padding: 0px 30px 20px 30px;
+    max-width: 25%;
+    min-width: 25%
+  }
+  
+  .signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+.error-message {
+    color: red
+}

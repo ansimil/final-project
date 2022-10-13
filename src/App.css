@@ -29,22 +29,6 @@ p {
   font-size: 30px;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  position: absolute;
-  width: 100vw;
-  background-color: black;
-  color: white;
-  height: 75px;
-  text-align: center;
-  margin: 0 auto;
-  bottom: 0;
-  z-index: 9999;
-  border-top: solid white 0.5px;
-}
-
 .socialsContainer {
   display: flex;
   justify-content: space-evenly;
@@ -82,46 +66,6 @@ p {
 
 .homepage a:hover {
   background-color: white;
-}
-
-.signupContainer {
-  background-image: url('./assets/modular-system-2.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  width: 100vw;
-  height: calc(100vh - 70px);
-  position: relative;
-  top: 70px;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.signupInnerDiv {
-  background-color: white;
-  border: black solid 2px;
-  height: 80%;
-  width: 60vw;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  column-gap: 1%;
-}
-
-.signupLoginBtn {
-  width: 102.5%
-}
-
-.signupLoginBtn:hover {
-  background-color: rgb(193, 224, 235)
-}
-
-
-.footer p {
-  color: white;
-  font-family: mainFont;
-  font-size: 30px;
 }
 
 .modulesListContainer {
@@ -208,7 +152,8 @@ p {
   margin: 0;
   padding: 20px;
   border: solid black 1px;
-  background-color:rgb(243, 241, 241)
+  background-color:rgb(243, 241, 241);
+  height: 32vh
 }
 
 .moduleCardInner h2 {
@@ -220,7 +165,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 10px;
+  row-gap: 1.5vh;
   margin-top: -20px;
   margin-bottom: 30px;
 }
@@ -238,18 +183,7 @@ p {
   margin-bottom: 100px;
 }
 
-.signupPage, .LoginPage {
-  margin: 30px;
-  background-color: white;
-  border: solid black 2px;
-  padding: 0px 30px 20px 30px
-}
 
-.signupForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .addModuleContainer {
   display:flex;

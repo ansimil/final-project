@@ -58,12 +58,11 @@ const LoginComp = () => {
           storeToken(response.data.authToken) 
           await authenticateUser()
           const newCartDetails = {...response.data.cart[0]}
-          console.log(newCartDetails)
           await loadCart(newCartDetails, false)
           navigate('/profile');            
         })
         .catch((error) => {
-          const errorDescription = error;
+          const errorDescription = error.response.data.message;
           setErrorMessage(errorDescription);
         })
     };

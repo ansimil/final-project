@@ -1,18 +1,17 @@
 import { useState, useEffect, React } from 'react'
 import { getModules } from '../api/services'
-import ModuleCard from '../components/ModuleCard'
+import ModuleCard from '../components/ModuleCard/ModuleCard'
 import loadingIcon from '../assets/giphy.gif'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer/Footer'
 
 
 const ModulesList = () => {
   const [modules, setModules] = useState([])
 
   useEffect(()=>{
-    console.log(localStorage.getItem('cartDetails'))
     getModules()
     .then(res => {
-      console.log(res)
+      // console.log(res)
       setModules(res)
     })
     

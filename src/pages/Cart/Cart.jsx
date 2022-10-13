@@ -1,23 +1,24 @@
 import { useContext, useEffect, useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart';
-import { formatProductPrice } from '../api/services';
+import { formatProductPrice } from '../../api/services';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom'
-import CheckoutBtn from '../components/CheckoutBtn';
-import { ModuleContext } from '../contexts/modules';
-import Footer from '../components/Footer';
+import CheckoutBtn from '../../components/CheckoutBtn';
+import { ModuleContext } from '../../contexts/modules';
+import Footer from '../../components/Footer/Footer';
 import './Cart.css'
 
 
 
+
 const Cart = () => {
-    const [stockShortage, setStockShortage] = useState([])
+    const [stockShortage, setStockShortage] = useState()
     const {modules} = useContext(ModuleContext)
     const { cartDetails, removeItem, formattedTotalPrice, cartCount, incrementItem, decrementItem } = useShoppingCart()
     // console.log(cartDetails)
     const navigate = useNavigate()
-    console.log(modules)
-    console.log(cartDetails)
+    // console.log(modules)
+    // console.log(cartDetails)
 
 
     useEffect(() => {

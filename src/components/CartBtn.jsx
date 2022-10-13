@@ -1,20 +1,40 @@
-import React from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { ModuleContext } from '../contexts/modules'
 import { useShoppingCart } from 'use-shopping-cart'
-import CartModal from './CartModal'
+import CartModal from './CartModal/CartModal'
 import logo from "../assets/cart-icon-inverted.png"
 import { useLocation } from 'react-router-dom'
 
 const CartBtn = () => {
+    const [stockShortage, setStockShortage] = useState()
     const location = useLocation()
-    const { cartCount } = useShoppingCart()
-    const [isOpen, setOpen] = React.useState(false)
+    const { cartCount, cartDetails } = useShoppingCart()
+    const [isOpen, setOpen] = useState(false)
+    const {modules} = useContext(ModuleContext)
+
+    useEffect(() => {
+      let arr = []
+      Object.keys(cartDetails).map(key => {
+          return modules.forEach(module => {
+              if (cartDetails[key].id === module.id && cartDetails[key].quantity > module.inStock) {
+                  let mod = cartDetails[key].name
+                  let inSt = module.inStock
+                  arr.push([mod, inSt])
+              }
+          })
+      })
+      setStockShortage(arr)
+      // eslint-disable-next-line
+  }, [])
+
+
     const toggleModal = () => {
       if(location.pathname !== '/cart'){
       setOpen(!isOpen)
     }
     }
-    // console.log(location.pathname)
-  return (
+
+    return (
     <>
     <button className="cartBtn" onClick={toggleModal}>
     <span>
@@ -23,7 +43,7 @@ const CartBtn = () => {
           <span>{cartCount}</span>
     </span>
     </button>
-    {location.pathname !== '/cart' && <CartModal isOpen={isOpen} toggleModal={toggleModal} />}
+    {location.pathname !== '/cart' && <CartModal isOpen={isOpen} toggleModal={toggleModal} setOpen stockShortage={stockShortage} />}
     </>
   )
 }

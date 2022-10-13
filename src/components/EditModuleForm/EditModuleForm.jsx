@@ -1,10 +1,10 @@
 import { React, useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { editModule } from '../api/services'
-import { ModuleContext } from '../contexts/modules'
-import { AuthContext } from '../contexts/auth'
-import PrimaryFileUploadBtn from './PrimaryFileUploadBtn'
-import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
+import { editModule } from '../../api/services'
+import { ModuleContext } from '../../contexts/modules'
+import { AuthContext } from '../../contexts/auth'
+import PrimaryFileUploadBtn from '../PrimaryFileUploadBtn'
+import SecondaryFileUploadBtn from '../SecondaryFileUploadBtn'
 import './EditModuleForm.css'
 
 const EditModuleForm = ({_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl}) => {

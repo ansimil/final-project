@@ -1,32 +1,30 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import Home from '../src/pages/Home'
-import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-import Signup from './pages/Signup';
-import Profile from './pages/Profile';
+import Navbar from './components/Navbar/Navbar';
+import Signup from './pages/Signup/Signup';
+import Profile from './pages/Profile/Profile';
 import ModulesList from './pages/ModulesList';
 import IsAnon from './components/IsAnon';
 import IsUser from './components/IsUser';
 import IsAdmin from './components/IsAdmin';
 import Dashboard from './pages/Dashboard';
-import AddModule from './pages/AddModule';
+import AddModule from './pages/AddModule/AddModule';
 import Wishlist from './pages/Wishlist'
 import EditModule from './pages/EditModule';
-import ModuleDetailsPage from './pages/ModuleDetailsPage';
+import ModuleDetailsPage from './pages/ModuleDetailsPage/ModuleDetailsPage';
 import EasterEgg from './pages/EasterEgg';
 import { loadStripe } from '@stripe/stripe-js'
 import { CartProvider} from 'use-shopping-cart'
 import { Toaster } from 'react-hot-toast'
-import Cart from './pages/Cart';
-import PaymentSuccess from './pages/PaymentSuccess';
+import Cart from './pages/Cart/Cart';
+import PaymentSuccess from './pages/PaymentSuccess/PaymentSuccess';
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC}`)
 
 
 
 function App() {
-  // console.log(process.env.NODE_ENV)
   return (
     <div className="App">
     <CartProvider

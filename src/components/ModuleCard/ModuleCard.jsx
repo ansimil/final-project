@@ -1,11 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { formatProductPrice } from '../api/services'
-import AddToCartBtn from '../components/AddToCartBtn'
-import { AuthContext } from '../contexts/auth'
+import { formatProductPrice } from '../../api/services'
+import AddToCartBtn from '../../components/AddToCartBtn'
+import { AuthContext } from '../../contexts/auth'
 
 import { useContext } from 'react'
 import './ModuleCard.css'
-import { ModuleContext } from '../contexts/modules'
+import { ModuleContext } from '../../contexts/modules'
 
 
 const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency, inStock, tagline, primaryImageUrl }) => {
@@ -28,7 +28,7 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
 
             <h2>{name}</h2>
             <div>
-            <img onClick={handleRedirect} src={primaryImageUrl} alt="Error loading pic" height="200px" />
+            <img onClick={handleRedirect} src={primaryImageUrl} alt="Error loading pic" />
             </div>
 
             <div className='tagline'>

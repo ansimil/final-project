@@ -1,7 +1,7 @@
 import { React, useContext } from 'react'
 import { ModuleContext } from '../contexts/modules'
 import { Link } from 'react-router-dom'
-import DashboardModuleCard from '../components/DashboardModuleCard'
+import DashboardModuleCard from '../components/DashboardModuleCard/DashboardModuleCard'
 
 
 const Dashboard = () => {

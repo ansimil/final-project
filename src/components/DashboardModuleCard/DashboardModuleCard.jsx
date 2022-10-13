@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { ModuleContext } from '../contexts/modules'
-import { AuthContext } from '../contexts/auth'
+import { useNavigate } from 'react-router-dom'
+import { ModuleContext } from '../../contexts/modules'
+import { AuthContext } from '../../contexts/auth'
 import axios from 'axios'
 import  './DashboardModuleCard.css'
 
 
 const DashboardModuleCard = ({ modulesList }) => {
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext) 
     const { getModules } = useContext(ModuleContext)
     const [open, setOpen] = useState(false)
@@ -86,22 +87,23 @@ const DashboardModuleCard = ({ modulesList }) => {
                     <td>Primary Image</td>
                     <td><a href={primaryImageUrl}>Link</a></td>
                   </tr>
+
                   {secondaryImageUrl && secondaryImageUrl.map((url, i) => {
                   return (
                     <tr>
-                    <td>Secondary Image {i+1}</td>
-                    <td><a key={i} href={url}>Link</a></td>
+                      <td>Secondary Image {i+1}</td>
+                      <td><a key={i} href={url}>Link</a></td>
                     </tr> 
                     )
                 })}
 
                 </table>
             </details>
+
             <div className="dashboardBtns">
                 <button onClick={() => handleOpening(_id)}>{openId !== _id ? 'View' : 'Close'}</button>
-                <Link to={`/dashboard/${_id}/edit`}>Edit</Link>
+                <button onClick={() => navigate(`/dashboard/${_id}/edit`)}>Edit</button>
                 <button onClick={() => handleDelete(_id)}>Delete</button>
-               
             </div>
 
           </div>

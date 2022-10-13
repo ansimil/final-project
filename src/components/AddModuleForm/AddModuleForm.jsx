@@ -1,10 +1,10 @@
 import { React, useState, useContext } from 'react'
-import { createModule } from '../api/services'
-import PrimaryFileUploadBtn from './PrimaryFileUploadBtn'
-import SecondaryFileUploadBtn from './SecondaryFileUploadBtn'
+import { createModule } from '../../api/services'
+import PrimaryFileUploadBtn from '../PrimaryFileUploadBtn'
+import SecondaryFileUploadBtn from '../SecondaryFileUploadBtn'
 import { useNavigate } from 'react-router-dom'
-import { ModuleContext } from '../contexts/modules'
-import { AuthContext } from '../contexts/auth'
+import { ModuleContext } from '../../contexts/modules'
+import { AuthContext } from '../../contexts/auth'
 import './AddModuleForm.css'
 
 const AddModuleForm = () => {

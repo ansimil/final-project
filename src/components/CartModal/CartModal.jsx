@@ -1,16 +1,16 @@
-import React from 'react'
+import {React} from 'react'
 import Modal from 'react-modal'
 import { Link } from 'react-router-dom'
 import { useShoppingCart } from 'use-shopping-cart' 
-import { formatProductPrice } from '../api/services';
+import { formatProductPrice } from '../../api/services';
 import { toast } from 'react-hot-toast'
-import CheckoutBtn from './CheckoutBtn';
+import CheckoutBtn from '../CheckoutBtn';
 import './CartModal.css'
 
 
 Modal.setAppElement("#root")
 
-const CartModal = ({isOpen, toggleModal}) => {
+const CartModal = ({isOpen, toggleModal, stockShortage}) => {
     const { cartDetails, formattedTotalPrice, removeItem } = useShoppingCart()
 
     const formatPrice = (value, currency) => {
@@ -21,7 +21,7 @@ const CartModal = ({isOpen, toggleModal}) => {
         return formatProductPrice(price)
     } 
 
-    const handleRemoveItems = (product, amount) => {
+    const handleRemoveItems = (product) => {
         removeItem(product.id)
         toast.success('Items successfully removed from cart', {
             style: {
@@ -53,42 +53,44 @@ const CartModal = ({isOpen, toggleModal}) => {
 
     <div className="modalBtns">
     <Link onClick={toggleModal} to='/cart'>Go to cart</Link>
-    <CheckoutBtn/>
+    {stockShortage && stockShortage.length === 0 && <CheckoutBtn isOpen setOpen/>}
     <button onClick={toggleModal}>Still shopping?</button>
     </div>
 
     <div className='modalInnerDiv'>
-    <table>
-    <tbody>
-    <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    </tr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
 
-    {Object.keys(cartDetails).map((key, i)=> {
-        return (
-            <tr key={key}>
-            <td>{cartDetails[key].name}</td>
-            <td>{cartDetails[key].quantity}</td>
-            <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
-            <td><button className='xBtn' onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
-            </tr>
-        )
-    })}
-        
-    </tbody>
-    </table> 
+                {Object.keys(cartDetails).map((key, i)=> {
+                    return (
+                        <tr key={key}>
+                        <td>{cartDetails[key].name}</td>
+                        <td>{cartDetails[key].quantity}</td>
+                        <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
+                        <td><button className='xBtn' onClick={() => handleRemoveItems(cartDetails[key])}>x</button></td>
+                        </tr>
+                    )
+                })}
+            </tbody>
+        </table> 
 
-    <table>
-    <tr>
-        <th>Total Price</th>
-    </tr>
-
-    <tr>
-        <td>{formattedTotalPrice}</td>
-    </tr>
-    </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{formattedTotalPrice}</td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 

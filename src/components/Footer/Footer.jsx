@@ -1,9 +1,10 @@
 import React from 'react'
-import fbIcon from '../assets/fb-logo.png'
-import twIcon from '../assets/tw-logo.png'
-import ytIcon from '../assets/yt-logo.png'
-import scIcon from '../assets/sc-logo.png'
-import emIcon from '../assets/em-logo.png'
+import fbIcon from '../../assets/fb-logo.png'
+import twIcon from '../../assets/tw-logo.png'
+import ytIcon from '../../assets/yt-logo.png'
+import scIcon from '../../assets/sc-logo.png'
+import emIcon from '../../assets/em-logo.png'
+import './Footer.css'
 
 const Footer = () => {
   const height = "30px"

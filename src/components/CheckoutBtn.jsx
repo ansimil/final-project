@@ -11,6 +11,7 @@ const CheckoutBtn = ({ outOfStock }) => {
     const { cartDetails } = useShoppingCart()
 
     const handleCheckout = async () => {
+      console.log(outOfStock)
         if (outOfStock.length > 0) {
           let str = ''
           outOfStock.forEach((module, i) => {
@@ -18,7 +19,7 @@ const CheckoutBtn = ({ outOfStock }) => {
           })
           toast.error(<span>{`The following item(s) don't have enough stock:`}<ul>
             {outOfStock.map((module, i) => {
-             return ( <li>{`${module[0]}(${module[1]})`}</li> )
+             return ( <li key={module.id}>{`${module[0]}(${module[1]})`}</li> )
             })}
           </ul>Please adjust your cart accordingly</span>, {
             duration: 7000,
@@ -38,7 +39,7 @@ const CheckoutBtn = ({ outOfStock }) => {
           })
         }
 
-        else if (outOfStock.length === 0) {
+        else if (outOfStock.length === 0 || !outOfStock) {
 
         const stripe = await stripePromise;
         const session = await axios.post(`${process.env.REACT_APP_API_URL}/checkout-session`, cartDetails)
@@ -50,7 +51,7 @@ const CheckoutBtn = ({ outOfStock }) => {
 
         if (session) {
             const { id } = session
-            console.log(session)
+            // console.log(session)
             stripe.redirectToCheckout({ sessionId: id });
         }
       }
@@ -61,9 +62,7 @@ const CheckoutBtn = ({ outOfStock }) => {
 
   return (
     <div className='modalBtns'>
-
     <button onClick={handleCheckout}>Checkout</button>
-
     </div>
   )
 }
