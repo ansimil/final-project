@@ -17,7 +17,7 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 10%;
 }
 
@@ -63,15 +63,15 @@
     background-color: white;
     border: solid black 1px;
     padding: 15px 60px 15px 60px;
-    min-width: 35%;
-    max-width: 35%;
+    min-height: 65%;
+    max-height: 65%;
 }
 
 .imagesDiv {
     padding: 20px 0px 20px 0px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border: black solid 1px;
     max-width: 50%;
