@@ -1,6 +1,6 @@
 # MDI Modular Website - Final Project - Ironhack Bootcamp
 
-## Client-side [Link]: https://www.mdi-modular.netlify.app/
+## Client-side [Link](https://www.mdi-modular.netlify.app/)
 
 ### Introduction
 
