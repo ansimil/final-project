@@ -93,7 +93,9 @@ const LoginComp = () => {
         
   
           <br/>
-          
+          <div>
+          <a href="/forgotpassword">Forgot your password?</a>
+          </div>
           <div>
           <button className='signupLoginBtn' type="submit">Login</button>
           </div>
