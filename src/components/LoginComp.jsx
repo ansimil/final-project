@@ -38,6 +38,14 @@ const LoginComp = () => {
         setPasswordCheck(true)
       }
 
+      if (emailRegex.test(email)) {
+        setEmailCheck(true)
+      }
+
+      else if (passwordRegex.test(password)) {
+        setPasswordCheck(true)
+      }
+
     }, [email, password])
    
     const handleEmail = (e) => {
@@ -93,7 +101,9 @@ const LoginComp = () => {
         
   
           <br/>
-          
+          <div>
+          <a href="/forgotpassword">Forgot your password?</a>
+          </div>
           <div>
           <button className='signupLoginBtn' type="submit">Login</button>
           </div>

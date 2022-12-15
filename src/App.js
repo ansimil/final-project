@@ -12,6 +12,8 @@ import Dashboard from './pages/Dashboard';
 import AddModule from './pages/AddModule/AddModule';
 import Wishlist from './pages/Wishlist'
 import EditModule from './pages/EditModule';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 import ModuleDetailsPage from './pages/ModuleDetailsPage/ModuleDetailsPage';
 import EasterEgg from './pages/EasterEgg';
 import { loadStripe } from '@stripe/stripe-js'
@@ -38,8 +40,10 @@ function App() {
     <Routes>
       <Route path='/dashboard/:moduleId/edit' element={<IsAdmin> <EditModule/> </IsAdmin>}></Route> 
       <Route path='/module/:moduleId' element={<ModuleDetailsPage/>}></Route> 
-      <Route path='/success/:sessionId' element={<IsUser> <PaymentSuccess/> </IsUser>}></Route>  
+      <Route path='/success/:sessionId' element={<IsUser> <PaymentSuccess/> </IsUser>}></Route>
+      <Route path='/resetpassword/:resetId' element={<IsAnon> <ResetPassword/> </IsAnon>}></Route>
       <Route path='/' element={<Home />}></Route>
+      <Route path='/forgotpassword' element={<IsAnon> <ForgotPassword/> </IsAnon>}></Route>
       <Route path='/modules' element={<ModulesList/>}></Route> 
       <Route path='/signup' element={<IsAnon> <Signup/> </IsAnon>}></Route>
       <Route path='/profile' element={<IsUser> <Profile/> </IsUser>}></Route>
@@ -48,6 +52,7 @@ function App() {
       <Route path='/dashboard' element={<IsAdmin> <Dashboard/> </IsAdmin>}></Route>
       <Route path='/dashboard/add' element={<IsAdmin> <AddModule/> </IsAdmin>}></Route>
       <Route path='/funtimes' element={<EasterEgg/>}></Route>
+      
     </Routes>
 
     

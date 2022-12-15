@@ -79,14 +79,16 @@ p {
   align-items: flex-start;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
+
 
 .loadingIcon {
   position:relative;
   top: 70px;
   height: 80vh;
   width: 100vw;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   background-size: cover;
   display: flex;
   justify-content: center;
