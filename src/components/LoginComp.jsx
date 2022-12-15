@@ -38,6 +38,14 @@ const LoginComp = () => {
         setPasswordCheck(true)
       }
 
+      if (emailRegex.test(email)) {
+        setEmailCheck(true)
+      }
+
+      else if (passwordRegex.test(password)) {
+        setPasswordCheck(true)
+      }
+
     }, [email, password])
    
     const handleEmail = (e) => {

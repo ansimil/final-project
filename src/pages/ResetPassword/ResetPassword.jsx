@@ -9,6 +9,7 @@ const ResetPassword = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
+    const [passwordCheck, setPasswordCheck] = useState(false)
     const [errorMessage, setErrorMessage] = useState(undefined)
     const [passwordReset, setPasswordReset] = useState(false)
     const {resetId} = useParams()
@@ -24,11 +25,21 @@ const ResetPassword = () => {
                 setIsLoading(false)
             }
         })
-        .catch(err => console.log(err))
+        .catch(() => {
+            setIsLoading(false)
+            setIsValid(false)
+        })
     }, [])
 
     const handlePassword = (e) => {
         setPassword(e.target.value)
+        const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        if (!passwordRegex.test(password)){
+            setPasswordCheck(false) 
+        }
+        else {
+            setPasswordCheck(true) 
+        }
     };
 
     const handleConfirmPassword = (e) => {
@@ -39,8 +50,13 @@ const ResetPassword = () => {
         e.preventDefault();
         setPassword("")
         setConfirmPassword("")
-        if (password !== confirmPassword){
+        if (!passwordCheck) {
+            setErrorMessage('Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.')
+            return
+        }
+        else if (password !== confirmPassword){
             setErrorMessage('Passwords do not match')
+            return
         }
         else {
         setIsLoading(true)
@@ -80,9 +96,9 @@ const ResetPassword = () => {
     }
     else if (!isLoading && !isValid) {
         return (
-            <div>
-                <h3>Reset link is not valid or has timd out.</h3>
-                <a href="/forgotpassword">Forgot password page</a>
+            <div className="error-message forgotPasswordPage">
+                <h3>Reset link is not valid or has timed out.</h3>
+                <h3><a href="/forgotpassword">Get new link</a></h3>
             </div>
         )
     }

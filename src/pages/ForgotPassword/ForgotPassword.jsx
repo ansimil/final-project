@@ -16,11 +16,15 @@ const ForgotPassword = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
         if (!emailRegex.test(email)){
-            setEmailCheck(false)    
-          }
+          setEmailCheck(false) 
+        }
 
-        else if (email.length === 0){
-            setEmailCheck(true)
+        if (email.length === 0){
+          setEmailCheck(true)
+        }
+
+        else if (emailRegex.test(email)) {
+          setEmailCheck(true)
         }
 
     },[email])
@@ -29,8 +33,14 @@ const ForgotPassword = () => {
         setEmail(e.target.value)
     };
 
-    const handleLoginSubmit = (e) => {
+    const handleForgotPassword = (e) => {
         e.preventDefault();
+
+        if (!emailCheck) {
+          const errorDescription = 'Please enter a valid email address'
+          setErrorMessage(errorDescription)
+          return
+        }
         setIsLoading(true)
         axios.post(`${process.env.REACT_APP_API_URL}/forgotpassword`, { email })
         .then((res) => {
@@ -38,11 +48,10 @@ const ForgotPassword = () => {
           setEmailSent(true)
         })
         .catch((error) => {
-          const errorDescription = error.response.data.message;
+          const errorDescription = error.response.data;
+          setIsLoading(false)
           setErrorMessage(errorDescription);
         })
-        // const requestBody = { email };
-
     }
   
   if (isLoading && !emailSent) {
@@ -57,6 +66,7 @@ const ForgotPassword = () => {
     return (
       <div className="forgotPasswordPage">
         <h2>Password reset email sent successfully</h2>
+        <h5>Please check your emails</h5>
       </div>
     )
   }
@@ -64,7 +74,7 @@ const ForgotPassword = () => {
   return (
     <div className="forgotPasswordPage">
       <h2>Reset Password</h2>
-      <form className="loginForm" onSubmit={handleLoginSubmit}>
+      <form className="loginForm" onSubmit={handleForgotPassword}>
         <label>Enter your email address:</label>
         <input 
         className={!emailCheck ? "signupFormRed" : "regular"} 
