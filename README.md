@@ -4,7 +4,7 @@
 
 ### Introduction
 
-This was my final project during the Ironhack Full-Stack Web Dev Bootcamp in Berlin. We were given one week to build a functioning full-stack web application. 
+This was my final project during the Ironhack Full-Stack Web Dev Bootcamp in Berlin. We were given one week to build a functioning full-stack web application, including a RESTful API.  
 
 I chose to build an e-commerce website to sell products that I build in real life - modular synthesizers. In my personal life I design and build modular synthesizer modules and have been slowly building to a semi-professional level. I have recently been selling them on eBay etc. and thought that it would be a great opportunity to use this project to build a fully functioning shop. 
 
