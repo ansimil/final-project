@@ -26,7 +26,7 @@ const ForgotPassword = () => {
         else if (emailRegex.test(email)) {
           setEmailCheck(true)
         }
-
+        // eslint-disable-next-line      
     },[email])
 
     const handleEmail = (e) => {

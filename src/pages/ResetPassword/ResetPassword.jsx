@@ -29,6 +29,7 @@ const ResetPassword = () => {
             setIsLoading(false)
             setIsValid(false)
         })
+         // eslint-disable-next-line      
     }, [])
 
     const handlePassword = (e) => {
