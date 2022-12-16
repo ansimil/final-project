@@ -67,7 +67,7 @@ const ModuleDetailsPage = () => {
                 <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
             </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
     </div>
   )
 }

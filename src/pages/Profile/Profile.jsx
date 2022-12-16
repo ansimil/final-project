@@ -28,7 +28,7 @@ const Profile = () => {
     <div className="profileContainer"> 
         
         {show &&<ProfileForm />}
-        <Footer/>
+        {/* <Footer/> */}
 
     </div>
   )

@@ -28,7 +28,7 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
 
             <h2>{name}</h2>
             <div>
-            <img onClick={handleRedirect} src={primaryImageUrl} alt="Error loading pic" />
+            <img onClick={handleRedirect} src={primaryImageUrl} alt="Error loading pic"/>
             </div>
 
             <div className='tagline'>
@@ -40,9 +40,9 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
 
           <div className='addAndDetailsBtns'>
 
-              <div>
+              {/* <div>
                 <AddToCartBtn id={_id} user={user} moduleForCart={moduleForCart}/>
-              </div>
+              </div> */}
               <div>
                 <Link to={`/module/${_id}`}>Details</Link>
               </div>

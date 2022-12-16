@@ -7,16 +7,15 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { AuthProviderWrapper } from './contexts/auth';
 import { ModuleProviderWrapper } from './contexts/modules';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <AuthProviderWrapper>
-    <ModuleProviderWrapper>
-    <Router>
-      <App />
-    </Router>
-    </ModuleProviderWrapper>
+      <ModuleProviderWrapper>
+        <Router>
+          <App />
+        </Router>
+      </ModuleProviderWrapper>
     </AuthProviderWrapper>
   // </React.StrictMode>
 );
