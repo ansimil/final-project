@@ -16,6 +16,8 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
 import ResetPassword from './pages/ResetPassword/ResetPassword';
 import ModuleDetailsPage from './pages/ModuleDetailsPage/ModuleDetailsPage';
 import EasterEgg from './pages/EasterEgg';
+import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
 import { loadStripe } from '@stripe/stripe-js'
 import { CartProvider} from 'use-shopping-cart'
 import { Toaster } from 'react-hot-toast'
@@ -52,6 +54,8 @@ function App() {
       <Route path='/dashboard' element={<IsAdmin> <Dashboard/> </IsAdmin>}></Route>
       <Route path='/dashboard/add' element={<IsAdmin> <AddModule/> </IsAdmin>}></Route>
       <Route path='/funtimes' element={<EasterEgg/>}></Route>
+      <Route path='/contact' element={<Contact/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
       
     </Routes>
 

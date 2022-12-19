@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { formatProductPrice } from '../../api/services'
 import AddToCartBtn from "../../components/AddToCartBtn"
 import loadingIcon from '../../assets/giphy.gif'
-import Footer from "../../components/Footer/Footer"
+// import Footer from "../../components/Footer/Footer"
 import './ModuleDetailsPage.css'
 
 
@@ -67,7 +67,7 @@ const ModuleDetailsPage = () => {
                 <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
             </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
     </div>
   )
 }

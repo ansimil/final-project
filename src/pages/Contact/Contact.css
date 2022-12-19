@@ -1,0 +1,29 @@
+.contactContainer {
+    position:relative;
+    top: 70px;
+    height: calc(100vh - 70px);
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainer > .footer {
+    position:inherit;
+    border: none;
+    justify-content: space-evenly;
+}
+
+.contactContainer > .footer > .socialsContainer {
+    min-width: 75%;
+}
+
+.contactContainer > .footer > .socialsContainer > div {
+    width: 60px;
+    height: 60px;
+}
+
+.contactContainer > .footer > .socialsContainer > div > img {
+    height: 50px;
+    width: 50px;
+}

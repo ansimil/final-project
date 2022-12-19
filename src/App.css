@@ -33,12 +33,20 @@ p {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 300px
+  width: 50vw
+}
+
+.socialsContainer > div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .socialsContainer img:hover {
   border: solid rgb(193, 224, 235) 2px;
-  border-radius: 25px;
+  border-radius: 50%;
   padding: 2px;
 }
 
@@ -76,7 +84,7 @@ p {
   background-size: cover;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -98,7 +106,7 @@ p {
 .moduleCardContainer {
   border: solid black 1px;
   background-color: white;
-  min-width: 300px;
+  min-width: 23%;
   height: calc(100vh - 145px);
   display: flex;
   flex-direction: column;
