@@ -43,9 +43,10 @@ const ForgotPassword = () => {
         }
         setIsLoading(true)
         axios.post(`${process.env.REACT_APP_API_URL}/forgotpassword`, { email })
-        .then((res) => {
+        .then(() => {
           setEmail("")
           setEmailSent(true)
+          setIsLoading(false)
         })
         .catch((error) => {
           const errorDescription = error.response.data;
