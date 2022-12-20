@@ -36,10 +36,6 @@ const ModulesList = () => {
     }
   };
 
-  const onDrag = (e) => {
-    console.log(e)
-  }
-
   if(modules.length === 0){
     return (
           <div className="loadingIcon">
@@ -55,7 +51,6 @@ const ModulesList = () => {
     onMouseDown={onMouseDown}
     onMouseUp={onMouseUp}
     onMouseMove={onMouseMove}
-    onDrag={onDrag}
     >
     
     {modules.map((module) => {

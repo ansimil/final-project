@@ -18,7 +18,6 @@ const Navbar = () => {
  
   const { cartCount } = useShoppingCart()
   const { isLoggedIn, user } = useContext(AuthContext)
-  // console.log(isLoggedIn)
 
   return (
     <div className="navbar">

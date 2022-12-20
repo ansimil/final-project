@@ -11,7 +11,6 @@ const CheckoutBtn = ({ outOfStock }) => {
     const { cartDetails } = useShoppingCart()
 
     const handleCheckout = async () => {
-      console.log(outOfStock)
         if (outOfStock.length > 0) {
           let str = ''
           outOfStock.forEach((module, i) => {
@@ -46,12 +45,10 @@ const CheckoutBtn = ({ outOfStock }) => {
         .then(res => res.data)
         .catch(err => {
             toast.error("An error occurred during checkout")
-            console.log("Error during checkout: ", err);
         })
 
         if (session) {
             const { id } = session
-            // console.log(session)
             stripe.redirectToCheckout({ sessionId: id });
         }
       }

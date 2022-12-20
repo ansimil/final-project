@@ -20,7 +20,6 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
       setModule({})
       navigate(`/module/${_id}`)
   }
-  // console.log(moduleForCart)
   return (
     <div className="moduleCardContainer">
     

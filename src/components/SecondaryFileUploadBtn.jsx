@@ -36,7 +36,6 @@ const handleFileUpload = (e) => {
                 secondary: '#fff',
       },
       })
-      console.log("response is: ", response.fileUrl);
       secondaryImageUrlFunc(response.fileUrl);
     })
     .catch(err => console.log("Error while uploading the file: ", err));

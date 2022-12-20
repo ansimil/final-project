@@ -25,7 +25,6 @@ const PaymentSuccess = () => {
     getModules()
     axios.get(`${process.env.REACT_APP_API_URL}/checkout-session/${sessionId}`)
     .then(res => {
-        console.log(res.data)
         setSessionDetails(res.data)
     })
     .catch(err => console.log(err))

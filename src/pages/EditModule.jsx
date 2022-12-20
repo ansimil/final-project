@@ -11,7 +11,6 @@ const EditModule = () => {
     useEffect(() => {
         getModule(moduleId)
         .then(res => {
-            console.log(res)
             setModule(res)
         })
         .catch(err => console.log(err))

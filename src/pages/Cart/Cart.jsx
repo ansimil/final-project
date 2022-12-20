@@ -15,10 +15,7 @@ const Cart = () => {
     const [stockShortage, setStockShortage] = useState()
     const {modules} = useContext(ModuleContext)
     const { cartDetails, removeItem, formattedTotalPrice, cartCount, incrementItem, decrementItem } = useShoppingCart()
-    // console.log(cartDetails)
     const navigate = useNavigate()
-    // console.log(modules)
-    // console.log(cartDetails)
 
 
     useEffect(() => {

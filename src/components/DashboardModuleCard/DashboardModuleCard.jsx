@@ -17,12 +17,9 @@ const DashboardModuleCard = ({ modulesList }) => {
     const handleDelete = async (moduleId) => {
           
           const storedToken = localStorage.getItem('authToken')
-          console.log(user)
-          console.log(storedToken)
 
           await axios.delete(`${process.env.REACT_APP_API_URL}/dashboard/${moduleId}/delete`, {data:{ user }, headers: { Authorization: `Bearer ${storedToken}`}})
                 .then(res => {
-                    // console.log(res.data)
                 })
                 .catch(err => console.log(err)); 
           getModules()

@@ -40,7 +40,6 @@ const SignupComp = () => {
 
       else {
         setEmailCheck(true)
-        console.log('email good')
       }
 
     }, [email, password])
@@ -66,7 +65,6 @@ const SignupComp = () => {
     
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
         .then( async (response) => {
-            console.log(response.data)
             storeToken(response.data.authToken)
             await authenticateUser() 
             navigate('/profile');

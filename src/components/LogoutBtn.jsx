@@ -8,10 +8,9 @@ import { updateCart } from '../api/services';
 const LogoutBtn = () => {
     const { cartDetails, clearCart } = useShoppingCart()
     const navigate = useNavigate()
-    const { logOutUser, isLoggedIn, user  } = useContext(AuthContext)
+    const { logOutUser, user  } = useContext(AuthContext)
 
     const logOutRedirect = async () => {
-      console.log(isLoggedIn)
       navigate('/')
     }
 

@@ -20,7 +20,6 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
     const handleAddToCart = async () => {
         
           if (!cartDetails[sku] || (cartDetails[sku]?.quantity < module.inStock)){
-            console.log('hit')
         await addItem(module)
         toast.success(`${module.name} has been added to your cart`, {
           style: {
@@ -40,7 +39,6 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
       }
     
     else {
-      console.log('miss')
       toast.error('Not enough items in stock', {
         style: {
                 border: '2px solid black',
@@ -57,8 +55,6 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
       },
       })
     }
-        console.log(moduleForCart)
-        console.log({cartDetails})
     } 
 
   return (
