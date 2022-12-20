@@ -13,13 +13,11 @@ const Profile = () => {
 
   useEffect (() => {
      updateUser(user._id)
-     console.log('called')
       // eslint-disable-next-line
   }, [])
 
   const updateUser = async (id) => {
      const user = await getUser(id)
-     console.log(user)
      setUser(user)
      setShow(true)
   }
