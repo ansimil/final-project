@@ -6,10 +6,10 @@ import axios from 'axios'
 import  './DashboardModuleCard.css'
 
 
-const DashboardModuleCard = ({ modulesList }) => {
+const DashboardModuleCard = () => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext) 
-    const { getModules } = useContext(ModuleContext)
+    const { modules, getModules } = useContext(ModuleContext)
     const [open, setOpen] = useState(false)
     const [openId, setOpenId] = useState('')
   
@@ -32,11 +32,11 @@ const DashboardModuleCard = ({ modulesList }) => {
     }
 
 
-    if (modulesList.length > 0){
+    if (modules.length > 0){
       return (
       <div className="dashboardModuleContainer">
     
-        {modulesList.map((module, i) => {
+        {modules.map((module, i) => {
       const {_id, sku, name, category, price, currency, description, shortDescription, tagline, inStock, primaryImageUrl, secondaryImageUrl} = module
       return (
           <div className='dashboardCard' key={_id}>

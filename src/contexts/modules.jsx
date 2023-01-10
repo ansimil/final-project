@@ -3,7 +3,6 @@ import axios from "axios";
 import { editModule, createModule } from '../api/services'
 
 const ModuleContext = createContext();
-    
 
 function ModuleProviderWrapper(props) {
     const [module, setModule] = useState({})
@@ -12,7 +11,6 @@ function ModuleProviderWrapper(props) {
     const getModules = async () => {
         await axios.get(`${process.env.REACT_APP_API_URL}/modules`)
         .then((res) => {
-            // console.log(res.data)
             setModules(res.data)
         })
         .catch(err => console.log(err));
