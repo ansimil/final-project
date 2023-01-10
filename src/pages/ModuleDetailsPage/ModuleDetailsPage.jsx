@@ -1,6 +1,6 @@
 import { ModuleContext } from "../../contexts/modules"
 import { AuthContext } from "../../contexts/auth"
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { formatProductPrice } from '../../api/services'
 import AddToCartBtn from "../../components/AddToCartBtn"
@@ -11,25 +11,22 @@ import './ModuleDetailsPage.css'
 
 const ModuleDetailsPage = () => {
     const { user } = useContext(AuthContext)
-    const { module, getModule } = useContext(ModuleContext)
+    const { modules } = useContext(ModuleContext)
     const { moduleId } = useParams()
     const [mainImage, setMainImage] = useState(null)
     const [bool, setBool] = useState(false)
 
-    useEffect(() => {
-            const fetchData = async () => {
-            await getModule(moduleId)  
-        }
-        fetchData()
-        // eslint-disable-next-line      
-    },[])
+    const modulesFiltered = modules.filter((module) => {
+        console.log(module._id, moduleId)
+        return (module._id === moduleId)
+    })
 
     const updateImage = (image) => {
         setMainImage(image)
         setBool(true)
     }
-
-    if (Object.keys(module).length === 0) {
+    
+    if (modulesFiltered.length === 0) {
         return (<div className="loadingIcon">
                 <img src={loadingIcon} alt="loading..." height="400px"/>
                 </div>)
@@ -41,10 +38,10 @@ const ModuleDetailsPage = () => {
         <div className="moduleDetailsInnerDiv">
 
             <div className="imagesDiv">
-                <img className="mainImage" src={bool ? mainImage : module.primaryImageUrl} alt="error loading pic" />
+                <img className="mainImage" src={bool ? mainImage : modulesFiltered[0].primaryImageUrl} alt="error loading pic" />
                 <div className="secondaryImageContainer">
-                <img onClick={() => {setMainImage(module.primaryImageUrl)}} src={module.primaryImageUrl} alt="error loading pic" height="50px"/>
-                {module?.secondaryImageUrl?.length > 0 && module?.secondaryImageUrl.map((image, i) => {
+                <img onClick={() => {setMainImage(modulesFiltered[0].primaryImageUrl)}} src={modulesFiltered[0].primaryImageUrl} alt="error loading pic" height="50px"/>
+                {modulesFiltered[0]?.secondaryImageUrl?.length > 0 && modulesFiltered[0]?.secondaryImageUrl.map((image, i) => {
                     return (
                     <img onClick={() => {updateImage(image)}} key={i+1} src={image} alt="error loading pic" height="50px" />
                     )
@@ -54,20 +51,19 @@ const ModuleDetailsPage = () => {
 
             <div className="detailsContainer">
             <div>
-            <h2>{module.name}</h2>
+            <h2>{modulesFiltered[0].name}</h2>
             </div>
             <div>
-                <p>{module.tagline}</p>
-                <p>{Object.keys(module).length !== 0 && formatProductPrice({price: module.price, currency: module.currency})}</p>
+                <p>{modulesFiltered[0].tagline}</p>
+                <p>{modulesFiltered.length !== 0 && formatProductPrice({price: modulesFiltered[0].price, currency: modulesFiltered[0].currency})}</p>
             </div>
 
             <div className="moduleDescription">
-                <p>{module.description}</p>
+                <p>{modulesFiltered[0].description}</p>
             </div>
-                <AddToCartBtn id={module._id} user={user} moduleForCart={module}/>
+                <AddToCartBtn id={modulesFiltered[0]._id} user={user} moduleForCart={modulesFiltered[0]}/>
             </div>
         </div>
-        {/* <Footer /> */}
     </div>
   )
 }

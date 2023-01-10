@@ -1,21 +1,19 @@
-import { useState, useEffect, createRef } from 'react'
-import { getModules } from '../api/services'
+import { useState, createRef, useContext } from 'react'
+import { useQueryClient } from 'react-query'
 import ModuleCard from '../components/ModuleCard/ModuleCard'
+import { ModuleContext } from '../contexts/modules'
 import loadingIcon from '../assets/giphy.gif'
 
 const ModulesList = () => {
-  const [modules, setModules] = useState([])
+  const queryClient = useQueryClient()
+  const moduleQuery = queryClient.getQueryData('modules')
+  const { modules } = useContext(ModuleContext)
   const [isScrolling, setIsScrolling] = useState(false)
   const [clientX, setClientX] = useState(0)
   const [scrollX, setScrollX] = useState(0)
   const ref = createRef()
 
-  useEffect(()=>{
-    getModules()
-    .then(res => {
-      setModules(res)
-    })
-  }, [])
+  console.log(moduleQuery)
 
   const onMouseDown = (e) => {
     setIsScrolling(true); 
