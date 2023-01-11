@@ -17,7 +17,6 @@ const ModuleDetailsPage = () => {
     const [bool, setBool] = useState(false)
 
     const modulesFiltered = modules.filter((module) => {
-        console.log(module._id, moduleId)
         return (module._id === moduleId)
     })
 

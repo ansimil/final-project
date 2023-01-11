@@ -35,7 +35,6 @@ const Navbar = () => {
         <Link className="navBtn modulesBtn" to="/about">About</Link>
         </div>
         {isLoggedIn && user.isAdmin && <DashboardBtn />}
-        
         </div>
 
         <div className='cartSigninLogout'>

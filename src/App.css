@@ -103,85 +103,11 @@ p {
   align-items: center;
 }
 
-.moduleCardContainer {
-  border: solid black 1px;
-  background-color: white;
-  min-width: 23%;
-  height: calc(100vh - 145px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.moduleCardContainer a, button {
-  background-color: white;
-}
-
-.moduleCardContainer:hover {
-  background-color: rgb(193, 224, 235);
-}
-
-.moduleCardInner {
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 63vh;
-  padding: 20px;
-  margin-top: 0;
-  
-}
-
 .go4109123758 {
     font-family: mainFont;
     font-size: 30px;
     z-index: 9999;
 }
-
-
-
-.moduleCardInner img:hover {
-  cursor: pointer;
-}
-
-.addAndDetailsBtns a {
-  text-decoration: none;
-  color: black;
-  font-family: mainFont;
-  font-size: 30px;
-  border: solid black 1px;
-  padding: 5px;
-  margin: 0px 0px 10px 0px;
-
-}
-
-.moduleCardInner img {
-  margin: 0;
-  padding: 20px;
-  border: solid black 1px;
-  background-color:rgb(243, 241, 241);
-  height: 32vh
-}
-
-.moduleCardInner h2 {
-  margin: 0
-}
-
-.addAndDetailsBtns {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 1.5vh;
-  margin-top: -20px;
-  margin-bottom: 30px;
-}
-
-
-
 
 .dashboardContainer {
   position:relative;
@@ -193,8 +119,6 @@ p {
   margin-bottom: 100px;
 }
 
-
-
 .addModuleContainer {
   display:flex;
   flex-direction: column;
@@ -204,14 +128,11 @@ p {
   width: 100vw
 }
 
-
-
 .addModuleFormContainer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   column-gap: 50px;
-  
 }
 
 .addModuleForm {
@@ -242,11 +163,7 @@ input:focus {
 
 .signupFormRed {
   border: solid red 1px
-
 }
-
-
-
 
 .dashboardModule {
   display: flex;
@@ -278,8 +195,6 @@ input:focus {
   padding-right: 20px;
   margin: 30px
 }
-
-
 
 .dashboardModuleContainer table {
   font-family: mainFont;
