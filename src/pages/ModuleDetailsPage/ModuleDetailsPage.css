@@ -106,12 +106,9 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        /* height: fit-content; */
-        /* margin-bottom: 12vh; */
     }  
 
     .mainImage {
-        min-width: 20%;
         max-width: 40%;
     }
 
