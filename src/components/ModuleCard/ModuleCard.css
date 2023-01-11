@@ -1,7 +1,91 @@
+.moduleCardContainer {
+    border: solid black 1px;
+    background-color: white;
+    min-width: 23%;
+    min-height: calc(100vh - 145px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.moduleCardContainer a, button {
+    background-color: white;
+}
+
+.moduleCardContainer:hover {
+    background-color: rgb(193, 224, 235);
+}
+
+.moduleCardInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 63vh;
+    padding: 20px;
+    margin-top: 0;
+    
+}
+
+.moduleCardInner img:hover {
+    cursor: pointer;
+}
+
+.moduleCardInner img {
+    margin: 0;
+    padding: 20px;
+    border: solid black 1px;
+    background-color:rgb(243, 241, 241);
+    height: 32vh
+}
+  
+.moduleCardInner h2 {
+    margin: 0
+}
+
+.addAndDetailsBtns a {
+    text-decoration: none;
+    color: black;
+    font-family: mainFont;
+    font-size: 30px;
+    border: solid black 1px;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+  
+}
+  
+.addAndDetailsBtns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 .tagline {
     text-align: center;
     overflow-wrap: normal;
     margin: 0;
     width: 80%;
     line-height: 20px;
+}
+
+@media screen and (max-width: 856px) {
+    .moduleCardContainer {
+        min-width: 29%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .moduleCardContainer {
+        min-width: 37%;
+    }
+}
+
+@media screen and (max-width: 485px) {
+    .moduleCardContainer {
+        min-width: 47%;
+    }
 }

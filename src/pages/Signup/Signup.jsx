@@ -1,7 +1,6 @@
 import React from 'react'
 import SignupComp from '../../components/SignupComp'
 import LoginComp from '../../components/LoginComp'
-import Footer from '../../components/Footer/Footer'
 import './Signup.css'
 
 const Signup = () => {
@@ -11,7 +10,6 @@ const Signup = () => {
           <SignupComp/>
           <LoginComp/>
         </div>
-        <Footer/>
     </div>
   )
 }

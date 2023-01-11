@@ -1,8 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { formatProductPrice } from '../../api/services'
-// import AddToCartBtn from '../../components/AddToCartBtn'
-// import { AuthContext } from '../../contexts/auth'
-
 import { useContext } from 'react'
 import './ModuleCard.css'
 import { ModuleContext } from '../../contexts/modules'
@@ -38,14 +35,9 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
           </div>
 
           <div className='addAndDetailsBtns'>
-
-              {/* <div>
-                <AddToCartBtn id={_id} user={user} moduleForCart={moduleForCart}/>
-              </div> */}
               <div>
                 <Link to={`/module/${_id}`}>Details</Link>
               </div>
-
           </div>
         
 
