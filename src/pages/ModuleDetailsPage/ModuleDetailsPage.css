@@ -76,7 +76,7 @@
     border: black solid 1px;
     min-width: 50%;
     background-color: rgb(193, 224, 235);
-    height: 88%
+    height: calc(100vh - 112px)
 }
 
 .detailsContainer > p {
@@ -97,7 +97,7 @@
 
 
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .moduleDetailsContainer{
         height: auto;
     }
@@ -116,11 +116,21 @@
     }
 
     .imagesDiv {
-        max-width: 100%
+        min-width: 100%
     }
 
     .detailsContainer div {
         padding-left: 5%
+    }
+}
+
+@media (max-width: 450px) {
+    .mainImage {
+        max-height: 30vh;
+    }
+
+    .imagesDiv {
+        width: 100%
     }
 }
 
