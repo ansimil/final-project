@@ -92,12 +92,23 @@
     align-items: flex-start;
 }
 
+.addToCartBtn {
+    margin-bottom: 5vh
+}
+
+
+
 @media (max-width: 900px) {
+    .moduleDetailsContainer{
+        height: auto;
+    }
+
     .moduleDetailsInnerDiv {
         flex-direction: column;
         justify-content: flex-start;
-        height: fit-content;
-        margin-bottom: 12vh;
+        align-items: center;
+        /* height: fit-content; */
+        /* margin-bottom: 12vh; */
     }  
 
     .mainImage {
@@ -110,6 +121,6 @@
     }
 
     .detailsContainer div {
-        margin: 0 0 0 5%
+        padding-left: 5%
     }
 }

@@ -58,7 +58,7 @@ const AddToCartBtn = ({id, user, moduleForCart }) => {
     } 
 
   return (
-    <div>
+    <div className="addToCartBtn">
         {module.inStock <= 0 && <Link className='outOfStock' to="/">Out of stock</Link>}
         {!isLoggedIn && module.inStock > 0 && <Link to="/signup">Login to add to cart</Link>}
         {isLoggedIn && module.inStock > 0 && <Link onClick={handleAddToCart}>Add to cart</Link>}

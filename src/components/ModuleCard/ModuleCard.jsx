@@ -21,8 +21,9 @@ const ModuleCard = ({_id, sku, name, category, shortDescription, price, currency
     <div className="moduleCardContainer">
     
         <div className="moduleCardInner">
-
+            <div>
             <h2>{name}</h2>
+            </div>
             <div>
             <img onClick={handleRedirect} src={primaryImageUrl} alt="Error loading pic"/>
             </div>
