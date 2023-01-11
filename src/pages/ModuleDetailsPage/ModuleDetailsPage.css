@@ -74,7 +74,6 @@
     justify-content: flex-start;
     align-items: center;
     border: black solid 1px;
-    max-width: 50%;
     min-width: 50%;
     background-color: rgb(193, 224, 235);
     height: 88%
@@ -122,5 +121,15 @@
 
     .detailsContainer div {
         padding-left: 5%
+    }
+}
+
+@media (max-width: 376px) {
+    .mainImage {
+        max-height: 30vh;
+    }
+
+    .imagesDiv {
+        width: 100%
     }
 }
