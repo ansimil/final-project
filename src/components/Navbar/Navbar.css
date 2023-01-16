@@ -124,3 +124,27 @@
       align-items: center;
       justify-content: center;
   }
+
+  .hamburgerIcon, .closeIcon {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+  }
+
+
+  @media screen and (min-width: 658px) {
+      .hamburger {
+        display: none;
+      }
+  }
+
+  @media screen and (max-width: 658px) {
+    .navMiddle {
+      display: none;
+    }
+
+    .navMiddleLoggedOut {
+      display: none;
+    }
+}
+
