@@ -23,6 +23,7 @@ const NavMiddle = ({isLoggedIn, user, classname}) => {
     class1 = 'navMiddleHamburger'
     class2 = 'navMiddleHamburgerLoggedOut'
   }
+  console.log(class1, class2)
   return (
     <div className={isLoggedIn ? class1 : class2}>
       <div className="navBarMiddleInnerLink">
@@ -43,12 +44,11 @@ const NavMiddle = ({isLoggedIn, user, classname}) => {
 const HamburgerMenu = ({ hamburgerOpen, setHamburgerOpen }) => {
 
     return (
-      <div className='hamburger'>
+      <div className='hamburgerIconContainer'>
       <div>
       {!hamburgerOpen && <img onClick={()=>{setHamburgerOpen(!hamburgerOpen)}} className='hamburgerIcon' src={hamburgerIcon} alt="hamburger" />}
       {hamburgerOpen && <img onClick={()=>{setHamburgerOpen(!hamburgerOpen)}} className='closeIcon' src={closeIcon} alt="hamburger" />}
       </div>
-      {hamburgerOpen && <NavMiddle classname={'hamburger'}/>}
       </div>
     )
 }
@@ -72,7 +72,7 @@ const Navbar = () => {
           {!isLoggedIn && <SignInBtn/>}
           {isLoggedIn && <LogoutBtn />}
         </div>
-
+        {hamburgerOpen && <NavMiddle isLoggedIn={isLoggedIn} user={user} classname={"hamburger"}/>}
     </div>
   )
 }

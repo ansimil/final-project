@@ -119,10 +119,34 @@
 
   .navBarMiddleInnerLink {
       flex-grow: 1;
-      align-items: center;
       display: flex;
       align-items: center;
       justify-content: center;
+  }
+
+  .navMiddleHamburgerLoggedOut {
+      display: flex;
+      position: absolute;
+      top: 70px;
+      width: 100vw;
+      background-color: black;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .navMiddleHamburgerLoggedOut .navBarMiddleInnerLink {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburgerIconContainer {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hamburgerIcon, .closeIcon {
@@ -133,7 +157,7 @@
 
 
   @media screen and (min-width: 658px) {
-      .hamburger {
+      .hamburgerIconContainer {
         display: none;
       }
   }
