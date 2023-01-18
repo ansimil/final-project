@@ -28,26 +28,23 @@
     font-size: 40px;
   }
 
-
-  
   .navMiddle {
-    flex-grow: 1;
+    flex: 2;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     column-gap: 15%;
 }
-  
 
   .navMiddleLoggedOut {
-    flex-grow: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .homeBtn {
-    flex-grow: 1;
+    flex: 1;
     position: relative;
   }
   
@@ -66,7 +63,7 @@
   }
 
   .cartSigninLogout {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -118,7 +115,7 @@
   }
 
   .navBarMiddleInnerLink {
-      flex-grow: 1;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -163,12 +160,13 @@
   }
 
   @media screen and (max-width: 658px) {
-    .navMiddle {
-      display: none;
-    }
-
-    .navMiddleLoggedOut {
+    .navMiddle, .navMiddleLoggedOut {
       display: none;
     }
 }
 
+@media screen and (min-width: 658px) {
+  .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
+    display: none;
+  }
+}

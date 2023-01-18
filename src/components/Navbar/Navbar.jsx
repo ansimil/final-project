@@ -13,7 +13,7 @@ import closeIcon from '../../assets/close-icon.png'
 import './Navbar.css'
 
 
-const NavMiddle = ({isLoggedIn, user, classname}) => {
+const NavMiddle = ({isLoggedIn, user, classname, setHamburgerOpen}) => {
   let class1, class2
   if (classname === 'noHamburger') {
     class1 = 'navMiddle'
@@ -27,19 +27,18 @@ const NavMiddle = ({isLoggedIn, user, classname}) => {
   return (
     <div className={isLoggedIn ? class1 : class2}>
       <div className="navBarMiddleInnerLink">
-        <Link className="navBtn modulesBtn" to="/modules">Modules</Link>
+        <Link onClick={()=>{setHamburgerOpen(false)}} className="navBtn modulesBtn" to="/modules">Modules</Link>
       </div>
       <div className="navBarMiddleInnerLink">
-      <Link className="navBtn modulesBtn" to="/contact">Contact</Link>
+      <Link onClick={()=>{setHamburgerOpen(false)}} className="navBtn modulesBtn" to="/contact">Contact</Link>
       </div>
       <div className="navBarMiddleInnerLink">
-      <Link className="navBtn modulesBtn" to="/about">About</Link>
+      <Link onClick={()=>{setHamburgerOpen(false)}} className="navBtn modulesBtn" to="/about">About</Link>
       </div>
     {isLoggedIn && user.isAdmin && <DashboardBtn />}
     </div>
   )
 }
-
 
 const HamburgerMenu = ({ hamburgerOpen, setHamburgerOpen }) => {
 
@@ -52,7 +51,6 @@ const HamburgerMenu = ({ hamburgerOpen, setHamburgerOpen }) => {
       </div>
     )
 }
-
 
 const Navbar = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
@@ -72,7 +70,7 @@ const Navbar = () => {
           {!isLoggedIn && <SignInBtn/>}
           {isLoggedIn && <LogoutBtn />}
         </div>
-        {hamburgerOpen && <NavMiddle isLoggedIn={isLoggedIn} user={user} classname={"hamburger"}/>}
+        {hamburgerOpen && <NavMiddle setHamburgerOpen={setHamburgerOpen} isLoggedIn={isLoggedIn} user={user} classname={"hamburger"}/>}
     </div>
   )
 }
