@@ -216,6 +216,13 @@ details > summary {
   list-style: none;
 }
 
+.dashboardBtnContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dashboardBtns a {
   text-decoration: none;
   color: black;

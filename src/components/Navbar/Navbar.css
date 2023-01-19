@@ -24,30 +24,31 @@
     color: rgb(193, 224, 235)
   }
 
-  .modulesBtn, .dashboardBtn {
+  .modulesBtn {
     font-size: 40px;
   }
 
+  .dashboardBtn {
+    font-size: 30px;
+  }
 
-  
   .navMiddle {
-    flex-grow: 1;
+    flex: 2;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     column-gap: 15%;
 }
-  
 
   .navMiddleLoggedOut {
-    flex-grow: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .homeBtn {
-    flex-grow: 1;
+    flex: 1;
     position: relative;
   }
   
@@ -66,7 +67,7 @@
   }
 
   .cartSigninLogout {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -118,9 +119,83 @@
   }
 
   .navBarMiddleInnerLink {
-      flex-grow: 1;
-      align-items: center;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
   }
+
+  .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
+      display: flex;
+      position: absolute;
+      top: 70px;
+      width: 100vw;
+      background-color: black;
+      border: white solid 1px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .navMiddleHamburgerLoggedOut .navBarMiddleInnerLink {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburgerIconContainer {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburgerIcon, .closeIcon {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  .profileMenuContainer {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    min-height: 200px;
+    background-color: black;
+    border: white solid 1px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .profileMenuContainer .logoutBtnContainer {
+    margin-bottom: 20px;
+  } 
+
+  .logoutBtnContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 658px) {
+      .hamburgerIconContainer {
+        display: none;
+      }
+  }
+
+  @media screen and (max-width: 658px) {
+    .navMiddle, .navMiddleLoggedOut {
+      display: none;
+    }
+}
+
+@media screen and (min-width: 658px) {
+  .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
+    display: none;
+  }
+}
