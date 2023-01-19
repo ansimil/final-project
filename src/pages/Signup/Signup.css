@@ -15,12 +15,12 @@
 .signupInnerDiv {
     background-color: white;
     border: black solid 2px;
-    height: 80%;
-    max-width: 60vw;
+    min-height: 80vh;
     min-width: 60vw;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     column-gap: 1%;
   }
 
@@ -32,21 +32,64 @@
     background-color: rgb(193, 224, 235)
   }
 
+  .signUpLoginBtns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signUpLoginBtns button {
+    margin-top: 20px;
+    font-size: 2rem;
+    padding: 10px 15px 10px 15px
+  }
+
+  .signUpLoginBtns button:hover {
+    background-color: rgb(193, 224, 235)
+  }
+
   .signupPage, .LoginPage {
     margin: 30px;
     background-color: white;
     border: solid black 2px;
     padding: 0px 30px 20px 30px;
-    max-width: 25%;
-    min-width: 25%
+    min-width: 50%
+  }
+
+  .selected {
+    background-color: black;
+    color: white
+  }
+
+  .selected:hover {
+    background-color: rgb(193, 224, 235);
+    color: black
+  }
+
+  .signupPage > h2, .LoginPage > h2 {
+    text-align: center;
   }
   
   .signupForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: auto
   }
 
 .error-message {
-    color: red
+    color: red;
+    font-size: 1rem;
+    margin: 0
+}
+
+@media screen and (max-width: 490px){
+  .signupInnerDiv {
+    width: 85%
+  }
+
+  .signupPage, .LoginPage {
+    width: 70%;
+  }
 }
