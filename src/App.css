@@ -181,37 +181,6 @@ input:focus {
   width: 100vw
 }
 
-.dashboardModuleContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  width: 50vw;
-  border-top: solid black 1px;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 30px
-}
-
-.dashboardModuleContainer table {
-  font-family: mainFont;
-  font-size: 25px;
-  line-height: 20px;
-  border-collapse: collapse;
-}
-
-.dashboardModuleContainer td, th {
-  border: 1px solid black;
-}
-
-.dashboardModuleContainer summary {
-  font-family: mainFont;
-  font-size: 30px;
-}
-
 details > summary {
   list-style: none;
 }

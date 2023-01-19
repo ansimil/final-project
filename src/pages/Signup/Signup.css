@@ -93,3 +93,13 @@
     width: 70%;
   }
 }
+
+@media screen and (max-width: 820px){
+  .signupInnerDiv {
+    width: 80%
+  }
+
+  .signupPage, .LoginPage {
+    width: 70%;
+  }
+}
