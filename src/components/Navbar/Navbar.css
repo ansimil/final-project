@@ -24,8 +24,12 @@
     color: rgb(193, 224, 235)
   }
 
-  .modulesBtn, .dashboardBtn {
+  .modulesBtn {
     font-size: 40px;
+  }
+
+  .dashboardBtn {
+    font-size: 30px;
   }
 
   .navMiddle {
@@ -121,12 +125,13 @@
       justify-content: center;
   }
 
-  .navMiddleHamburgerLoggedOut {
+  .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
       display: flex;
       position: absolute;
       top: 70px;
       width: 100vw;
       background-color: black;
+      border: white solid 1px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -152,6 +157,30 @@
     cursor: pointer;
   }
 
+  .profileMenuContainer {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    min-height: 200px;
+    background-color: black;
+    border: white solid 1px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .profileMenuContainer .logoutBtnContainer {
+    margin-bottom: 20px;
+  } 
+
+  .logoutBtnContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media screen and (min-width: 658px) {
       .hamburgerIconContainer {

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useShoppingCart } from 'use-shopping-cart';
 import { updateCart } from '../api/services';
 
-const LogoutBtn = () => {
+const LogoutBtn = ({setProfileMenuOpen}) => {
     const { cartDetails, clearCart } = useShoppingCart()
     const navigate = useNavigate()
     const { logOutUser, user  } = useContext(AuthContext)
@@ -15,9 +15,10 @@ const LogoutBtn = () => {
     }
 
   return (
-    <div>
+    <div className="logoutBtnContainer">
 
     <button className='logoutBtn' onClick={ async () => {
+      setProfileMenuOpen(false)
       await updateCart(cartDetails, user)
       await logOutUser()
       await clearCart()

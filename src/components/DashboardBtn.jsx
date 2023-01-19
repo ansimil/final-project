@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const DashboardBtn = () => {
+const DashboardBtn = ({setProfileMenuOpen}) => {
   return (
     
-    <div>
+    <div className='dashboardBtnContainer'>
 
-    <Link className='navBtn dashboardBtn' to="/dashboard">Dashboard</Link>
+    <Link className='navBtn dashboardBtn' to="/dashboard" onClick={()=>{setProfileMenuOpen(false)}}>Dashboard</Link>
 
     </div>
 
