@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const SignInBtn = () => {
+const SignInBtn = ({ setHamburgerOpen }) => {
 
   return (
     <div>
 
-    <Link className='signinBtn' to="/signup">Sign in</Link>
+    <Link onClick={()=>{setHamburgerOpen(false)}} className='signinBtn' to="/signup">Sign in</Link>
 
     </div>
   )

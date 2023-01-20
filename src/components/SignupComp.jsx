@@ -1,69 +1,21 @@
-import React from 'react'
-import { useState, useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import { AuthContext } from '../contexts/auth'
 import { toast } from 'react-hot-toast';
+import { useForm } from "react-hook-form";
+import axios from 'axios'
+
 
 const SignupComp = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [errorMessage, setErrorMessage] = useState(undefined);
-    const [emailCheck, setEmailCheck] = useState(true);
-    const [passwordCheck, setPasswordCheck] = useState(true);
-
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { storeToken, authenticateUser } = useContext(AuthContext);
     
     const navigate = useNavigate();
   
-    useEffect(() => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-      const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-
-      if (!emailRegex.test(email)){
-        setEmailCheck(false) 
-      }
-      
-      if (!passwordRegex.test(password)){
-          setPasswordCheck(false)    
-      }
-        
-      if (email.length === 0){
-          setEmailCheck(true)
-      }
-
-      if (password.length === 0){
-        setPasswordCheck(true)
-      }
-
-      else {
-        setEmailCheck(true)
-      }
-
-    }, [email, password])
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-    };
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value)
-    };
-
-
-
-    const handleFirstName = (e) => setFirstName(e.target.value);
-    const handleSurname = (e) => setSurname(e.target.value);
- 
-  
-    const handleSignupSubmit = (e) => {
-        e.preventDefault();
-        const requestBody = { email, password, firstName, surname };
-    
-    
-        axios.post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
+    const handleSignupSubmit = (data, e) => {
+      e.preventDefault()
+      reset()
+        axios.post(`${process.env.REACT_APP_API_URL}/signup`, data)
         .then( async (response) => {
             storeToken(response.data.authToken)
             await authenticateUser() 
@@ -82,10 +34,7 @@ const SignupComp = () => {
             },
             })
         })
-        .catch((error) => {
-            const errorDescription = error?.response.data.message;
-            setErrorMessage(errorDescription);
-        })
+        .catch((error) => console.log(error))
     };
  
   
@@ -95,50 +44,52 @@ const SignupComp = () => {
       
       <h2>Sign Up</h2>
     
-        <form className="signupForm" onSubmit={handleSignupSubmit}>
+      <form className="signupForm" onSubmit={handleSubmit(handleSignupSubmit)}>
         <label>First Name:</label>
-            <input 
-            type="text"
-            name="name"
-            value={firstName}
-            onChange={handleFirstName}
-            />
+        <input 
+        className={errors.firstName ? "signupFormRed" : "regular"}
+        type="text"
+        name="firstName"
+        {...register("firstName", { required: true,  minLength: {value: 2, message: "Name must be at least two characters long"}})}
+        />
+        { errors.firstName && <p className="error-message">{errors.firstName.message}</p> }
+
 
         <label>Surname:</label>
         <input 
+          className={errors.surname ? "signupFormRed" : "regular"}
           type="text"
-          name="name"
-          value={surname}
-          onChange={handleSurname}
+          name="surname"
+          {...register("surname", { required: true,  minLength: {value: 2, message: "Name must be at least two characters long"}})}
         />
-        
-        
+        { errors.surname && <p className="error-message">{errors.surname.message}</p> }
+
+      
+      
         <label>Email:</label>
         <input 
-          className={!emailCheck ? "signupFormRed" : "regular"} 
-          type="email"
+          className={errors.email ? "signupFormRed" : "regular"} 
           name="email"
-          value={email}
-          onChange={handleEmail}
+          {...register("email", { required: true,  pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, message: "Please enter a valid email address"}})}
         />
- 
+        { errors.email && <p className="error-message">{errors.email.message}</p> }
+
         <label>Password:</label>
         <input 
-          className={!passwordCheck ? "signupFormRed" : "regular"}
+          className={errors.password ? "signupFormRed" : "regular"}
           type="password"
           name="password"
-          value={password}
-          onChange={handlePassword}
+          {...register("password", { required: true, pattern: {value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/, message:  "Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter."}})}
         />
- 
+        { errors.password && <p className="error-message">{errors?.password?.message}</p> }
+
         <br/>
-       
+      
         <div>
-        <button className='signupLoginBtn' type="submit">Sign Up</button>
+          <button className='signupLoginBtn' type="submit">Sign Up</button>
         </div>
       </form>
  
-      { errorMessage && <p  className="error-message">{errorMessage}</p> }
     </div>
   )
 }

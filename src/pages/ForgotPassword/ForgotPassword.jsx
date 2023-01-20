@@ -1,50 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import "./ForgotPassword.css"
 import loadingIcon from '../../assets/giphy.gif'
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState("");
-    const [emailCheck, setEmailCheck] = useState(true);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [emailSent, setEmailSent] = useState(false)
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [isLoading, setIsLoading] = useState(false)
 
 
-
-    useEffect (() => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-        if (!emailRegex.test(email)){
-          setEmailCheck(false) 
-        }
-
-        if (email.length === 0){
-          setEmailCheck(true)
-        }
-
-        else if (emailRegex.test(email)) {
-          setEmailCheck(true)
-        }
-        // eslint-disable-next-line      
-    },[email])
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-    };
-
-    const handleForgotPassword = (e) => {
+    const handleForgotPassword = (data, e) => {
         e.preventDefault();
-
-        if (!emailCheck) {
-          const errorDescription = 'Please enter a valid email address'
-          setErrorMessage(errorDescription)
-          return
-        }
+        console.log(data.email)
         setIsLoading(true)
-        axios.post(`${process.env.REACT_APP_API_URL}/forgotpassword`, { email })
+
+        axios.post(`${process.env.REACT_APP_API_URL}/forgotpassword`, data)
         .then(() => {
-          setEmail("")
+          reset()
           setEmailSent(true)
           setIsLoading(false)
         })
@@ -75,19 +49,19 @@ const ForgotPassword = () => {
   return (
     <div className="forgotPasswordPage">
       <h2>Reset Password</h2>
-      <form className="loginForm" onSubmit={handleForgotPassword}>
+      <form className="loginForm" onSubmit={handleSubmit(handleForgotPassword)}>
         <label>Enter your email address:</label>
         <input 
-        className={!emailCheck ? "signupFormRed" : "regular"} 
-        type="email"
+        className={errors.email ? "signupFormRed" : "regular"} 
         name="email"
-        value={email}
-        onChange={handleEmail}
+        {...register("email", { required: true,  pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, message: "Please enter a valid email address"}})}
         />
+        { errors.email && <p className="error-message">{errors.email.message}</p> }
+
         <button className='signupLoginBtn' type="submit">Send password reset email</button>
           
       </form>
-        { errorMessage && <p className="error-message">{errorMessage}</p> }
+        { errorMessage && <p className="error-message-large">{errorMessage}</p> }
     </div>
   )
 }
