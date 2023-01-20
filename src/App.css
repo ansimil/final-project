@@ -58,8 +58,6 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   height: calc(100vh - 70px);
-  position: relative;
-  top: 70px
 }
 
 .homepage a {
