@@ -25,7 +25,8 @@
   }
 
   .signupLoginBtn {
-    width: 102.5%
+    width: 100.5%;
+    padding: 10px 5px 10px 5px;
   }
   
   .signupLoginBtn:hover {
@@ -76,6 +77,11 @@
     flex-direction: column;
     justify-content: center;
     height: auto
+  }
+
+  .signupForm input, .signupForm label, .LoginPage input, .LoginPage label {
+    padding: 0;
+    margin: 0
   }
 
 .error-message {

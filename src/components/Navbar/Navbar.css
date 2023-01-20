@@ -130,6 +130,7 @@
       position: absolute;
       top: 70px;
       width: 100vw;
+      min-height: 25vh;
       background-color: black;
       border: white solid 1px;
       flex-direction: column;
@@ -186,17 +187,22 @@
       .hamburgerIconContainer {
         display: none;
       }
+      .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
+        display: none;
+      }
   }
 
   @media screen and (max-width: 658px) {
     .navMiddle, .navMiddleLoggedOut {
       display: none;
     }
+    
 }
 
-@media screen and (min-width: 658px) {
+
+@media screen and (max-height: 540px) {
   .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
-    display: none;
+    min-height: 33vh
   }
 }
 
@@ -205,3 +211,4 @@
     font-size: 3rem;
   }
 }
+
