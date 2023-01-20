@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import loadingIcon from '../../assets/giphy.gif'
+import { useForm } from 'react-hook-form'
 
 
 const ResetPassword = () => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [isValid, setIsValid] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const [passwordCheck, setPasswordCheck] = useState(false)
     const [errorMessage, setErrorMessage] = useState(undefined)
     const [passwordReset, setPasswordReset] = useState(false)
     const {resetId} = useParams()
@@ -32,43 +31,24 @@ const ResetPassword = () => {
          // eslint-disable-next-line      
     }, [])
 
-    const handlePassword = (e) => {
-        setPassword(e.target.value)
-        const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-        if (!passwordRegex.test(password)){
-            setPasswordCheck(false) 
-        }
-        else {
-            setPasswordCheck(true) 
-        }
-    };
-
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value)
-    };
-
-    const handleResetPassword = (e) => {
+    const handleResetPassword = (data, e) => {
         e.preventDefault();
-        setPassword("")
-        setConfirmPassword("")
-        if (!passwordCheck) {
-            setErrorMessage('Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.')
-            return
-        }
-        else if (password !== confirmPassword){
+        if (data.password !== data.confirmPassword){
             setErrorMessage('Passwords do not match')
             return
         }
         else {
         setIsLoading(true)
-        axios.put(`${process.env.REACT_APP_API_URL}/reset/${resetId}`, { password })
+        axios.put(`${process.env.REACT_APP_API_URL}/reset/${resetId}`, data)
         .then((res) => {
             if (res.data === 'good') {
+                reset()
                 setIsValid(false)
                 setIsLoading(false)
                 setPasswordReset(true)
             }
             else {
+                reset()
                setIsLoading(false)
                setErrorMessage('Something went wrong, please go the login page and try resetting your password again') 
             }
@@ -107,27 +87,30 @@ const ResetPassword = () => {
 
   return (
     <div className="forgotPasswordPage">
-        <form className="loginForm" onSubmit={handleResetPassword}>
+
+        <form className="loginForm" onSubmit={handleSubmit(handleResetPassword)}>
         <label>New password:</label>
         <input 
         className="regular"
         type="password"
         name="password"
-        value={password}
-        onChange={handlePassword}
+        {...register("password", { required: true, pattern: {value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/, message:  "Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter."}})}
         />
+        { errors.password && <p className="error-message">{errors?.password?.message}</p> }
+
         <label>Confirm password:</label>
         <input 
         className="regular" 
         type="password"
         name="confirmPassword"
-        value={confirmPassword}
-        onChange={handleConfirmPassword}
+        {...register("confirmPassword", { required: true, pattern: {value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/, message:  "Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter."}})}
         />
+        { errors.confirmPassword && <p className="error-message">{errors?.confirmPassword?.message}</p> }
+
         <button className='signupLoginBtn' type="submit">Reset password</button>
           
       </form>
-        { errorMessage && <p className="error-message">{errorMessage}</p> }
+        { errorMessage && <p className="error-message-large">{errorMessage}</p> }
     </div>
   )
 }

@@ -41,7 +41,6 @@ const LoginComp = () => {
           <label>Email:</label>
           <input 
             className={errors.email ? "signupFormRed" : "regular"} 
-            type="email"
             name="email"
             {...register("email", { required: true,  pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, message: "Please enter a valid email address"}})}
           />
@@ -65,7 +64,7 @@ const LoginComp = () => {
           <button className='signupLoginBtn' type="submit">Login</button>
           </div>
         </form>
-        { errorMessage && <p className="error-message">{errorMessage}</p> }
+        { errorMessage && <p className="error-message-large">{errorMessage}</p> }
       </div>
     )
 }
