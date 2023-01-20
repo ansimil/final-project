@@ -156,6 +156,8 @@
     height: 50px;
     width: 50px;
     cursor: pointer;
+    padding: 0;
+    margin: 0
   }
 
   .profileMenuContainer {
