@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import { formatProductPrice } from '../../api/services'
 import AddToCartBtn from "../../components/AddToCartBtn"
 import loadingIcon from '../../assets/giphy.gif'
-// import Footer from "../../components/Footer/Footer"
 import './ModuleDetailsPage.css'
 
 
