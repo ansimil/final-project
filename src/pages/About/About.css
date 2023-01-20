@@ -29,3 +29,10 @@
     border: black solid 2px;
     padding: 0px 20px 2px 20px
 }
+
+@media screen and (max-width: 490px){
+    .aboutTextContainer {
+        max-width: 80%;
+        text-align: center;
+    }
+  }

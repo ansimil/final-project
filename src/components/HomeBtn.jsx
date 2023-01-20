@@ -1,10 +1,10 @@
 import {Link} from 'react-router-dom'
 
-const HomeBtn = () => {
+const HomeBtn = ({ setHamburgerOpen }) => {
   return (
     <div className="homeBtn">
 
-    <Link to="/">MDI</Link>
+    <Link onClick={()=>{setHamburgerOpen(false)}} to="/">MDI</Link>
 
     </div>
   )

@@ -92,14 +92,14 @@ const Navbar = () => {
   return (
     <div className="navbar">
     
-        <HomeBtn/>
+        <HomeBtn setHamburgerOpen={setHamburgerOpen}/>
         <NavMiddle isLoggedIn={isLoggedIn} user={user} classname={'noHamburger'}/>
         <HamburgerMenu setHamburgerOpen={setHamburgerOpen} hamburgerOpen={hamburgerOpen} setProfileMenuOpen={setProfileMenuOpen}/>
 
         <div className='cartSigninLogout'>
           {isLoggedIn && cartCount > 0 && <CartBtn/>}
           {isLoggedIn && <ProfileBtn setProfileMenuOpen={setProfileMenuOpen} profileMenuOpen={profileMenuOpen} setHamburgerOpen={setHamburgerOpen} />}
-          {!isLoggedIn && <SignInBtn/>}
+          {!isLoggedIn && <SignInBtn setHamburgerOpen={setHamburgerOpen}/>}
         </div>
 
         {isLoggedIn && profileMenuOpen && <ProfileMenu isLoggedIn={isLoggedIn} user={user} setProfileMenuOpen={setProfileMenuOpen}/>}

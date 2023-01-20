@@ -92,7 +92,7 @@ margin-top: 5vh;
 
 @media screen and (max-width: 485px) {
     .moduleCardContainer {
-        min-width: 47%;
+        min-width: 59%;
     }
 }
 
