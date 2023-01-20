@@ -187,6 +187,9 @@
       .hamburgerIconContainer {
         display: none;
       }
+      .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
+        display: none;
+      }
   }
 
   @media screen and (max-width: 658px) {
@@ -196,12 +199,6 @@
     
 }
 
-
-@media screen and (min-width: 658px) {
-  .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
-    display: none;
-  }
-}
 
 @media screen and (max-height: 540px) {
   .navMiddleHamburgerLoggedOut, .navMiddleHamburger {
