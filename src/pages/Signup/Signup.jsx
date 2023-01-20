@@ -5,15 +5,16 @@ import './Signup.css'
 
 const Signup = () => {
   const [signUp, setSignUp] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   return (
     <div className="signupContainer">
         <div className="signupInnerDiv">
         <div className="signUpLoginBtns">
-          <button className={signUp && "selected"} onClick={()=>{setSignUp(true)}}>Sign up</button>
-          <button className={!signUp && "selected"} onClick={()=>{setSignUp(false)}}>Login</button>
+          {!isLoading && <button className={signUp && "selected"} onClick={()=>{setSignUp(true)}}>Sign up</button>}
+          {!isLoading && <button className={!signUp && "selected"} onClick={()=>{setSignUp(false)}}>Login</button>}
         </div>
-          {signUp && <SignupComp/>}
-          {!signUp && <LoginComp/>}
+          {signUp && <SignupComp isLoading={isLoading} setIsLoading={setIsLoading}/>}
+          {!signUp && <LoginComp isLoading={isLoading} setIsLoading={setIsLoading} />}
         </div>
     </div>
   )

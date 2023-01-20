@@ -1,12 +1,13 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/auth'
 import { toast } from 'react-hot-toast';
 import { useForm } from "react-hook-form";
+import loadingIcon from '../assets/giphy.gif'
 import axios from 'axios'
 
 
-const SignupComp = () => {
+const SignupComp = ({ isLoading, setIsLoading }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { storeToken, authenticateUser } = useContext(AuthContext);
     
@@ -15,10 +16,12 @@ const SignupComp = () => {
     const handleSignupSubmit = (data, e) => {
       e.preventDefault()
       reset()
+      setIsLoading(true)
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, data)
         .then( async (response) => {
             storeToken(response.data.authToken)
             await authenticateUser() 
+            setIsLoading(false)
             navigate('/profile');
             toast.success('Account created successfully', {
               style: {
@@ -36,6 +39,14 @@ const SignupComp = () => {
         })
         .catch((error) => console.log(error))
     };
+  
+  if (isLoading) {
+    return (
+        <div className="loadingIcon">
+          <img src={loadingIcon} alt="loading..." height="400px"/>
+        </div>
+    )
+  }
  
   
   return (

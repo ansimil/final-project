@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/auth'
 import { useShoppingCart } from 'use-shopping-cart'
 import { useForm } from "react-hook-form";
+import loadingIcon from '../assets/giphy.gif'
+
 
 import axios from 'axios'
 
 
-const LoginComp = () => {
+const LoginComp = ({isLoading, setIsLoading}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { loadCart } = useShoppingCart()
     const [errorMessage, setErrorMessage] = useState(undefined);
@@ -18,6 +20,7 @@ const LoginComp = () => {
     
     const handleLoginSubmit = (data, e) => {
       e.preventDefault();
+      setIsLoading(true)
       reset()
       axios.post(`${process.env.REACT_APP_API_URL}/login`, data)
         .then(async (response) => {
@@ -25,6 +28,7 @@ const LoginComp = () => {
           await authenticateUser()
           const newCartDetails = {...response.data.cart[0]}
           await loadCart(newCartDetails, false)
+          setIsLoading(false)
           navigate('/profile');            
         })
         .catch((error) => {
@@ -32,6 +36,14 @@ const LoginComp = () => {
           setErrorMessage(errorDescription);
         })
     };
+
+    if (isLoading) {
+      return (
+          <div className="loadingIcon">
+            <img src={loadingIcon} alt="loading..." height="400px"/>
+          </div>
+      )
+    }
     
     return (
       <div className="LoginPage">
