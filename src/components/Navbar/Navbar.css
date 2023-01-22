@@ -210,6 +210,11 @@
 
 @media screen and (max-width: 375px) {
   .homeBtn a {
+    border: none;
+    padding: 0
+    
+  }
+  .homeBtn a:hover {
     border: none
   }
 }
