@@ -18,7 +18,8 @@ const ModuleDetailsPage = () => {
     const modulesFiltered = modules.filter((module) => {
         return (module._id === moduleId)
     })
-
+    
+    // eslint-disable-next-line
     const updateImage = (image) => {
         setMainImage(image)
         setBool(true)
@@ -37,14 +38,14 @@ const ModuleDetailsPage = () => {
 
             <div className="imagesDiv">
                 <img className="mainImage" src={bool ? mainImage : modulesFiltered[0].primaryImageUrl} alt="error loading pic" />
-                <div className="secondaryImageContainer">
+                {/* <div className="secondaryImageContainer">
                 <img onClick={() => {setMainImage(modulesFiltered[0].primaryImageUrl)}} src={modulesFiltered[0].primaryImageUrl} alt="error loading pic" height="50px"/>
                 {modulesFiltered[0]?.secondaryImageUrl?.length > 0 && modulesFiltered[0]?.secondaryImageUrl.map((image, i) => {
                     return (
                     <img onClick={() => {updateImage(image)}} key={i+1} src={image} alt="error loading pic" height="50px" />
                     )
                 })}
-                </div>
+                </div> */}
             </div>
 
             <div className="detailsContainer">
