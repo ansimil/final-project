@@ -1,5 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
+import { useQuery } from 'react-query'
+import axios from 'axios'
 import Home from '../src/pages/Home'
 import Navbar from './components/Navbar/Navbar';
 import Signup from './pages/Signup/Signup';
@@ -29,7 +31,12 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC}`)
 
 
 function App() {
-
+  const { data, isLoading } = useQuery('modules', async ()=> {
+      return await axios.get(`${process.env.REACT_APP_API_URL}/modules`)
+      .then((res) => {
+        return res.data
+      })
+  })
   return (
     <div className="App">
     <CartProvider
@@ -47,7 +54,7 @@ function App() {
       <Route path='/resetpassword/:resetId' element={<IsAnon> <ResetPassword/> </IsAnon>}></Route>
       <Route path='/' element={<Home />}></Route>
       <Route path='/forgotpassword' element={<IsAnon> <ForgotPassword/> </IsAnon>}></Route>
-      <Route path='/modules' element={<ModulesList/>}></Route> 
+      <Route path='/modules' element={<ModulesList data={data} isLoading={isLoading} />}></Route> 
       <Route path='/signup' element={<IsAnon> <Signup/> </IsAnon>}></Route>
       <Route path='/profile' element={<IsUser> <Profile/> </IsUser>}></Route>
       <Route path='/wishlist' element={<IsUser> <Wishlist/> </IsUser>}></Route>

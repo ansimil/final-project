@@ -1,20 +1,12 @@
-import { useState, createRef, useContext } from 'react'
-import { useQueryClient } from 'react-query'
+import { useState, createRef } from 'react'
 import ModuleCard from '../components/ModuleCard/ModuleCard'
-import { ModuleContext } from '../contexts/modules'
 import loadingIcon from '../assets/giphy.gif'
 
-const ModulesList = () => {
-  const queryClient = useQueryClient()
-  const moduleQuery = queryClient.getQueryData('modules')
-  const { modules } = useContext(ModuleContext)
+const ModulesList = ({ data, isLoading }) => {
   const [isScrolling, setIsScrolling] = useState(false)
   const [clientX, setClientX] = useState(0)
   const [scrollX, setScrollX] = useState(0)
   const ref = createRef()
-
-  console.log(moduleQuery)
-
   const onMouseDown = (e) => {
     setIsScrolling(true); 
     setClientX(e.clientX);
@@ -34,7 +26,7 @@ const ModulesList = () => {
     }
   };
 
-  if(modules.length === 0){
+  if (isLoading) {
     return (
           <div className="loadingIcon">
               <img src={loadingIcon} alt="loading..." height="400px"/>
@@ -51,7 +43,7 @@ const ModulesList = () => {
     onMouseMove={onMouseMove}
     >
     
-    {modules.map((module) => {
+    {data.map((module) => {
       return <ModuleCard key={module._id} {...module} onMouseUp={onMouseUp} />
     })}
     
