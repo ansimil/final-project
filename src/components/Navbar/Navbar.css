@@ -210,7 +210,7 @@
 
 @media screen and (max-width: 375px) {
   .homeBtn a {
-    font-size: 3rem;
+    border: none
   }
 }
 
