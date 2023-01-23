@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/auth'
 import { useShoppingCart } from 'use-shopping-cart'
 import { useForm } from "react-hook-form";
-import loadingIcon from '../assets/giphy.gif'
-
 
 import axios from 'axios'
 
@@ -28,7 +26,6 @@ const LoginComp = ({isLoading, setIsLoading}) => {
           await authenticateUser()
           const newCartDetails = {...response.data.cart[0]}
           await loadCart(newCartDetails, false)
-          setIsLoading(false)
           navigate('/profile');            
         })
         .catch((error) => {
@@ -37,13 +34,6 @@ const LoginComp = ({isLoading, setIsLoading}) => {
         })
     };
 
-    if (isLoading) {
-      return (
-          <div className="loadingIcon">
-            <img src={loadingIcon} alt="loading..." height="400px"/>
-          </div>
-      )
-    }
     
     return (
       <div className="LoginPage">

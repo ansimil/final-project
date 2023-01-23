@@ -30,7 +30,8 @@ const ModulesList = ({ data, isLoading }) => {
     return (
           <div className="loadingIcon">
               <img src={loadingIcon} alt="loading..." height="400px"/>
-          </div>)
+          </div>
+          )
   }
 
   return (

@@ -1,11 +1,21 @@
 import { useState } from 'react'
 import SignupComp from '../../components/SignupComp'
 import LoginComp from '../../components/LoginComp'
+import loadingIcon from '../../assets/giphy.gif'
 import './Signup.css'
 
 const Signup = () => {
   const [signUp, setSignUp] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
+
+  if (isLoading) {
+    return (
+        <div className="loadingIcon">
+          <img src={loadingIcon} alt="loading..." height="400px"/>
+        </div>
+    )
+  }
+
   return (
     <div className="signupContainer">
         <div className="signupInnerDiv">
