@@ -25,7 +25,7 @@ const ModuleDetailsPage = () => {
         setBool(true)
     }
     
-    if (modulesFiltered.length === 0) {
+    if (!modulesFiltered.length) {
         return (<div className="loadingIcon">
                 <img src={loadingIcon} alt="loading..." height="400px"/>
                 </div>)

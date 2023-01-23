@@ -19,7 +19,6 @@ function ModuleProviderWrapper(props) {
     const getModule = async (moduleId) => {
         await axios.get(`${process.env.REACT_APP_API_URL}/module/${moduleId}`)
         .then((res) => {
-            // console.log(res.data)
             setModule(res.data)
             return res.data
 
