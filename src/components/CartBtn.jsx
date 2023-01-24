@@ -39,7 +39,7 @@ const CartBtn = () => {
 
       if(location.pathname !== '/cart'){
       setOpen(!isOpen)
-    }
+      }
     }
 
     return (
