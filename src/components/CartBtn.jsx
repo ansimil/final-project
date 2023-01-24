@@ -34,6 +34,7 @@ const CartBtn = () => {
       console.log(noModal)
       if (noModal) {
         navigate("/cart")
+        return
       }
 
       if(location.pathname !== '/cart'){
