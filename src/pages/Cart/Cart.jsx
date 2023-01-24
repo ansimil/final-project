@@ -5,7 +5,6 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom'
 import CheckoutBtn from '../../components/CheckoutBtn';
 import { ModuleContext } from '../../contexts/modules';
-import Footer from '../../components/Footer/Footer';
 import './Cart.css'
 
 
@@ -107,10 +106,10 @@ const Cart = () => {
         </div>
 
         <div className="cartTable">
-            <table>
+            <table className="productsTable">
             <thead>
             <tr>
-            <th></th>
+            <th className="imgHeader"></th>
             <th>Item</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -124,9 +123,9 @@ const Cart = () => {
                     <td>{cartDetails[key].name}</td>
                     <td>{cartDetails[key].quantity}</td>
                     <td>{formatPrice(cartDetails[key].value, cartDetails[key].currency)}</td>
-                    <td><button className='cartTableBtns' onClick={() => handleIncrementCount(cartDetails[key].id, cartDetails[key])}>+</button></td>
-                    <td><button className='cartTableBtns' onClick={() => handleDecrementCount(cartDetails[key].id, cartDetails[key])}>-</button></td>
-                    <td><button className='cartTableBtns' onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
+                    <td className='addBtn'><button className='cartTableBtns' onClick={() => handleIncrementCount(cartDetails[key].id, cartDetails[key])}>+</button></td>
+                    <td className='minusBtn'><button className='cartTableBtns' onClick={() => handleDecrementCount(cartDetails[key].id, cartDetails[key])}>-</button></td>
+                    <td className='removeBtn'><button className='cartTableBtns' onClick={() => handleRemoveItems(cartDetails[key], cartDetails[key].quantity)}>x</button></td>
                     </tr>
                 )
             })}
@@ -151,7 +150,6 @@ const Cart = () => {
         <CheckoutBtn outOfStock={stockShortage}/> 
         </div>
 
-        <Footer/>
     </div>
   )
 }

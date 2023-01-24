@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import { ModuleContext } from '../contexts/modules'
 import { useShoppingCart } from 'use-shopping-cart'
+import { useMediaQuery } from 'react-responsive'
 import CartModal from './CartModal/CartModal'
 import logo from "../assets/cart-icon-inverted.png"
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const CartBtn = () => {
     const [stockShortage, setStockShortage] = useState()
@@ -11,7 +12,8 @@ const CartBtn = () => {
     const { cartCount, cartDetails } = useShoppingCart()
     const [isOpen, setOpen] = useState(false)
     const {modules} = useContext(ModuleContext)
-
+    const noModal = useMediaQuery({query: "(max-width: 658px)"})
+    const navigate = useNavigate()
     useEffect(() => {
       let arr = []
       Object.keys(cartDetails).map(key => {
@@ -29,6 +31,11 @@ const CartBtn = () => {
 
 
     const toggleModal = () => {
+      console.log(noModal)
+      if (noModal) {
+        navigate("/cart")
+      }
+
       if(location.pathname !== '/cart'){
       setOpen(!isOpen)
     }
