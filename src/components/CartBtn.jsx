@@ -31,7 +31,6 @@ const CartBtn = () => {
 
 
     const toggleModal = () => {
-      console.log(noModal)
       if (noModal) {
         navigate("/cart")
         return

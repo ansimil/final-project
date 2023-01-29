@@ -1,4 +1,4 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { editUser } from '../api/services'
 import toast from 'react-hot-toast'
 import { AuthContext } from '../contexts/auth'

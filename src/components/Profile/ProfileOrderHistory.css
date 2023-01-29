@@ -1,0 +1,11 @@
+.orderHistoryContainer {
+    height: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 0 0 40px
+}
+
+.orderHistoryContainer h2 {
+    margin: 0
+}

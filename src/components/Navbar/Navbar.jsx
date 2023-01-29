@@ -88,12 +88,11 @@ const Navbar = () => {
   const { cartCount } = useShoppingCart()
   const { isLoggedIn, user } = useContext(AuthContext)
   const [profileMenuOpen, setProfileMenuOpen] = useState(false)
-
   return (
     <div className="navbar">
     
         <HomeBtn setHamburgerOpen={setHamburgerOpen}/>
-        <NavMiddle isLoggedIn={isLoggedIn} user={user} classname={'noHamburger'}/>
+        <NavMiddle isLoggedIn={isLoggedIn} user={user} classname={'noHamburger'} setHamburgerOpen={setHamburgerOpen}/>
         <HamburgerMenu setHamburgerOpen={setHamburgerOpen} hamburgerOpen={hamburgerOpen} setProfileMenuOpen={setProfileMenuOpen}/>
 
         <div className='cartSigninLogout'>

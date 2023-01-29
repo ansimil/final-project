@@ -3,10 +3,18 @@
     position: relative;
     top: 70px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     height: calc(100vh - 70px);
+  }
+
+  .profileInner {
+    width: 80%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
   }
   
   .profileBtn a {
