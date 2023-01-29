@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './ProfileUserDetails.css'
 
 const ProfileUserDetails = ({ user }) => {
-    const { register, handleSubmit, getValues } = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: {
             firstName: user.firstName,
             surname: user.surname

@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from 'react'
 import './Profile.css'
-import ProfileForm from '../../components/ProfileForm'
+// import ProfileForm from '../../components/ProfileForm'
 import ProfileSelectors from '../../components/Profile/ProfileSelectors'
 import ProfileContainer from '../../components/Profile/ProfileContainer'
 import { getUser } from '../../api/services'
@@ -28,7 +28,7 @@ const Profile = () => {
     <div className="profileContainer"> 
       <div className="profileInner">
         <ProfileSelectors setAccountDetailsSelected={setAccountDetailsSelected} accountDetailsSelected={accountDetailsSelected}/>
-        <ProfileContainer user={user} accountDetailsSelected={accountDetailsSelected}/>
+        <ProfileContainer user={user} accountDetailsSelected={accountDetailsSelected} show={show}/>
         {/* {show &&<ProfileForm />} */}
       </div>  
     </div>
