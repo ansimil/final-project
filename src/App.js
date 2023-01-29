@@ -31,12 +31,14 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC}`)
 
 
 function App() {
+  
   const { data, isLoading } = useQuery('modules', async ()=> {
       return await axios.get(`${process.env.REACT_APP_API_URL}/modules`)
       .then((res) => {
         return res.data
       })
   })
+
   return (
     <div className="App">
     <CartProvider
@@ -45,12 +47,12 @@ function App() {
       currency='EUR'
      >
     <Toaster className="toast" position="top-center"/>
-    <Navbar/>
+    <Navbar />
 
     <Routes>
       <Route path='/dashboard/:moduleId/edit' element={<IsAdmin> <EditModule/> </IsAdmin>}></Route> 
       <Route path='/module/:moduleId' element={<ModuleDetailsPage/>}></Route> 
-      <Route path='/success/:sessionId' element={<IsUser> <PaymentSuccess/> </IsUser>}></Route>
+      <Route path='/success/:sessionId' element={<IsUser> <PaymentSuccess /> </IsUser>}></Route>
       <Route path='/resetpassword/:resetId' element={<IsAnon> <ResetPassword/> </IsAnon>}></Route>
       <Route path='/' element={<Home />}></Route>
       <Route path='/forgotpassword' element={<IsAnon> <ForgotPassword/> </IsAnon>}></Route>

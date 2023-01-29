@@ -1,0 +1,32 @@
+.userDetailsContainer {
+    height: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.userDetailsContainer h3 {
+    color: black
+}
+
+.userDetailsContainer button:disabled {
+    background-color: rgb(181, 181, 181);
+    color:rgb(118, 118, 118);
+    cursor:initial;
+}
+
+.userDetailsContainer button {
+    background-color: white;
+}
+
+.userDetailsContainer .editProfileForm {
+    padding: 0px 0px 0px 40px;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    width: 60%
+}
+
+.userDetailsContainer h2 {
+    margin: 0 
+}
+

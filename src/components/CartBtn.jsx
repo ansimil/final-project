@@ -31,7 +31,6 @@ const CartBtn = () => {
 
 
     const toggleModal = () => {
-      console.log(noModal)
       if (noModal) {
         navigate("/cart")
         return
@@ -39,7 +38,7 @@ const CartBtn = () => {
 
       if(location.pathname !== '/cart'){
       setOpen(!isOpen)
-    }
+      }
     }
 
     return (

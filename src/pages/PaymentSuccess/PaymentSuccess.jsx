@@ -4,39 +4,35 @@ import axios from 'axios'
 import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
 import { updateCart, updateStock } from '../../api/services';
 import { AuthContext } from '../../contexts/auth'
-import { ModuleContext } from '../../contexts/modules';
 import Footer from '../../components/Footer/Footer';
 import loadingIcon from '../../assets/giphy.gif'
 import './PaymentSuccess.css'
 
 
 const PaymentSuccess = () => {
-    const {getModules} = useContext(ModuleContext)
     const { user } = useContext(AuthContext)
-    const { cartDetails, clearCart } = useShoppingCart()
-    const [sessionDetails, setSessionDetails] = useState()
+    const { cartDetails, clearCart, cartCount } = useShoppingCart()
+    const [sessionDetails, setSessionDetails] = useState(null)
+    const [orderedModules, setOrderedModules] = useState({})
     const {sessionId} = useParams()
 
     useEffect(() => {
-    const updateForPurchase = async () => {
-    await updateCart(cartDetails, user)
-    await updateStock(cartDetails)
-    clearCart()
-    getModules()
-    axios.get(`${process.env.REACT_APP_API_URL}/checkout-session/${sessionId}`)
-    .then(res => {
+      setOrderedModules(JSON.parse(localStorage.getItem("cart")))
+      updateCart(cartDetails, user)
+      updateStock(cartDetails)      
+      axios.get(`${process.env.REACT_APP_API_URL}/checkout-session/${sessionId}`)
+      .then(res => {
+        console.log(res.data)
         setSessionDetails(res.data)
-    })
-    .catch(err => console.log(err))
-    }
-    updateForPurchase()
-    // eslint-disable-next-line
-    }, [])
-    
+        clearCart()
+      })
+      .catch(err => console.log(err))
 
-    if (!sessionDetails){
+    // eslint-disable-next-line
+    }, [cartCount])
+    
+    if (!sessionDetails) {
         return (
-          
             <div className="loadingIcon">
                 <img src={loadingIcon} alt="loading..." height="400px"/>
             </div>
@@ -58,6 +54,9 @@ const PaymentSuccess = () => {
         value: sessionDetails.amount_total,
         currency: sessionDetails.currency,
         })}</p>
+        {Object.keys(orderedModules).map((item) => {
+          return <p>{orderedModules[item].name}</p>
+        })}
         </div>
 
         <div>

@@ -1,17 +1,15 @@
-import React from 'react'
 import { useShoppingCart } from 'use-shopping-cart';
-import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import {loadStripe}  from '@stripe/stripe-js'
+import axios from 'axios'
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC}`)
 
 const CheckoutBtn = ({ outOfStock }) => {
-    
     const { cartDetails } = useShoppingCart()
 
     const handleCheckout = async () => {
-        if (outOfStock.length > 0) {
+        if (outOfStock?.length > 0) {
           let str = ''
           outOfStock.forEach((module, i) => {
             str = str + ` ${i+1}. Module: ${module[0]}(${module[1]})`
@@ -38,10 +36,10 @@ const CheckoutBtn = ({ outOfStock }) => {
           })
         }
 
-        else if (outOfStock.length === 0 || !outOfStock) {
-
-        const stripe = await stripePromise;
-        const session = await axios.post(`${process.env.REACT_APP_API_URL}/checkout-session`, cartDetails)
+        else if (outOfStock?.length === 0 || !outOfStock) {
+          localStorage.setItem("cart", JSON.stringify(cartDetails))
+          const stripe = await stripePromise;
+          const session = await axios.post(`${process.env.REACT_APP_API_URL}/checkout-session`, cartDetails)
         .then(res => res.data)
         .catch(err => {
             toast.error("An error occurred during checkout")

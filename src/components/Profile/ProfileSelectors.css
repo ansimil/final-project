@@ -1,0 +1,22 @@
+.profileSelectorsContainer {
+    flex: 1;
+}
+
+.profileSelectorsContainer table {
+    width: 100%;
+    min-height: 20vh;
+    margin: 0
+}
+
+.profileSelectorsContainer td {
+    border-right: none;
+    border-left: none
+}
+
+.selector {
+    cursor: pointer;
+}
+
+.selector:hover {
+    background-color: rgb(193, 224, 235)
+}
