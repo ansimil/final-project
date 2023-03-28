@@ -17,6 +17,19 @@ The goals of the website are two-fold:
 
 As it is not possible for the public to access the admin side of the website, I have provided some screenshots [here](https://drive.google.com/drive/folders/1LvT3J3yMWmQ2xZf91f7EMupJT-x8AYCY?usp=sharing).
 
+## Recently added:
+- Password reset functionality
+
+## Ongoing: 
+- Responsive design for tablet and mobile
+- Orders section in user profile
+
+## To do...
+- PayPal integration
+- Email notifications for purchases
+
+
+
 ### Libraries, languages, skills etc.:
 
 - HTML5
@@ -29,12 +42,3 @@ As it is not possible for the public to access the admin side of the website, I 
 - React-hot-toast
 - Axios
 - Cloudinary
-
-## In progress...
-- Password reset function
-
-## To do...
-- Responsive design for tablet and mobile
-- PayPal integration
-- Email notifications for purchases
-- Orders section in user profile
